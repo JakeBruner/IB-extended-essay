@@ -8,6 +8,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {2}What is 'Public-Key' Cryptography}{3}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}How can we formalize this: An Introduction to Groups}{3}{}%
+\contentsline {section}{\numberline {3}How can we formalize this: An Introduction to Groups}{4}{}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Group Law on an Elliptic Curve}{4}{}%
