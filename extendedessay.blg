@@ -1,0 +1,65 @@
+This is BibTeX, Version 0.99d (TeX Live 2021)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: extendedessay.aux
+The style file: biblatex.bst
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: extendedessay-blx.bib
+Database file #2: citations.bib
+Biblatex version: 3.16
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+You've used 2 entries,
+            6393 wiz_defined-function locations,
+            1208 strings with 9099 characters,
+and the built_in function-call counts, 5412 in all, are:
+= -- 288
+> -- 157
+< -- 34
++ -- 116
+- -- 52
+* -- 283
+:= -- 679
+add.period$ -- 0
+call.type$ -- 2
+change.case$ -- 18
+chr.to.int$ -- 42
+cite$ -- 2
+duplicate$ -- 474
+empty$ -- 496
+format.name$ -- 48
+if$ -- 1164
+int.to.chr$ -- 0
+int.to.str$ -- 3
+missing$ -- 0
+newline$ -- 45
+num.names$ -- 52
+pop$ -- 372
+preamble$ -- 1
+purify$ -- 20
+quote$ -- 0
+skip$ -- 260
+stack$ -- 0
+substring$ -- 408
+swap$ -- 140
+text.length$ -- 45
+text.prefix$ -- 1
+top$ -- 1
+type$ -- 56
+warning$ -- 0
+while$ -- 109
+width$ -- 0
+write$ -- 44

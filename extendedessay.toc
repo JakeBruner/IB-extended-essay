@@ -1,4 +1,13 @@
+\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {1}Introduction and Aim}{2}{}%
+\defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.1}Motivating Problem}{2}{}%
-\contentsline {section}{\numberline {2}What is 'Public-Key' Cryptography}{2}{}%
-\contentsline {section}{\numberline {3}How can we formalize this: An Introduction to Groups}{2}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {1.2}The 'Public-Key' Paradox}{3}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}What is 'Public-Key' Cryptography}{3}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3}How can we formalize this: An Introduction to Groups}{3}{}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4}Group Law on an Elliptic Curve}{4}{}%
