@@ -34,6 +34,32 @@
     \field{year}{1973}
   \endentry
 
+  \entry{dummit}{book}{}
+    \name{author}{1}{}{%
+      {{hash=DSDRMF}{%
+         family={David S.\bibnamedelima Dummit},
+         familyi={D\bibinitperiod\bibinitdelim S\bibinitperiod\bibinitdelim
+  D\bibinitperiod},
+         given={Richard M.\bibnamedelima Foote},
+         giveni={R\bibinitperiod\bibinitdelim M\bibinitperiod\bibinitdelim
+  F\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Wiley}%
+    }
+    \strng{namehash}{DSDRMF1}
+    \strng{fullhash}{DSDRMF1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{D}
+    \field{sortinithash}{D}
+    \field{edition}{3}
+    \field{isbn}{9780471433347}
+    \field{title}{Abstract Algebra}
+    \field{year}{2004}
+  \endentry
+
   \entry{koblitz}{book}{}
     \name{author}{1}{}{%
       {{hash=KN}{%
