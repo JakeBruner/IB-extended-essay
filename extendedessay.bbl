@@ -92,6 +92,27 @@
     \field{urlyear}{2022}
   \endentry
 
+  \entry{saracino}{book}{}
+    \name{author}{1}{}{%
+      {{hash=SD}{%
+         family={Saracino},
+         familyi={S\bibinitperiod},
+         given={Dan},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{SD1}
+    \strng{fullhash}{SD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{S}
+    \field{sortinithash}{S}
+    \field{edition}{2}
+    \field{isbn}{1577665368}
+    \field{title}{Abstract Algebra}
+    \field{year}{2008}
+  \endentry
+
   \entry{claude}{book}{}
     \name{author}{1}{}{%
       {{hash=SCE}{%

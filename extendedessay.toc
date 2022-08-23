@@ -6,8 +6,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.2}The 'Public-Key' Paradox}{3}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}What is 'Public-Key' Cryptography}{3}{}%
+\contentsline {section}{\numberline {2}What is 'Public-Key' Cryptography}{4}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3}How can we formalize this: An Introduction to Groups}{4}{}%
+\contentsline {section}{\numberline {3}How can we formalize this: An Introduction to Groups}{5}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4}Group Law on an Elliptic Curve}{4}{}%
+\contentsline {section}{\numberline {4}Group Law on an Elliptic Curve}{7}{}%
