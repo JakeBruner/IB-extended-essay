@@ -34,6 +34,35 @@
     \field{year}{1973}
   \endentry
 
+  \entry{aschbacher}{book}{}
+    \name{author}{1}{}{%
+      {{hash=AM}{%
+         family={Aschbacher},
+         familyi={A\bibinitperiod},
+         given={Michael},
+         giveni={M\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {American Mathematical Society}%
+    }
+    \strng{namehash}{AM1}
+    \strng{fullhash}{AM1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{number}{7}
+    \field{pages}{736\bibrangedash 740}
+    \field{series}{Notices of the American Mathematical Society}
+    \field{title}{The Status of the Classification of the Finite Simple Groups}
+    \verb{url}
+    \verb https://www.ams.org/notices/200407/fea-aschbacher.pdf
+    \endverb
+    \field{volume}{51}
+    \field{year}{2004}
+  \endentry
+
   \entry{dummit}{book}{}
     \name{author}{1}{}{%
       {{hash=DSDRMF}{%
@@ -58,6 +87,37 @@
     \field{isbn}{9780471433347}
     \field{title}{Abstract Algebra}
     \field{year}{2004}
+  \endentry
+
+  \entry{elgamal}{article}{}
+    \name{author}{1}{}{%
+      {{hash=ET}{%
+         family={Elgamal},
+         familyi={E\bibinitperiod},
+         given={Taher},
+         giveni={T\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{2}{%
+      {Institute of Electrical}%
+      {Electronics Engineers}%
+    }
+    \strng{namehash}{ET1}
+    \strng{fullhash}{ET1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{E}
+    \field{sortinithash}{E}
+    \verb{doi}
+    \verb 10.1109/TIT.1985.1057074
+    \endverb
+    \field{number}{4}
+    \field{pages}{469\bibrangedash 472}
+    \field{title}{A Public-Key Cryptosystem and a Signature Scheme Based on
+  Discrete Logarithms}
+    \field{volume}{31}
+    \field{journaltitle}{IEEE Transactions on Information Theory}
+    \field{year}{1985}
   \endentry
 
   \entry{koblitz}{book}{}

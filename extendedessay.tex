@@ -1,3 +1,4 @@
+% !TeX spellcheck = en_US
 \documentclass[11pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
@@ -5,9 +6,9 @@
 \usepackage{amssymb}
 \usepackage{graphicx}
 \usepackage{mathtools}
+
 \usepackage[backend=bibtex,style=verbose-ibid]{biblatex}
 \addbibresource{citations.bib}
-
 
 \usepackage{listings}
 \usepackage{color}
@@ -33,11 +34,15 @@
 }
 
 
-\newcommand{\inv}{^{\raisebox{.2ex}{$\scriptscriptstyle-1$}}}
+\newcommand{\inv}{^{\raisebox{.2em}{$\scriptscriptstyle-1$}}}
 \newcommand{\qed}{\hfill $\blacksquare$}
+
+\newcommand{\integers}{\mathbb{Z}}
+\newcommand{\rationals}{\mathbb{Q}}
 \newcommand{\reals}{\mathbb{R}}
 \newcommand{\complexes}{\mathbb{C}}
 \newcommand{\field}{\mathbb{F}}
+
 \author{Jacob Bruner}
 \title{IB Extended Essay}
 \date{\today}
@@ -68,7 +73,9 @@ heres an example of an image
 
 \section{Introduction and Aim}
 \subsection{Motivating Problem}
-It's undeniable that our modern-day world is reliant on cryptography. Every time a phone sends a text, a browser connects to a server, an email gets sent off, a monetary transaction is made, and much much more, our devices are, unbeknownst to us, performing many hundreds of math operations to ensure our data are 'encrypted.' But what does 'encryption' mean? Let's introduce some definitions. ‘Encryption’ is the process of disguising a message to be, loosely speaking, hidden to all but the intended recipient. This is the process of converting a ‘plaintext’ message into a jumbled ‘ciphertext’, which can be readily shared without risk of the sensitive message leaking. Converting a plaintext message (typically a string/list of characters) into a ciphertext is known as an ‘enciphering’ or ‘encrypting’ transformation. Likewise the reverse operation of recovering the plaintext message from a ciphertext is known as the \textit{deciphering transformation.}\autocite[54]{koblitz} If we denote the plain and cyphertext $\mathcal{P}$ and $\mathcal{C}$ respectively and the enciphering map $f$ and its inverse $f\inv$ we obtain the following diagram:
+It's undeniable that our modern-day world is reliant on cryptography. Every time a phone sends a text, a browser connects to a server, an email gets sent off, a monetary transaction is made, and much much more, our devices are, unbeknownst to us, performing many hundreds of math operations to ensure our data are 'encrypted.' 
+% ? In fact, your device is likely doing it right now. 
+But what does 'encryption' mean? Let's introduce some definitions. ‘Encryption’ is the process of disguising a message to be, loosely speaking, hidden to all but the intended recipient. This is the process of converting a ‘plaintext’ message into a jumbled ‘ciphertext’, which can be readily shared without risk of the sensitive message leaking. Converting a plaintext message (typically a string/list of characters) into a ciphertext is known as an ‘enciphering’ or ‘encrypting’ transformation. Likewise the reverse operation of recovering the plaintext message from a ciphertext is known as the \textit{deciphering transformation.}\autocite[54]{koblitz} If we denote the plain and cyphertext $\mathcal{P}$ and $\mathcal{C}$ respectively and the enciphering map $f$ and its inverse $f\inv$ we obtain the following diagram:
 
 $$ \mathcal{P} \overset{f}\longrightarrow \mathcal{C} \overset{f\inv}\longrightarrow \mathcal{P} $$
 
@@ -103,6 +110,8 @@ Consider the intuitive fact that some operations are more difficult to do in rev
 
 The first protocol developed to address this motivating problem was RSA encryption. Leveraging intuitive properties of numbers, RSA establishes our idea of ‘one-way operations’ using simple multiplication of large, highly prime (minimal divisors), numbers. 
 
+\footnote{Although this isn't a true "public-key" algorithm, DH can be easily modified to send arbitrary messages in a scheme known as 'Elgamal encryption.'\\\autocite{elgamal}}
+
 \section{How can we formalize this: An Introduction to Groups}
 Group theory is the study of symmetry. Every set of symmetries on an object correspond to a group, and likewise every group corresponds to a set of symmetries.\footnote{This is rigorously true if we consider the set of all automorphisms of an object (viz. the set of all bijective maps from and to itself), this forms a group under function composition with the inverses being the inverse maps and the identity being the identity "do nothing" map, so this perspective is justified.} % hmm
 Now to unpack what this means, it might be helpful to depict precisely what 'symmetry' is. The prototypical example is geometric symmetry. If we consider the set of symmetries of a square under rotations and reflections, we can form a group with a fancy name, the 'Dihedral group of order 8,' denoted $\mathrm{D}_8$. %More generally, the group of symmetries of an n-gon form the Dihedral group of order 2n, $\mathrm{D}_{2n}$.
@@ -113,14 +122,14 @@ Now this interpretation of 'symmetry' is biased toward a very geometric perspect
 \[
 \mathbb{T} = ( \lbrace z \in \complexes \bigm| |z| = 1 \rbrace , \times )
 \]
-  Before I outright state the conditions that an object fits to be a group (the text-book definition), it might be helpful to see this type of thinking in action in the real-world. If we consider, as before, the 'law' or 'rule' that \textit{justice is impartial}, what we're essentially saying is that "the verdict of a court case is independent of the qualities of the people involved, as in, permuting the qualities of the people involved has no effect on the outcome." Mathematically, this would correspond to invarience under a certain group action, where the group action is the one that does the permuting. This perspective of indistinguishably does hint at Group theory's widespread use in cryptography. In essence, we're saying "one cannot \textit{a priori} give a property that holds for one instance and not another."
+  Before I outright state the conditions that an object fits to be a group (the text-book definition), it might be helpful to see this type of thinking in action in the real-world. If we consider, as before, the 'law' or 'rule' that \textit{justice is impartial}, what we're essentially saying is that "the verdict of a court case is independent of the qualities of the people involved, as in, permuting the names or qualities of the people involved has no effect on the outcome." Mathematically, this would correspond to invarience under a certain group action, where the group action is the one that does the permuting. This perspective of indistinguishably does hint at Group theory's widespread use in cryptography. In essence, we're saying "one cannot \textit{a priori} give a property that holds for one instance and not another."
   To see where the textbook definition of a Group arises, we must first restrict the kinds of 'symmetries' we are looking for. Given a thing to be invariant and the type of transformations we're allowing, we can derive the group axioms like so: If we have two transformations $T_1, T_2$ that leave our object invariant we can see that their composition $T_1 \circ T_2$ must also leave the object invariant (composition referring to applying $T_2$ then applying $T_1$). Under this composition of transformations, one key property arises: \textit{associativity}. It might be hard to see at first glance, but function composition is always associative: the order in which you evaluate functions has no effect on the result. This means we can drop parenthesis without any ambiguity, since $T_1 \circ (T_2 \circ T_3) = (T_1 \circ T_2) \circ T_3 = T_1 \circ T_2 \circ T_2$. This can be seen diagrammatically, for maps $f, g, h$ below:
 \begin{figure}[h]
 \begin{center}
 \includegraphics[scale=.4]{images/associativitydiagram} 
 \end{center}
 \end{figure}
-Beyond associativity, another requirement is the "do nothing" map. At first seeming quite useless, it is the keystone of any group—the fundamental symmetry, if you will. This element is called the \textit{identity element} or the \textit{identity map}. The last criterion for a group is that of inverses. In a sense, this requirement that every map has an inverse map boils down to an interpretation that, in order to be a 'true' symmetry, it must be invertible. This should make sense, since, for example, if we had a map that 'forgot' some properties of an object, there wouldn't be an inverse map because this 'forgetful map' wouldn't be a bijection (one-to-one and onto). With that in mind, if one \textit{doesn't} restrict themselves to invertibility, we get another algebraic strucutre called a 'Monoid.' But the study of these are much more unwieldy and untame than that of groups, so this is a reasonable restriction.
+Beyond associativity, another requirement is the "do nothing" map. At first seeming quite useless, it is the keystone of any group—the fundamental symmetry, if you will. This element is called the \textit{identity element} or the \textit{identity map}. The last criterion for a group is that of inverses. In a sense, this requirement that every map has an inverse map boils down to an interpretation that, in order to be a 'true' symmetry, it must be invertible. This should make sense, since, for example, if we had a map that 'forgot' some properties of an object, there wouldn't be an inverse map because this 'forgetful map' wouldn't be a bijection (one-to-one and onto). With that in mind, if one \textit{doesn't} restrict themselves to invertibility, we get another algebraic structure called a 'Monoid.' But the study of these are much more unwieldy and untame than that of groups, so this is a reasonable restriction.
 
 \subsection{The Definition of a Group}
   A group is a set $G$, equipped with a binary operation mapping two elements to another of the form $\ast:\ G \ast G \to G$ such that the following conditions hold:\autocite[16]{saracino}
@@ -132,12 +141,13 @@ Beyond associativity, another requirement is the "do nothing" map. At first seem
 \\$\text{Each element } x \in G \text{ has a unique inverse } x\inv \in G \text{ such that } x \ast x\inv = x\inv \ast x = e$
 
 
-In our case, this set consisted of symmetry-preserving transformations on an object where the binary operation was function composition. It's worth mentioning that this axiomatic definition of a group was invented some 100 years after mathematicians began to study groups. It is for this reason that the 'symmetry' understanding of a group can often be more applicable to the answer "why study groups at all?". Under this axiomatic definition of a group, we can see a few glaring examples. For instance, the integers form a group under addition $(\mathbb{Z}, +)$. It's worth verifying for yourself that these do fit the definition of a group. Our identity element is 0, since $0 + a = a + 0 = a$ for all $a \in \mathbb{Z}$.
-By forgoing the need to study a group's representation on a set or geometric object etc, Group theory can concern itself more with the group itself and its properties in \textit{any} situation it appears.
+In our 'symmetry-focused' definition, this set consisted of the symmetry-preserving transformations on an object where the binary operation was composing transformations. It's worth mentioning that this axiomatic definition of a group was agreed upon some 100 years after mathematicians began to study groups. It is for this reason that the 'symmetry' understanding of a group can often be more applicable to answer "why study groups at all?". Under this axiomatic definition of a group, you could probably tease out a few examples. For instance, the integers form a group under addition $(\mathbb{Z}, +)$. It's worth verifying for yourself that these do fit the definition of a group. Our identity element is 0, since $0 + a = a + 0 = a$ for all $a \in \mathbb{Z}$. Addition of integers is clearly associative. And, every number has a unique inverse, $a\inv := -a$. This group can also be thought of as the sliding symmetries of the integer lattice on the number line, in which case I like to think of an operation $3+5$ corresponding to taking the number 5 and seeing where it ends up after sliding the entire numberline ahead 3 units (or vice-versa). Similarly, the real numbers (excluding 0) form a group under multiplication. Again its worth verifying that it has an identity element $1$, that it's operation is associative, and that every element has an inverse $a\inv := \frac{1}{a}$, since $a\times \frac{1}{a} = \frac{1}{a} \times a = 1, \ \forall  a \in \reals$. To help your intuition, also consider that the positive integers $(\mathbb{Z},\times)$  \textit{do not} form a group under multiplication, since inverses are not suitably defined, i.e., there is no integer $a$ such that $a\times 2 = 2 \times a = 1$.
+  The reason why the axiomatic approach is the predominant way to introduce groups is because by forgoing the need to study a group's representation, Group theory can concern itself more with the group itself and its properties in \textit{any} situation it appears. Because of this, Mathematicians concern themselves with classifying groups \textit{up to isomorphism}, meaning up to a renaming of the elements.\footnote{It turns out if we restrict ourselves to finite \textit{simple} groups (somewhat like the 'prime' groups), Mathematicians have already completed the classification. This was one of the major accomplishments in 20th century mathematics, provoking many questions about paradoxical 'sporadic groups.'\\\autocite{aschbacher}}
 
 \subsection{The Case for Commutativity and Abelian Groups}
 One key property that we didn't require in our group axioms is \textit{commutativity}. At first glance, this might seem like an obvious condition, since many of the introductory examples do obey commutativity. But most of the insight that comes from group theory is from the study of groups that do not obey commutativity. This distinction happens to be so important that we give groups obeying commutativity a special name: \textit{Abelian groups}.\autocite[17]{dummit} Likewise, groups that violate this condition are sometimes called \textit{non-abelian groups}. In general, non-abelian groups correspond to symmetries that change the backdrop for another symmetry to occur. For instance, the group of symmetries on a square, $\mathrm{D}_8$, is non-abelian (meaning non-commutative). If you labeled the verticies of a square, you'd find performing a rotation and than a reflection is not, in general, the same as performing a reflection than a rotation\footnote{If we were working with the presentation of $\mathrm{D}_8$, $\langle a,x\ \vert \ a^4 = x^2 = e,\ xax\inv = a\inv \rangle$, we would say that $x$ and $a$ don't commute—corresponding to the reflection and rotation generators respectively.}
 —corresponding to the fact that reflections change the backdrop on which a rotation acts. Despite this, many of the other examples we've looked at so far happen to be abelian groups. For instance, the additive groups of the integers $(\mathbb{Z},+)$, rationals $(\mathbb{Q},+)$, and reals $(\reals, +)$, all obey commutativity and are hence 'Abelian.' Similarly, the circle group $\mathbb{T}$, corresponding to the rotative symmetries of a circle, is commutative as well (a fact which is of great importance to Quantum Field Theory).
+  Much of the groups that are of importance to cryptography are abelian groups. For intuition on why this may be the case, consider the RSA example before. Both parties combined a series of steps involving their public and private keys. If the order in which the modular exponentiation was performed mattered, Alice and Bob would get different results after combining their public and private keys in such a way.
 
 \section{Group Law on an Elliptic Curve}
 While the elliptic curve group admits an intuitive geometric description, it's important that our algebraic description satisfies the group axioms.  $ E(\field_{q} )$ 
