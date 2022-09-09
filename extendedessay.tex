@@ -91,7 +91,8 @@ The intuitive way to implement this cryptosystem has the two transacting parties
  \mathcal{C} &\sim D,E,F,G,H,I,…B,C 
 \end{align*} % I'm not sure what symbol to use here...Equivalance relation? Monomorphism?
 And, for example, if you wanted to encrypt the message $\mathcal{P} =$ "HELLO", you would obtain the ciphertext $\mathcal{C} =$ "KHOOR" which you would promptly send off for your friend to decode with the inverse, subtract-three-letters map. Note that, even in this simple example, repeated letters, word length, and other syntactic information provide a lot of information about the nature of the plaintext. Although this is a trivial example, schemes which, loosely speaking, encode any information about the syntax (or related notions) of the plaintext are usually highly vulnerable to a technique called \textit{differential cryptanalysis},which, at a high level, measures the change in cyphertext given a change in input, primarily targeting published symmetric-key protocols.\autocite[56]{koblitz} 
- We start encoding each letter as a number from 0, which is A, to 25, which is Z. Of course this depends on what alphabet one uses, if one chooses to include spaces, etc. We can represent the operation that takes a letter and maps it $n$ places ahead with addition. Importantly, this operation must 'wrap around' back to zero if you try to exceed 'z' in the alphabet. This process, known as \textit{'modular arithmetic'}, is like circling a clock, where after reaching twelve, the hour hand wrap back around to 1, but we start from 0 instead of 1. So, in our case, shifting 'z' by 3 letters looks like so: $25 + 1 \bmod 26 \equiv 0$, which reads "25 plus 1 \textit{is congruent to} 0 \textit{modulo} (or \textit{mod}) 26." With this in mind, we obtain for each letter $p \in \mathcal{P}$:  
+
+To see what a caeser cipher looks like mathematically, we start encoding each letter as a number from 0, which is A, to 25, which is Z. Of course this depends on what alphabet one uses, if one chooses to include spaces, numbers, punctuation etc. We can represent the operation that takes a letter and maps it $n$ places ahead with addition. Importantly, this operation must 'wrap around' back to zero if you try to exceed 'z' in the alphabet. This process, known as \textit{'modular arithmetic'}, is like circling a clock, where after reaching twelve, the hour hand wrap back around to 1, but we start from 0 instead of 1. So, in our case, shifting 'z' by 3 letters looks like so: $25 + 1 \bmod 26 \equiv 0$, which reads "25 plus 1 \textit{is congruent to} 0 \textit{modulo} (or \textit{mod}) 26." With this in mind, we obtain for each letter $p \in \mathcal{P}$:  
 
 \[
 f(p) = p + n \bmod 26 
@@ -122,7 +123,7 @@ In the modern world, it's impractical to require that every shared secret be det
 
 Consider the intuitive fact that some operations are more difficult to do in reverse than fowards—certain 'one-way functions.' For instance, if I mixed two different-colored paints together and asked whether you, \textit{a priori}, could deduce the two initial colors given the end result, would you be able to? Although its quite easy to check whether any two colors combine to match the end result, there isn't an easy operation that takes the end result and returns the initial colors. This happens to be true for a number of operations. 
 
-I have yet to finish this section.
+{I have yet to finish this section.}
 
 \section{What is 'Public-Key' Cryptography}
 "In applied contexts, the terms "easy" and "hard" are usually interpreted relative to some specific computing entity; typically "cheap enough for the legitimate users" and "prohibitively expensive for any malicious agents"."
@@ -131,9 +132,11 @@ The first protocol developed to address this motivating problem was RSA encrypti
 
 \footnote{Although this isn't a true "public-key" algorithm, DH can be easily modified to send arbitrary messages in a scheme known as 'Elgamal encryption.'\\\autocite{elgamal}}
 
-I have yet to finish this chapter. This will detail Diffie-Hellman key exchange over finite fields. I will then hint towards group theory before transitioning to the introduction.
+{I have yet to finish this chapter. This will detail Diffie-Hellman key exchange over finite fields, discussing eucliean algorithm/bezouts id to compute inverses. I will then hint towards group theory before transitioning to the introduction.}
 
 \section{How can we formalize this: An Introduction to Groups}
+{a word to whoever is reading: I wrote this section before the preceeding sections, so it lacks many critical references to what I have been discussing throughout the paper. In the case of linear or affine cryptosystems, they correspond highly to additive groups $\integers / n \integers$ (n not necessarily prime), and, I believe, direct sums of such (for digraphs, trigraphs, etc). Similarly, Diffie Hellman is secretly group theory in disguise since it concerns itself with fields comprised $(\integers / p \integers, +, \times)$ Upon rereading, I see I jump into fairly complicated math fairly quickly.
+
 Group theory is the study of symmetry. Every set of symmetries on an object correspond to a group, and likewise every group corresponds to a set of symmetries.\footnote[2]{This is rigorously true if we consider the set of all automorphisms of an object (viz. the set of all bijective maps from and to itself), this forms a group under function composition with the inverses being the inverse maps and the identity being the identity "do nothing" map, so this perspective is justified.} % hmm
 Now to unpack what this means, it might be helpful to depict precisely what 'symmetry' is. The prototypical example is geometric symmetry. If we consider the set of symmetries of a square under rotations and reflections, we can form a group with a fancy name, the 'Dihedral group of order 8,' denoted $\mathrm{D}_8$. %More generally, the group of symmetries of an n-gon form the Dihedral group of order 2n, $\mathrm{D}_{2n}$.
 (Order, here, refers to the number of elements of the group, or the cardinality/size of the underlying set.)\footnote[2]{The 'order' of an element also refers to the order/size of the subgroup generated by that element. Also, a group's order is allowed to be infinite.}
