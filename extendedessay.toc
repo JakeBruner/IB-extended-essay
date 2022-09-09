@@ -10,8 +10,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3}How can we formalize this: An Introduction to Groups}{5}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.1}The Definition of a Group}{6}{}%
+\contentsline {subsection}{\numberline {3.1}The Definition of a Group}{7}{}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.2}The Case for Commutativity and Abelian Groups}{7}{}%
+\contentsline {subsection}{\numberline {3.2}The Case for Commutativity and Abelian Groups}{8}{}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Group Law on an Elliptic Curve}{8}{}%
