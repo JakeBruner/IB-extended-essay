@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.7)  9 SEP 2022 00:40
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.7)  9 SEP 2022 07:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -632,12 +632,14 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 LaTeX Info: Redefining \ref on input line 51.
 LaTeX Info: Redefining \pageref on input line 51.
 LaTeX Info: Redefining \nameref on input line 51.
+ (./extendedessay.out) (./extendedessay.out)
 \@outlinefile=\write4
 \openout4 = `extendedessay.out'.
 
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
- (/usr/local/texlive/2021/texmf-dist/tex/latex/biblatex/lbx/english.lbx
+
+(/usr/local/texlive/2021/texmf-dist/tex/latex/biblatex/lbx/english.lbx
 File: english.lbx 2020/12/31 v3.16 biblatex localization (PK/MW)
 )
 Package biblatex Info: Input encoding 'utf8' detected.
@@ -684,16 +686,13 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 53.
 (/usr/local/texlive/2021/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-
-Package hyperref Warning: old toc file detected, not used; run LaTeX again.
-
+(./extendedessay.toc)
 \tf@toc=\write5
 \openout5 = `extendedessay.toc'.
 
-[1
+ [1
 
-{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-[2]
+{/usr/local/texlive/2021/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 93.
 
@@ -707,7 +706,7 @@ LaTeX Warning: Command \textellipsis invalid in math mode on input line 93.
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 93.
 
 [3]
-<images/diana.png, id=54, 913.4125pt x 809.0225pt>
+<images/diana.png, id=92, 913.4125pt x 809.0225pt>
 File: images/diana.png Graphic file (type png)
 <use images/diana.png>
 Package pdftex.def Info: images/diana.png  used on input line 115.
@@ -717,7 +716,7 @@ Package pdftex.def Info: images/diana.png  used on input line 115.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4] [5 <./images/diana.png>] [6]
-<images/associativitydiagram.png, id=92, 366.61969pt x 192.72pt>
+<images/associativitydiagram.png, id=127, 366.61969pt x 192.72pt>
 File: images/associativitydiagram.png Graphic file (type png)
 <use images/associativitydiagram.png>
 Package pdftex.def Info: images/associativitydiagram.png  used on input line 15
@@ -744,23 +743,17 @@ T1/cmr/m/it/10.95 The Math-e-mat-i-cal Gazette
  []
 
 [11] (./extendedessay.aux)
-
-Package rerunfilecheck Warning: File `extendedessay.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `extendedessay.out':
-(rerunfilecheck)             Before: <no file>
-(rerunfilecheck)             After:  70FF17F2724D97F9BF9BBE4FA20D5387;1728.
+Package rerunfilecheck Info: File `extendedessay.out' has not changed.
+(rerunfilecheck)             Checksum: 70FF17F2724D97F9BF9BBE4FA20D5387;1728.
 Package logreq Info: Writing requests to 'extendedessay.run.xml'.
 \openout1 = `extendedessay.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 18369 strings out of 478994
- 306486 string characters out of 5858184
- 929908 words of memory out of 5000000
- 35576 multiletter control sequences out of 15000+600000
+ 18384 strings out of 478994
+ 306704 string characters out of 5858184
+ 928908 words of memory out of 5000000
+ 35585 multiletter control sequences out of 15000+600000
  414960 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,10n,74p,1857b,2181s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -790,10 +783,10 @@ t/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2021/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2021/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2021/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on extendedessay.pdf (11 pages, 994203 bytes).
+Output written on extendedessay.pdf (11 pages, 1000094 bytes).
 PDF statistics:
- 242 PDF objects out of 1000 (max. 8388607)
- 199 compressed objects within 2 object streams
+ 276 PDF objects out of 1000 (max. 8388607)
+ 232 compressed objects within 3 object streams
  55 named destinations out of 1000 (max. 500000)
- 11 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 75 words of extra memory for PDF output out of 10000 (max. 10000000)
 
