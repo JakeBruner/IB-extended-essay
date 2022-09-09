@@ -122,12 +122,16 @@ In the modern world, it's impractical to require that every shared secret be det
 
 Consider the intuitive fact that some operations are more difficult to do in reverse than fowards—certain 'one-way functions.' For instance, if I mixed two different-colored paints together and asked whether you, \textit{a priori}, could deduce the two initial colors given the end result, would you be able to? Although its quite easy to check whether any two colors combine to match the end result, there isn't an easy operation that takes the end result and returns the initial colors. This happens to be true for a number of operations. 
 
+I have yet to finish this section.
+
 \section{What is 'Public-Key' Cryptography}
 "In applied contexts, the terms "easy" and "hard" are usually interpreted relative to some specific computing entity; typically "cheap enough for the legitimate users" and "prohibitively expensive for any malicious agents"."
 
 The first protocol developed to address this motivating problem was RSA encryption. Leveraging intuitive properties of numbers, RSA establishes our idea of ‘one-way operations’ using simple multiplication of large, highly prime (minimal divisors), numbers. 
 
 \footnote{Although this isn't a true "public-key" algorithm, DH can be easily modified to send arbitrary messages in a scheme known as 'Elgamal encryption.'\\\autocite{elgamal}}
+
+I have yet to finish this chapter. This will detail Diffie-Hellman key exchange over finite fields. I will then hint towards group theory before transitioning to the introduction.
 
 \section{How can we formalize this: An Introduction to Groups}
 Group theory is the study of symmetry. Every set of symmetries on an object correspond to a group, and likewise every group corresponds to a set of symmetries.\footnote[2]{This is rigorously true if we consider the set of all automorphisms of an object (viz. the set of all bijective maps from and to itself), this forms a group under function composition with the inverses being the inverse maps and the identity being the identity "do nothing" map, so this perspective is justified.} % hmm
@@ -168,6 +172,9 @@ One key property that we didn't require in our group axioms is \textit{commutati
 
 \section{Group Law on an Elliptic Curve}
 While the elliptic curve group admits an intuitive geometric description, it's important that our algebraic description satisfies the group axioms.  $ E(\field_{q} )$ 
+
+I have yet to finish this chapter.
+
 \autocite[10]{koblitz}
 
 \newpage 
