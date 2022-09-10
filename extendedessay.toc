@@ -4,9 +4,11 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.1}Motivating Problem}{2}{subsection.1.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.2}The 'Public-Key' Paradox}{4}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.2}The Fundamentals of Symmetric Cryptography}{2}{subsection.1.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2}What is 'Public-Key' Cryptography}{5}{section.2}%
+\contentsline {subsection}{\numberline {1.3}The 'Public-Key' Paradox}{5}{subsection.1.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2}What is 'Public-Key' Cryptography}{6}{section.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3}How can we formalize this: An Introduction to Groups}{6}{section.3}%
 \defcounter {refsection}{0}\relax 

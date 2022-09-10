@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.7)  9 SEP 2022 07:32
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.7)  10 SEP 2022 15:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -706,54 +706,57 @@ LaTeX Warning: Command \textellipsis invalid in math mode on input line 93.
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 93.
 
 [3]
-<images/diana.png, id=92, 913.4125pt x 809.0225pt>
+<images/diana.png, id=96, 913.4125pt x 809.0225pt>
 File: images/diana.png Graphic file (type png)
 <use images/diana.png>
-Package pdftex.def Info: images/diana.png  used on input line 115.
+Package pdftex.def Info: images/diana.png  used on input line 116.
 (pdftex.def)             Requested size: 264.88284pt x 234.61052pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4] [5 <./images/diana.png>] [6]
-<images/associativitydiagram.png, id=127, 366.61969pt x 192.72pt>
+<images/associativitydiagram.png, id=132, 366.61969pt x 192.72pt>
 File: images/associativitydiagram.png Graphic file (type png)
 <use images/associativitydiagram.png>
 Package pdftex.def Info: images/associativitydiagram.png  used on input line 15
-4.
+5.
 (pdftex.def)             Requested size: 146.64526pt x 77.08662pt.
- [7 <./images/associativitydiagram.png>]
-[8] [9] [10]
-Overfull \hbox (24.71149pt too wide) in paragraph at lines 189--189
+
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[7] [8 <./images/associativitydiagram.png>] [9] [10]
+Overfull \hbox (24.71149pt too wide) in paragraph at lines 190--190
 \OT1/cmr/m/n/10.95 tures. Na-tional Se-cu-rity Agency, 1973. \OT1/cmr/m/sc/10.9
 5 url\OT1/cmr/m/n/10.95 : []$\OT1/cmtt/m/n/10.95 https : / / www . governmentat
 tic .
  []
 
 
-Overfull \hbox (1.17888pt too wide) in paragraph at lines 189--189
+Overfull \hbox (1.17888pt too wide) in paragraph at lines 190--190
 [][]\OT1/cmr/m/n/10.95 Elgamal, Taher. ``A Public-Key Cryp-tosys-tem and a Sig-
 na-ture Scheme Based
  []
 
 
-Overfull \hbox (6.32846pt too wide) in paragraph at lines 189--189
+Overfull \hbox (6.32846pt too wide) in paragraph at lines 190--190
 [][]\OT1/cmr/m/n/10.95 Lewand, Robert Ed-ward. ``The Per-fect Ci-pher''. In: \O
 T1/cmr/m/it/10.95 The Math-e-mat-i-cal Gazette
  []
 
 [11] (./extendedessay.aux)
 Package rerunfilecheck Info: File `extendedessay.out' has not changed.
-(rerunfilecheck)             Checksum: 70FF17F2724D97F9BF9BBE4FA20D5387;1728.
+(rerunfilecheck)             Checksum: F6A359B60572BACB6C7652DF2D3E1442;2007.
 Package logreq Info: Writing requests to 'extendedessay.run.xml'.
 \openout1 = `extendedessay.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 18384 strings out of 478994
- 306704 string characters out of 5858184
- 928908 words of memory out of 5000000
- 35585 multiletter control sequences out of 15000+600000
+ 18386 strings out of 478994
+ 306734 string characters out of 5858184
+ 929908 words of memory out of 5000000
+ 35586 multiletter control sequences out of 15000+600000
  414960 words of font info for 71 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,10n,74p,1857b,2181s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -783,10 +786,10 @@ t/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2021/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2021/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2021/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on extendedessay.pdf (11 pages, 1000094 bytes).
+Output written on extendedessay.pdf (11 pages, 1000615 bytes).
 PDF statistics:
- 276 PDF objects out of 1000 (max. 8388607)
- 232 compressed objects within 3 object streams
- 55 named destinations out of 1000 (max. 500000)
- 75 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 281 PDF objects out of 1000 (max. 8388607)
+ 237 compressed objects within 3 object streams
+ 56 named destinations out of 1000 (max. 500000)
+ 83 words of extra memory for PDF output out of 10000 (max. 10000000)
 
