@@ -6,6 +6,8 @@
 \usepackage{graphicx}
 \usepackage{mathtools}
 \usepackage[hidelinks]{hyperref}  % most people dont know of this :3
+\usepackage[dvipsnames]{xcolor}
+\usepackage{systeme}
 
 \usepackage[backend=bibtex,style=verbose-ibid]{biblatex}
 \addbibresource{citations.bib}
@@ -247,11 +249,33 @@ It turns out, Elliptic curves are special because one can define a reasonable no
 \end{center}
 \end{figure}
 
-We can make this idea rigorous by using some geometric tools. Our third point R is defined as the intersection of our elliptic curve $y^2 = x^3 + ax +b$ and some secant line $y=mx+l$. Given the points $P, Q = (x_p,y
+We can make this idea rigorous by using some geometric tools. Our third point R is defined as the intersection of our elliptic curve $y^2 = x^3 + ax +b$ and some secant line $y=mx+l$. Given the points $P, Q = (x_p,y_p), (x_q,y_q)$ we can write down the slope:
+\[m = \frac{y_p - y_q}{x_p-x_q}\]
+Proceeding with the simultaneous equations
+\begin{align}
+y^2 &= x^3 + ax +b\\
+y&=mx+l
+\end{align}
+Substituting (2) into (1),
+\begin{flalign*}
+(mx+l)^2 &= x^3 + ax +b\\
+m^2x^2 + 2mlx + l^2 &= x^3 + ax +b \\
+\Rightarrow 0 = x^3 - &(m^2)x - (2ml)x + (b-l^2) \tag 3
+\end{flalign*}
+Now, this cubic has three real solutions, namely the roots of P, Q and R respectively. Writing these as factors:
+\[(x-x_p)(x-x_q)(x-x_r) = x^3 - (m^2)x^2 - (2ml)x + (b-l^2)\]
+The next step is to expand the left side out and equate coefficients.
+\begin{align*}
+&= x^3 - \color{Purple}{(x_p+x_q+x_r)} \color{black}{x^2} +  (x_p x_q + x_px_r + x_qx_r) x  - x_px_qx_r\\
+&= x^3\hspace*{1.63cm}  - \color{Purple}{(m^2)} \color{black}{x^2}  - (2ml) x  + (b-l^2) \text{\hspace*{1.2cm}}
+\end{align*}
+This means, using the purple coefficients,
+\begin{align*}
+m^2 &= x_p +x_q+x_r\\
+\therefore \hspace*{0.3cm} x_r &= m^2 - x_p - x_q
+\end{align*}
 
-jacobbruner.com/elliptic-curve
 
-[I have yet to finish this chapter.]
 
 
 \section{Conclusion}
