@@ -23,3 +23,7 @@
 \contentsline {subsection}{\numberline {4.1}Definition of an Elliptic Curve}{10}{subsection.0.4.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2}Elliptic Curves over the Reals}{11}{subsection.0.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {5}Conclusion}{12}{section.0.5}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {5.1}Limitations and Reflection}{12}{subsection.0.5.1}%

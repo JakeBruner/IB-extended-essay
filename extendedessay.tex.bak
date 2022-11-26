@@ -1,5 +1,4 @@
-% !TeX spellcheck = en_US
-\documentclass[11pt,a4paper]{article}
+\documentclass[11pt, a4paper]{report}
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
 \usepackage{amsfonts}
@@ -44,12 +43,40 @@
 \newcommand{\complexes}{\mathbb{C}}
 \newcommand{\field}{\mathbb{F}}
 
+\renewcommand{\thesection}{\arabic{section}}
+
 \author{Jacob Bruner}
 \title{IB Extended Essay}
 \date{\today}
 
 \begin{document}
-\maketitle
+\begin{titlepage}
+\begin{flushleft}
+Dwight School\\
+New York, New York
+\end{flushleft}
+
+\vspace*{3cm}
+\begin{center}
+\LARGE Group Theory and Modern Cryptography\\
+\vspace*{.5cm}
+\large To what extent does the group structure of a finite abelian group affect the difficulty of computing its discrete logarithm?\\
+\vspace*{.5cm}
+\large 340923 words \\
+\vspace*{.5cm}
+\Large Mathematics
+\end{center}
+
+\vfill
+
+\begin{flushright}
+\begin{tabular}{l@{:\hspace*{\tabcolsep}}l}
+Author & Jacob Bruner \\
+Advisor & Daniel Bjelis
+\end{tabular}
+\end{flushright}
+
+\end{titlepage}
 \tableofcontents
 
 \pagebreak
@@ -72,11 +99,14 @@ heres an example of an image
 ############
 \fi
 
+
 \section*{Foreword}
 
-This paper is for expository purposes only. Although the information presented is as close to accurate as possible, one should never implement a cryptographic system themselves unless they know \textit{\emph{exactly}} what they're doing. \textbf{I am not liable for any damages caused in testing/creating/implementing any cryptographic protocol referenced in this paper.} Cryptography's greatest weakness is human-error, and virtually \textit{all} breaks in cryptography result from poor implementation. 
+This paper is for research purposes only. Although the information presented is as close to accurate as possible, one should never implement a cryptographic system themselves unless they know \textit{\emph{exactly}} what they're doing. \textbf{I am not liable for any damages caused in testing/creating/implementing any cryptographic protocol referenced in this paper.} Cryptography's greatest weakness is human-error, and virtually \textit{all} breaks in cryptography result from poor implementation. CIT
 
 \section{Introduction and Aim}
+\subsection{Topic and Research Question}
+
 \subsection{Motivating Problem}
 It's undeniable that our modern-day world is reliant on cryptography. Every time a phone sends a text, a browser connects to a server, an email gets sent off, a monetary transaction is made, and much much more, our devices are, unbeknownst to us, performing many hundreds of math operations to ensure our data are 'encrypted.' But what does 'encryption' mean? Let's introduce some definitions. ‘Encryption’ is the process of disguising a message to be, loosely speaking, hidden to all \textit{except} the intended recipient. This is the process of converting a ‘plaintext’ message into a jumbled ‘ciphertext’, which can be readily shared without risk of the sensitive message leaking. Converting a plaintext message (typically a string/list of characters) into a ciphertext is known as an ‘enciphering’ or ‘encrypting’ transformation. Likewise the reverse operation of recovering the plaintext message from a ciphertext is known as the \textit{deciphering transformation.}\autocite[54]{koblitz} If we denote the plain and cyphertext $\mathcal{P}$ and $\mathcal{C}$ respectively and the enciphering map $f$ and its inverse $f\inv$ we obtain the following diagram:
 
@@ -178,13 +208,33 @@ One key property that we didn't require in our group axioms is \textit{commutati
   Much of the groups that are of importance to cryptography are abelian groups. For intuition on why this may be the case, consider the RSA example before. Both parties combined a series of steps involving their public and private keys. If the order in which the modular exponentiation was performed mattered, Alice and Bob would get different results after combining their public and private keys in such a way.
 
 \section{Group Law on an Elliptic Curve}
+\subsection{Definition of an Elliptic Curve}
 While the elliptic curve group admits an intuitive geometric description, it's important that our algebraic description satisfies the group axioms.  $ E(\field_{q} )$ 
+
+In a complete turn of events (that will hopefully make sense in the end), I want to explain the notion of \textit{Elliptic Curves}. Elliptic curves are a family of  algebraic\footnote{Meaning a dimension one algebraic variety since it admits a group structure.} curves defined as the solution set of a polynomial equation. Namely, an elliptic curve is the set of solutions $(x,y)$ to an equation of the form:\autocite[10]{koblitz}
+\[y^2 = x^3 + ax + b, \text{ for constants } a,b.\]
+Importantly, the behavior of this curve is dependent on the ground 'field' on which one defines it. We will look at the familiar case of the reals shortly, but this is an important distinction, hinting towards the possibility of a discrete context, or field, to come. Field, in mathematics, refers to a structure where any two elements have a well-defined notion of addition, subtraction, multiplication and division (except by a 0 element). The most important examples are the rationals $\rationals$, the reals $\reals$, and the complex numbers $\complexes$. Not the integers since, take, for example: $1, 2 \in \integers$, but $\frac{1}{2} \notin \integers$. We will begin with the case of an elliptic curve over the reals.
+
+\subsection{Elliptic Curves over the Reals}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=.6]{elliptic_curves.png} 
+\caption{A few selected elliptic curves plotted with matplotlib over the reals with $a$ from $-3$ to $0$ and $b$ from  $-1$ to $2$. Note that when $a$ and $b = 0$ the curve is not smooth and is not considered an EC.}
+\end{center}
+\end{figure}
+
+
 
 jacobbruner.com/elliptic-curve
 
 [I have yet to finish this chapter.]
 
-\autocite[10]{koblitz}
+
+\section{Conclusion}
+\subsection{Limitations and Reflection}
+
+
 
 \newpage 
 
