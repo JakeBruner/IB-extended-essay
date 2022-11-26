@@ -285,14 +285,22 @@ y-y_q &= m(x-x_q) \\
 
 Flipping our result across the y-axis to obtain $R$, we have (finally),
 
-\begin
-  (x_p,y_p)+(x_q,y_q) := \left( m^2 -x_p-x_q,\; -y_q - m(x_r-x_q) \right),
-\]
+\begin{align*}
+P \; + \; Q \; &:= \; R\\
+(x_p,y_p)+(x_q,y_q) &:= \left( m^2 -x_p-x_q,\; -y_q - m(x_r-x_q) \right),
+\end{align*}
 \begin{center}
-where $m = \frac{y_p - y_q}{x_p-x_q}$.
+where $m = \frac{y_p - y_q}{x_p-x_q}$.\footnote{As long as $P \neq Q$ and $P \neq -Q$.}
 \end{center}
 \qed
 
+\subsection{Adding a point to itself}
+The case that was left out of the earlier pictorial representation of point addition is when a point is added to itself. Not to fear, however, since one just replaces the secant through two points with a tangent through one. The resultant point is the resultant intersection flipped across the y-axis. The slope of this tangent can be found through implicit differentiation.
+\begin{align*}
+\color{red}{d(}\color{black}{y^2}\color{red}{)} &= \color{red}{d(}\color{black}{x^3+ax+b}\color{red}{)}\\
+2y\color{red}{dy} &= 3x^2\color{red}{dx} \color{black}\; { + \; a} \color{red}{dx}\\
+\color{red}{\frac{dy}{dx}} &= \frac{3x^2 + a}{2y}
+\end{align*}
 
 
 
