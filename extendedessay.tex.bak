@@ -219,11 +219,14 @@ Importantly, the behavior of this curve is dependent on the ground 'field' on wh
 
 \begin{figure}[h]
 \begin{center}
-\includegraphics[scale=.6]{elliptic_curves.png} 
-\caption{A few selected elliptic curves plotted with matplotlib over the reals with $a$ from $-3$ to $0$ and $b$ from  $-1$ to $2$. Note that when $a$ and $b = 0$ the curve is not smooth and is not considered an EC.}
+\includegraphics[width=\linewidth]{elliptic_curves.png} 
+\caption{A few selected elliptic curves plotted with matplotlib over the reals with $a$ from $-3$ to $0$ and $b$ from  $-1$ to $2$.}
+\label{fig:realECs}
 \end{center}
 \end{figure}
 
+In \ref{fig:realECs}, we see the general shape of an elliptic curve, usually with a sort-of bulbous head on the left. This complicated shape arises from square rooting a general depressed cubic of the form $y=x^3+px+q$. Without the $x^2$ term, this cubic is guaranteed to have only one inflection point, since its second derivative $y'' = 6x$ does not depend on $p$ or $q$. Since square roots preserve the inflection points, we  can see the connected graphs in \ref{fig:realECs} all have inflections at zero.
+Furthermore, the process of square-rooting increases values from $0<y<1$ and decreases values when $y>1$ with a fixed point at $1$. Over $\reals$, square roots are limited to inputs greater than $0$, but since we take both branches $(\pm)$ of the root, we see reflection symmetry across the y-axis (this will be important in a moment). To illustrate the relationship. 
 
 
 jacobbruner.com/elliptic-curve

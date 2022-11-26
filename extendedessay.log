@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.7)  26 NOV 2022 12:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021) (preloaded format=pdflatex 2021.10.7)  26 NOV 2022 13:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -714,7 +714,7 @@ LaTeX Warning: Command \textellipsis invalid in math mode on input line 123.
 LaTeX Warning: Command \textellipsis invalid in math mode on input line 123.
 
 [3]
-<images/diana.png, id=114, 913.4125pt x 809.0225pt>
+<images/diana.png, id=124, 913.4125pt x 809.0225pt>
 File: images/diana.png Graphic file (type png)
 <use images/diana.png>
 Package pdftex.def Info: images/diana.png  used on input line 146.
@@ -724,7 +724,7 @@ Package pdftex.def Info: images/diana.png  used on input line 146.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4] [5 <./images/diana.png>] [6]
-<images/associativitydiagram.png, id=151, 366.61969pt x 192.72pt>
+<images/associativitydiagram.png, id=162, 366.61969pt x 192.72pt>
 File: images/associativitydiagram.png Graphic file (type png)
 <use images/associativitydiagram.png>
 Package pdftex.def Info: images/associativitydiagram.png  used on input line 18
@@ -750,31 +750,27 @@ Underfull \hbox (badness 10000) in paragraph at lines 192--200
  []
 
 [8 <./images/associativitydiagram.png>] [9] [10]
-<elliptic_curves.png, id=196, 650.43pt x 650.43pt>
+<elliptic_curves.png, id=206, 650.43pt x 650.43pt>
 File: elliptic_curves.png Graphic file (type png)
 <use elliptic_curves.png>
 Package pdftex.def Info: elliptic_curves.png  used on input line 222.
-(pdftex.def)             Requested size: 390.261pt x 390.261pt.
-
-Overfull \hbox (30.261pt too wide) in paragraph at lines 222--223
- [] 
- []
-
-[11 <./elliptic_curves.png>] [12]
-Overfull \hbox (24.71149pt too wide) in paragraph at lines 242--242
+(pdftex.def)             Requested size: 360.0pt x 360.01036pt.
+ [11 <./elliptic_curves.png>]
+[12]
+Overfull \hbox (24.71149pt too wide) in paragraph at lines 243--243
 \OT1/cmr/m/n/10.95 tures. Na-tional Se-cu-rity Agency, 1973. \OT1/cmr/m/sc/10.9
 5 url\OT1/cmr/m/n/10.95 : []$\OT1/cmtt/m/n/10.95 https : / / www . governmentat
 tic .
  []
 
 
-Overfull \hbox (1.17888pt too wide) in paragraph at lines 242--242
+Overfull \hbox (1.17888pt too wide) in paragraph at lines 243--243
 [][]\OT1/cmr/m/n/10.95 Elgamal, Taher. ``A Public-Key Cryp-tosys-tem and a Sig-
 na-ture Scheme Based
  []
 
 
-Overfull \hbox (6.32846pt too wide) in paragraph at lines 242--242
+Overfull \hbox (6.32846pt too wide) in paragraph at lines 243--243
 [][]\OT1/cmr/m/n/10.95 Lewand, Robert Ed-ward. ``The Per-fect Ci-pher''. In: \O
 T1/cmr/m/it/10.95 The Math-e-mat-i-cal Gazette
  []
@@ -783,26 +779,19 @@ T1/cmr/m/it/10.95 The Math-e-mat-i-cal Gazette
 
 ] (./extendedessay.aux)
 
-Package rerunfilecheck Warning: File `extendedessay.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
-Package rerunfilecheck Info: Checksums for `extendedessay.out':
-(rerunfilecheck)             Before: 701A601F3B1858E31E5F7A46EA366464;2694
-(rerunfilecheck)             After:  F318F8DDAC21AE5DEEE5656FF7F293BA;2988.
-
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
-
+Package rerunfilecheck Info: File `extendedessay.out' has not changed.
+(rerunfilecheck)             Checksum: F318F8DDAC21AE5DEEE5656FF7F293BA;2988.
 Package logreq Info: Writing requests to 'extendedessay.run.xml'.
 \openout1 = `extendedessay.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 18416 strings out of 478994
- 307203 string characters out of 5858184
+ 18419 strings out of 478994
+ 307247 string characters out of 5858184
  932353 words of memory out of 5000000
- 35604 multiletter control sequences out of 15000+600000
+ 35607 multiletter control sequences out of 15000+600000
  414319 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  73i,10n,74p,2323b,2181s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -832,10 +821,10 @@ t/fonts/type1/public/amsfonts/cm/cmti9.pfb></usr/local/texlive/2021/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texlive/2021/texmf-dist/f
 onts/type1/public/amsfonts/cm/cmtt9.pfb></usr/local/texlive/2021/texmf-dist/fon
 ts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on extendedessay.pdf (14 pages, 1300631 bytes).
+Output written on extendedessay.pdf (14 pages, 1264454 bytes).
 PDF statistics:
- 323 PDF objects out of 1000 (max. 8388607)
- 274 compressed objects within 3 object streams
+ 331 PDF objects out of 1000 (max. 8388607)
+ 282 compressed objects within 3 object streams
  68 named destinations out of 1000 (max. 500000)
- 112 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 128 words of extra memory for PDF output out of 10000 (max. 10000000)
 
