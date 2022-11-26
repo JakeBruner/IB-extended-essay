@@ -208,11 +208,22 @@ One key property that we didn't require in our group axioms is \textit{commutati
   Much of the groups that are of importance to cryptography are abelian groups. For intuition on why this may be the case, consider the RSA example before. Both parties combined a series of steps involving their public and private keys. If the order in which the modular exponentiation was performed mattered, Alice and Bob would get different results after combining their public and private keys in such a way.
 
 \section{Group Law on an Elliptic Curve}
+\subsection{Definition of an Elliptic Curve}
 While the elliptic curve group admits an intuitive geometric description, it's important that our algebraic description satisfies the group axioms.  $ E(\field_{q} )$ 
 
 In a complete turn of events (that will hopefully make sense in the end), I want to explain the notion of \textit{Elliptic Curves}. Elliptic curves are a family of  algebraic\footnote{Meaning a dimension one algebraic variety since it admits a group structure.} curves defined as the solution set of a polynomial equation. Namely, an elliptic curve is the set of solutions $(x,y)$ to an equation of the form:\autocite[10]{koblitz}
 \[y^2 = x^3 + ax + b, \text{ for constants } a,b.\]
-Importantly, the behavior of this curve is dependent on the ground 'field' on which one defines it. Field, in mathematics, refers to a structure with a reasonable notion of addition, subtraction, multiplication and division (except by a 0 element), the most important examples are the rationals $\rationals$, the reals $\reals$, and the complex numbers $\complexes$. Not the integers since, take, for example: $1, 2 \in \integers$, but $\frac{1}{2} \notin \integers$.
+Importantly, the behavior of this curve is dependent on the ground 'field' on which one defines it. We will look at the familiar case of the reals shortly, but this is an important distinction, hinting towards the possibility of a discrete context, or field, to come. Field, in mathematics, refers to a structure where any two elements have a well-defined notion of addition, subtraction, multiplication and division (except by a 0 element). The most important examples are the rationals $\rationals$, the reals $\reals$, and the complex numbers $\complexes$. Not the integers since, take, for example: $1, 2 \in \integers$, but $\frac{1}{2} \notin \integers$. We will begin with the case of an elliptic curve over the reals.
+
+\subsection{Elliptic Curves over the Reals}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[scale=.6]{elliptic_curves.png} 
+\caption{A few selected elliptic curves plotted with matplotlib over the reals with $a \in [-3,0]$ and $b \in [-1,2]$. Note that when $a$ and $b = 0$ the curve is not smooth.}
+\end{center}
+\end{figure}
+
 
 
 jacobbruner.com/elliptic-curve

@@ -19,3 +19,7 @@
 \contentsline {subsection}{\numberline {3.2}The Case for Commutativity and Abelian Groups}{9}{subsection.0.3.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4}Group Law on an Elliptic Curve}{10}{section.0.4}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1}Definition of an Elliptic Curve}{10}{subsection.0.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.2}Elliptic Curves over the Reals}{11}{subsection.0.4.2}%
