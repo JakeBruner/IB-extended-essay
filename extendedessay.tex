@@ -269,17 +269,32 @@ Now, this cubic has three real solutions, namely the roots of P, Q and R respect
 The next step is to expand the left side out and equate coefficients.
 \begin{align*}
 LH &= x^3 - \color{Purple}{(x_p+x_q+x_r)} \color{black}{x^2} +  (x_p x_q + x_px_r + x_qx_r) x  - x_px_qx_r\\
-RH &= x^3\hspace*{1.6cm}  - \color{Purple}{(m^2)} \color{black}{x^2} \hspace*{2.4cm}  - (2ml) x  + (b-l^2) \text{\hspace*{1.2cm}}
+RH &= x^3\hspace*{1.6cm}  - \color{Purple}{(m^2)} \color{black}{x^2} \hspace*{2.4cm}  - (2ml) x  + (b-l^2). \text{\hspace*{1.2cm}}
 \end{align*}
 This means, using the purple coefficients,
 \begin{align*}
 m^2 &= x_p +x_q+x_r\\
-\therefore \hspace*{0.3cm} x_r &= m^2 - x_p - x_q \tag 4
+\therefore \hspace*{0.3cm} x_r &= m^2 - x_p - x_q. \tag 4
 \end{align*}
 Substituting the x coordinate of $-R$, $x_r$ into the point-slope form of the line with $m = \frac{y_p - y_q}{x_p-x_q}$ we obtain,
 \begin{align*}
-y-y_q = 
+y-y_q &= m(x-x_q) \\
+\therefore \hspace*{0.3cm} y_r &= y_q + m(x_r-x_q)\\ 
+&= y_p + m(x_r -x_p).
 \end{align*}
+
+Flipping our result across the y-axis to obtain $R$, we have (finally),
+
+\begin{align*}
+P \; + \; Q \; &:= \; R\\
+(x_p,y_p)+(x_q,y_q) &:= \left( m^2 -x_p-x_q,\; -y_q - m(x_r-x_q) \right),
+\end{align*}
+\begin{center}
+where $m = \frac{y_p - y_q}{x_p-x_q}$.
+\end{center}
+\qed
+
+
 
 
 

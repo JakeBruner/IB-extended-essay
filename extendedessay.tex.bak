@@ -239,7 +239,7 @@ Furthermore, the process of square-rooting increases values from $0<y<1$ and dec
 
 \subsection{Geometric idea}
 
-It turns out, Elliptic curves are special because one can define a reasonable notion of addition with points on the curve. The one caveat is that we require a point 'at infinity' $I$ to do so. Formally, this means were working in the projective real plane $\mathbb{RP}^2$. But with this, we obtain the property that any secant drawn through two points on the curve must intersect another third point on the curve or this point at infinity $I$. Thus we will define the addition of two points $P$ and $Q$ to be this third point reflected across the y-axis.\footnote{Note, without reflecting across the y-axis, this operation would not be associative. It also makes sense with the notion that three colinear points sum to the point-at-infinity $P+Q+R=I$ and hence, $P+Q=-R$.}
+It turns out, Elliptic curves are special because one can define a reasonable notion of addition with points on the curve. The one caveat is that we require a point 'at infinity' $I$ to do so. Formally, this means were working in the projective real plane $\mathbb{RP}^2$. But with this, we obtain the property that any secant drawn through two points on the curve must intersect another third point on the curve or this point at infinity $I$. Thus we will define the addition of two points $P$ and $Q$ to be this third point reflected across the y-axis.\footnote{Note, without reflecting across the y-axis, this operation would not be associative. It also makes sense with the notion that three colinear points sum to the point-at-infinity $A+B+C=I$ and hence, $A+B=-C$.}
 
 \begin{figure}[ht]
 \begin{center}
@@ -249,7 +249,9 @@ It turns out, Elliptic curves are special because one can define a reasonable no
 \end{center}
 \end{figure}
 
-We can make this idea rigorous by using some geometric tools. Our third point R is defined as the intersection of our elliptic curve $y^2 = x^3 + ax +b$ and some secant line $y=mx+l$. Given the points $P, Q = (x_p,y_p), (x_q,y_q)$ we can write down the slope:
+\subsection{Addition of two points}
+
+We can make this idea rigorous by using some geometric tools. Our third point $-R$ is defined as the intersection of our elliptic curve $y^2 = x^3 + ax +b$ and some secant line $y=mx+l$. Given the points $P, Q = (x_p,y_p), (x_q,y_q)$ we can write down the slope:
 \[m = \frac{y_p - y_q}{x_p-x_q}\]
 Proceeding with the simultaneous equations
 \begin{align}
@@ -266,14 +268,32 @@ Now, this cubic has three real solutions, namely the roots of P, Q and R respect
 \[(x-x_p)(x-x_q)(x-x_r) = x^3 - (m^2)x^2 - (2ml)x + (b-l^2)\]
 The next step is to expand the left side out and equate coefficients.
 \begin{align*}
-&= x^3 - \color{Purple}{(x_p+x_q+x_r)} \color{black}{x^2} +  (x_p x_q + x_px_r + x_qx_r) x  - x_px_qx_r\\
-&= x^3\hspace*{1.63cm}  - \color{Purple}{(m^2)} \color{black}{x^2}  - (2ml) x  + (b-l^2) \text{\hspace*{1.2cm}}
+LH &= x^3 - \color{Purple}{(x_p+x_q+x_r)} \color{black}{x^2} +  (x_p x_q + x_px_r + x_qx_r) x  - x_px_qx_r\\
+RH &= x^3\hspace*{1.6cm}  - \color{Purple}{(m^2)} \color{black}{x^2} \hspace*{2.4cm}  - (2ml) x  + (b-l^2). \text{\hspace*{1.2cm}}
 \end{align*}
 This means, using the purple coefficients,
 \begin{align*}
 m^2 &= x_p +x_q+x_r\\
-\therefore \hspace*{0.3cm} x_r &= m^2 - x_p - x_q
+\therefore \hspace*{0.3cm} x_r &= m^2 - x_p - x_q. \tag 4
 \end{align*}
+Substituting the x coordinate of $-R$, $x_r$ into the point-slope form of the line with $m = \frac{y_p - y_q}{x_p-x_q}$ we obtain,
+\begin{align*}
+y-y_q &= m(x-x_q) \\
+\therefore \hspace*{0.3cm} y_r &= y_q + m(x_r-x_q)\\ 
+&= y_p + m(x_r -x_p).
+\end{align*}
+
+Flipping our result across the y-axis to obtain $R$, we have (finally),
+
+\begin
+  (x_p,y_p)+(x_q,y_q) := \left( m^2 -x_p-x_q,\; -y_q - m(x_r-x_q) \right),
+\]
+\begin{center}
+where $m = \frac{y_p - y_q}{x_p-x_q}$.
+\end{center}
+\qed
+
+
 
 
 
