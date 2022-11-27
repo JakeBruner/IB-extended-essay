@@ -30,6 +30,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.5}Adding a point to itself}{15}{subsection.0.4.5}%
 \defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.6}As a group over K = $\mathbb {R}$}{15}{subsection.0.4.6}%
+\defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {5}Conclusion}{15}{section.0.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {5.1}Limitations and Reflection}{15}{subsection.0.5.1}%

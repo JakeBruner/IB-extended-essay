@@ -213,7 +213,7 @@ One key property that we didn't require in our group axioms is \textit{commutati
 \subsection{Definition of an Elliptic Curve}
 While the elliptic curve group admits an intuitive geometric description, it's important that our algebraic description satisfies the group axioms.  $ E(\field_{q} )$ 
 
-In a complete turn of events (that will hopefully make sense in the end), I want to explain the notion of \textit{Elliptic Curves}. Elliptic curves are a family of  algebraic\footnote{Meaning a dimension one algebraic variety since it admits a group structure.} curves defined as the solution set of a polynomial equation. Namely, an elliptic curve is the set of solutions $(x,y)$ to an equation of the form:\autocite[10]{koblitz}
+In a complete turn of events (that will hopefully make sense in the end), I want to explain the notion of \textit{Elliptic Curves}. Elliptic curves are a family of  algebraic\footnote{Specifically a dimension one algebraic variety since it admits a group structure.} curves defined as the solution set of a polynomial equation. Namely, an elliptic curve is the set of solutions $(x,y)$ to an equation of the form:\autocite[10]{koblitz} \footnote{The general form of an elliptic curve $y^3 + a_1xy + a_2y = x^3 + a_3x^2 + a_4x + a_5$ can always be transformed in a series of scalings and rotations to the reduced form preserving the group structure as long as the field is of characteristic not 2 or 3.}
 \[y^2 = x^3 + ax + b, \text{ for constants } a,b.\]
 Importantly, the behavior of this curve is dependent on the ground 'field' on which one defines it. We will look at the familiar case of the reals shortly, but this is an important distinction, hinting towards the possibility of a discrete context, or field, to come. Field, in mathematics, refers to a structure where any two elements have a well-defined notion of addition, subtraction, multiplication and division (except by a 0 element). The most important examples are the rationals $\rationals$, the reals $\reals$, and the complex numbers $\complexes$. Not the integers since, take, for example: $1, 2 \in \integers$, but $\frac{1}{2} \notin \integers$. We will begin with the case of an elliptic curve over the reals.
 
@@ -227,7 +227,7 @@ Importantly, the behavior of this curve is dependent on the ground 'field' on wh
 \end{center}
 \end{figure}
 
-In \ref{fig:realECs}, we see the general shape of an elliptic curve, usually with a sort-of bulbous head on the left. This complicated shape arises from square rooting a general depressed cubic of the form $y=x^3+px+q$. Without the $x^2$ term, this cubic is guaranteed to have only one inflection point, since its second derivative $y'' = 6x$ does not depend on $p$ or $q$. Since square roots preserve the inflection points, we  can see the connected graphs in \ref{fig:realECs} all have inflections at zero.
+In \ref{fig:realECs}, we see the general shape of an elliptic curve, usually with a sort-of bulbous head on the left. This complicated shape arises from square rooting a general depressed cubic of the form $y=x^3+px+q$. Without the $x^2$ term, this cubic is guaranteed to have only one inflection point at $x=0$, since its second derivative $y'' = 6x$ does not depend on $p$ or $q$. Since square roots preserve the inflection points, we  can see the connected graphs in \ref{fig:realECs} all have inflections at zero.
 Furthermore, the process of square-rooting increases values from $0<y<1$ and decreases values when $y>1$ with a fixed point at $1$. Over $\reals$, square roots are limited to inputs greater than $0$, but since we take both branches $(\pm)$ of the root, we see reflection symmetry across the y-axis (this will be important in a moment). To illustrate the relationship: 
 \begin{figure}[ht]
 \begin{center}
@@ -239,7 +239,7 @@ Furthermore, the process of square-rooting increases values from $0<y<1$ and dec
 
 \subsection{Geometric idea}
 
-It turns out, Elliptic curves are special because one can define a reasonable notion of addition with points on the curve. The one caveat is that we require a point 'at infinity' $I$ to do so. Formally, this means were working in the projective real plane $\mathbb{RP}^2$. But with this, we obtain the property that any secant drawn through two points on the curve must intersect another third point on the curve or this point at infinity $I$. Thus we will define the addition of two points $P$ and $Q$ to be this third point reflected across the y-axis.\footnote{Note, without reflecting across the y-axis, this operation would not be associative. It also makes sense with the notion that three colinear points sum to the point-at-infinity $A+B+C=I$ and hence, $A+B=-C$.}
+It turns out, Elliptic curves are special because one can define a reasonable notion of addition with points on the curve. The one caveat is that we require a point 'at infinity' $I$ to do so. Formally, this means were working in the projective real plane $\mathbb{RP}^2$ or $\mathbb{R}^2 \cup \lbrace \infty \rbrace$ . But with this, we obtain the property that any secant drawn through two points on the curve must intersect another third point on the curve or this point at infinity $I$. Thus we will define the addition of two points $P$ and $Q$ to be this third point reflected across the y-axis.\footnote{Note, without reflecting across the y-axis, this operation would not be associative. It also makes sense with the notion that three colinear points sum to the point-at-infinity $A+B+C=I$ and hence, $A+B=-C$.}
 
 \begin{figure}[ht]
 \begin{center}
@@ -278,19 +278,17 @@ m^2 &= x_p +x_q+x_r\\
 \end{align*}
 Substituting the x coordinate of $-R$, $x_r$ into the point-slope form of the line with $m = \frac{y_p - y_q}{x_p-x_q}$ we obtain,
 \begin{align*}
-y-y_q &= m(x-x_q) \\
-\therefore \hspace*{0.3cm} y_r &= y_q + m(x_r-x_q)\\ 
+y_r &= y_q + m(x_r-x_q)\\ 
 &= y_p + m(x_r -x_p).
 \end{align*}
-
-Flipping our result across the y-axis to obtain $R$, we have (finally),
+Flipping our result across the y-axis to obtain $R$, we have (finally),\footnote{As long as $P \neq Q$ and $P \neq -Q$.}
 
 \begin{align*}
 P \; + \; Q \; &:= \; R\\
-(x_p,y_p)+(x_q,y_q) &:= \left( m^2 -x_p-x_q,\; -y_q - m(x_r-x_q) \right),
+(x_p,y_p)+(x_q,y_q) &:= \left( m^2 -x_p-x_q,\;\  -y_q - m(x_r-x_q) \right),
 \end{align*}
 \begin{center}
-where $m = \frac{y_p - y_q}{x_p-x_q}$.\footnote{As long as $P \neq Q$ and $P \neq -Q$.}
+where $m = \frac{y_p - y_q}{x_p-x_q}$.
 \end{center}
 \qed
 
@@ -304,13 +302,32 @@ The case that was left out of the earlier pictorial representation of point addi
 Thus with,
 \[y_r-y_p = m(x_r-x_p)\]
 \begin{center}
-where $m = \frac{3x_p+a}{2y_p}$
+where $m = \frac{3x_p^2+a}{2y_p}$,
 \end{center}
-blah blah
+we can use the same result as before with $P=Q$:
+\begin{align*}
+m^2 &= x_p +x_q +x_r\\
+\Rightarrow \hspace*{0.3cm} x_r &= m^2 - 2x_p \tag 5\\
+\end{align*}
+and, using the point-slope form and flipping across the y-axis, 
+\begin{align*}
+y_r = -y_p-m(x_r-x_p)
+\end{align*}
+*A word on notation: the choice to use $+$ to denote this binary operation is entirely arbitrary, and many authors use alternate notation to represent this ($\times, \oplus,\otimes,\star$ etc.). Using $+$ hints that adding a point $P$ to itself $n$ times might be written $nP$, but for sake of consistency with the theory to come, I will write this $P^n$ meaning $P+P+...+P$, $n$-times. This will make sense in a moment.
+
+\subsection{As a group over K = $\reals$}
+
+By the higher powers of mathematical serendipity, this forms a group! A very special group at that. We can write this elliptic curve group as $E[\reals]$ for the case of the reals
 
 
 
-
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=\linewidth]{krationalpoints.png} 
+\caption{Plot of the points on the Elliptic Curve over $\mathbb{F}_{19}$}
+\label{fig:krational}
+\end{center}
+\end{figure}
 
 \section{Conclusion}
 \subsection{Limitations and Reflection}
