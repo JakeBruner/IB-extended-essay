@@ -293,7 +293,7 @@ where $m = \frac{y_p - y_q}{x_p-x_q}$.
 \qed
 
 \subsection{Adding a point to itself}
-The case that was left out of the earlier pictorial representation of point addition is when a point is added to itself. Not to fear, however, since one just replaces the secant through two points with a tangent through one. The resultant point is the resultant intersection flipped across the y-axis. The slope of this tangent can be found through implicit differentiation.
+The case that was left out of the earlier pictorial representation of point addition is when a point is added to itself. Not to fear, however, since we can replace the secant through two points with a tangent through one. The resultant point is the resultant intersection flipped across the y-axis. The slope of this tangent can be found through implicit differentiation.
 \begin{align*}
 \color{red}{d(}\color{black}{y^2}\color{red}{)} &= \color{red}{d(}\color{black}{x^3+ax+b}\color{red}{)}\\
 2y\color{red}{dy} &= 3x^2\color{red}{dx} \color{black}\; { + \; a} \color{red}{dx}\\
@@ -317,7 +317,7 @@ y_r = -y_p-m(x_r-x_p)
 
 \subsection{As a group over K = $\reals$}
 
-By the higher powers of mathematical serendipity, this forms a group! A very special group at that. We can write this elliptic curve group as $E[\reals]$ for the case of the reals
+By the higher powers of mathematical serendipity, this forms a group! A very special group at that. We can write this elliptic curve group as $E[\reals]$ for the case in the reals.
 
 
 
@@ -325,7 +325,7 @@ By the higher powers of mathematical serendipity, this forms a group! A very spe
 \begin{center}
 \includegraphics[width=\linewidth]{krationalpoints.png} 
 \caption{Plot of the points on the Elliptic Curve over $\mathbb{F}_{19}$}
-\label{fig:additionEC}
+\label{fig:krational}
 \end{center}
 \end{figure}
 
