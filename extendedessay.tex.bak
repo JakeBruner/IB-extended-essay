@@ -8,6 +8,7 @@
 \usepackage[hidelinks]{hyperref}  % most people dont know of this :3
 \usepackage[dvipsnames]{xcolor}
 \usepackage{systeme}
+\usepackage{subcaption}
 
 \usepackage[backend=bibtex,style=verbose-ibid]{biblatex}
 \addbibresource{citations.bib}
@@ -120,8 +121,8 @@ The intuitive way to implement this cryptosystem has the two transacting parties
 , where $f$ is a shift operation that maps each letter to a new one a number of places ahead or behind. For instance, the two parties might decide beforehand the map $f$: \textit{shift each character forward in the alphabet 3 letters}, implying the inverse map $f\inv$: \textit{shift each character back 3 letters}. This might look like so: \footnote[0]{The informed reader will notice that Ceaser Ciphers are really just linear transformations in disguise, provoking thought into whether more advanced techniques could be used. For instance, we could consider groups of two letters, called \textit{digraphs}, resulting in $f$ being a 2x2 invertible matrix, encoding the shift in a two-by-two matrix. Similarly, we could consider invertible \textit{affine} transformations of the form $f:\vec{x} \to A\vec{x} + \vec{b}$, where A encodes a certain scaling factor.}
 
 \begin{align*}
- \mathcal{P} &\sim A,B,C,D,E,F,…Y,Z  \\ 
- \mathcal{C} &\sim D,E,F,G,H,I,…B,C 
+ \mathcal{P} &\sim A,B,C,D,E,F,...Y,Z  \\ 
+ \mathcal{C} &\sim D,E,F,G,H,I,...B,C 
 \end{align*} % I'm not sure what symbol to use here...Equivalance relation? Monomorphism?
 And, for example, if you wanted to encrypt the message $\mathcal{P} =$ "HELLO", you would obtain the ciphertext $\mathcal{C} =$ "KHOOR" which you would promptly send off for your friend to decode with the inverse, subtract-three-letters map. Note that, even in this simple example, repeated letters, word length, and other syntactic information provide a lot of information about the nature of the plaintext. Although this is a trivial example, schemes which, loosely speaking, encode any information about the syntax (or related notions) of the plaintext are usually highly vulnerable to a technique called \textit{differential cryptanalysis},which, at a high level, measures the change in cyphertext given a change in input, primarily targeting published symmetric-key protocols.\autocite[56]{koblitz} 
 
@@ -313,14 +314,37 @@ and, using the point-slope form and flipping across the y-axis,
 \begin{align*}
 y_r = -y_p-m(x_r-x_p)
 \end{align*}
+\qed
+
 *A word on notation: the choice to use $+$ to denote this binary operation is entirely arbitrary, and many authors use alternate notation to represent this ($\times, \oplus,\otimes,\star$ etc.). Using $+$ hints that adding a point $P$ to itself $n$ times might be written $nP$, but for sake of consistency with the theory to come, I will write this $P^n$ meaning $P+P+...+P$, $n$-times. This will make sense in a moment.
 
 \subsection{As a group over K = $\reals$}
 
-By the higher powers of mathematical serendipity, this forms a group! A very special group at that. We can write this elliptic curve group as $E[\reals]$ for the case in the reals.
+By the higher powers of mathematical serendipity, this forms a group! A very special group at that. We can write this elliptic curve group as $E[\reals]$ for the case in the reals. To (at least, heuristically) verify the group axioms hold, we first see in our formulas
 
 
 
+
+
+\begin{figure}[ht]
+\centering
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[width = \textwidth]{krationalpoints19.png}
+\caption{$y^2 = x^3 + 15x + 1$ over $\field_{19}$}
+\label{fig:left}
+\end{subfigure}
+\begin{subfigure}{0.49\textwidth}
+\centering
+\includegraphics[width = \textwidth]{krationalpoints23.png}
+\caption{$y^2 = x^3 + 12x + 17$ over $\field_{23}$}
+\label{fig:right}
+\end{subfigure}
+\caption{Select elliptic curves plotted over finite fields.}
+\label{fig:combined}
+\end{figure}
+
+\if false
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=\linewidth]{krationalpoints.png} 
@@ -328,6 +352,7 @@ By the higher powers of mathematical serendipity, this forms a group! A very spe
 \label{fig:krational}
 \end{center}
 \end{figure}
+\fi
 
 \section{Conclusion}
 \subsection{Limitations and Reflection}
