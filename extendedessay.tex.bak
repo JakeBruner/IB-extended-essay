@@ -293,6 +293,16 @@ where $m = \frac{y_p - y_q}{x_p-x_q}$.
 \end{center}
 \qed
 
+In the case of adding two points opposite each other over the y-axis, one says they intersect the third point "at infinity." In general, over a projective plane, we revise the parallel postulate to say "any two parallel lines share one point of intersection, namely the point at infinity." We
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=\linewidth]{3dplot.png} 
+\caption{Point addition of two points $P$ and $Q$, defined by reflecting the third point of intersection across the y-axis, on $y^2 = x^3 -x+1$.}
+\label{fig:3dproj}
+\end{center}
+\end{figure}
+
 \subsection{Adding a point to itself}
 The case that was left out of the earlier pictorial representation of point addition is when a point is added to itself. Not to fear, however, since we can replace the secant through two points with a tangent through one. The resultant point is the resultant intersection flipped across the y-axis. The slope of this tangent can be found through implicit differentiation.
 \begin{align*}

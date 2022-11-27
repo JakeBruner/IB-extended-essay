@@ -293,6 +293,16 @@ where $m = \frac{y_p - y_q}{x_p-x_q}$.
 \end{center}
 \qed
 
+In the case of adding two points opposite each other over the y-axis, one says they intersect the third point "at infinity." In general, over a projective plane, we revise the parallel postulate to say "any two parallel lines share one point of intersection, namely the point at infinity." We
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=\linewidth]{3dplot.png} 
+\caption{Point addition of two points $P$ and $Q$, defined by reflecting the third point of intersection across the y-axis, on $y^2 = x^3 -x+1$.}
+\label{fig:3dproj}
+\end{center}
+\end{figure}
+
 \subsection{Adding a point to itself}
 The case that was left out of the earlier pictorial representation of point addition is when a point is added to itself. Not to fear, however, since we can replace the secant through two points with a tangent through one. The resultant point is the resultant intersection flipped across the y-axis. The slope of this tangent can be found through implicit differentiation.
 \begin{align*}
@@ -314,11 +324,13 @@ and, using the point-slope form and flipping across the y-axis,
 \begin{align*}
 y_r = -y_p-m(x_r-x_p)
 \end{align*}
+\qed
+
 *A word on notation: the choice to use $+$ to denote this binary operation is entirely arbitrary, and many authors use alternate notation to represent this ($\times, \oplus,\otimes,\star$ etc.). Using $+$ hints that adding a point $P$ to itself $n$ times might be written $nP$, but for sake of consistency with the theory to come, I will write this $P^n$ meaning $P+P+...+P$, $n$-times. This will make sense in a moment.
 
 \subsection{As a group over K = $\reals$}
 
-By the higher powers of mathematical serendipity, this forms a group! A very special group at that. We can write this elliptic curve group as $E[\reals]$ for the case in the reals.
+By the higher powers of mathematical serendipity, this forms a group! A very special group at that. We can write this elliptic curve group as $E[\reals]$ for the case in the reals. To (at least, heuristically) verify the group axioms hold, we first see in our formulas
 
 
 
