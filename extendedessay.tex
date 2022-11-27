@@ -238,7 +238,7 @@ Furthermore, the process of square-rooting increases values from $0<y<1$ and dec
 \end{center}
 \end{figure}
 
-\subsection{Geometric idea}
+\subsection{Geometric secant-tangent construction}
 
 It turns out, Elliptic curves are special because one can define a reasonable notion of addition with points on the curve. The one caveat is that we require a point 'at infinity' $I$ to do so. Formally, this means were working in the projective real plane $\mathbb{RP}^2$ or $\mathbb{R}^2 \cup \lbrace \infty \rbrace$ . But with this, we obtain the property that any secant drawn through two points on the curve must intersect another third point on the curve or this point at infinity $I$. Thus we will define the addition of two points $P$ and $Q$ to be this third point reflected across the y-axis.\footnote{Note, without reflecting across the y-axis, this operation would not be associative. It also makes sense with the notion that three colinear points sum to the point-at-infinity $A+B+C=I$ and hence, $A+B=-C$.}
 
@@ -293,15 +293,25 @@ where $m = \frac{y_p - y_q}{x_p-x_q}$.
 \end{center}
 \qed
 
-In the case of adding two points opposite each other over the y-axis, one says they intersect the third point "at infinity." In general, over a projective plane, we revise the parallel postulate to say "any two parallel lines share one point of intersection, namely the point at infinity." We
+\subsection{Inverse Points and Infinity}
 
-\begin{figure}[ht]
+In the case of adding two points opposite each other over the y-axis, one says they intersect the third point "at infinity." In general, over a projective plane, we revise the parallel postulate to say "any two parallel lines share one point of intersection, namely the point at infinity." We see this in \ref{fig:3dproj}; much like train tracks meeting the horizon, the two parallel, vertical lines meet at $\infty$ or $I$. 
+
+\begin{figure}[h]
 \begin{center}
 \includegraphics[width=\linewidth]{3dplot.png} 
-\caption{Point addition of two points $P$ and $Q$, defined by reflecting the third point of intersection across the y-axis, on $y^2 = x^3 -x+1$.}
+\caption{Parallel lines drawn through inverse points, all intersecting at point at infinity $I$ over $y^2=x^3 - x + 1$. As in, $P + (-P) = I = Q + (-Q)$.}
 \label{fig:3dproj}
 \end{center}
 \end{figure}
+
+Because of this construction, $I$ acts as a left- and right-sided identity element. Since, for any ($\reals$-rational) point $A$ with inverse $-A$ on the elliptic-curve,
+\begin{align*}
+  A + (-A) &= I\\
+  A + (-A)\; \color{blue}{+ A} &= I \color{blue}{+ A}\\
+  \Rightarrow \hspace*{0.3cm} A + I &= I + A = A
+\end{align*}
+
 
 \subsection{Adding a point to itself}
 The case that was left out of the earlier pictorial representation of point addition is when a point is added to itself. Not to fear, however, since we can replace the secant through two points with a tangent through one. The resultant point is the resultant intersection flipped across the y-axis. The slope of this tangent can be found through implicit differentiation.
@@ -327,6 +337,8 @@ y_r = -y_p-m(x_r-x_p)
 \qed
 
 *A word on notation: the choice to use $+$ to denote this binary operation is entirely arbitrary, and many authors use alternate notation to represent this ($\times, \oplus,\otimes,\star$ etc.). Using $+$ hints that adding a point $P$ to itself $n$ times might be written $nP$, but for sake of consistency with the theory to come, I will write this $P^n$ meaning $P+P+...+P$, $n$-times. This will make sense in a moment.
+
+\section{Group structure of $\mathbf{E(K)}$}
 
 \subsection{As a group over K = $\reals$}
 

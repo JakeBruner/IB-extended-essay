@@ -24,14 +24,18 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.2}Elliptic Curves over the Reals}{11}{subsection.0.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.3}Geometric idea}{12}{subsection.0.4.3}%
+\contentsline {subsection}{\numberline {4.3}Geometric secant-tangent construction}{12}{subsection.0.4.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {4.4}Addition of two points}{13}{subsection.0.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.5}Adding a point to itself}{15}{subsection.0.4.5}%
+\contentsline {subsection}{\numberline {4.5}Inverse Points and Infinity}{15}{subsection.0.4.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.6}As a group over K = $\mathbb {R}$}{16}{subsection.0.4.6}%
+\contentsline {subsection}{\numberline {4.6}Adding a point to itself}{16}{subsection.0.4.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {5}Conclusion}{16}{section.0.5}%
+\contentsline {section}{\numberline {5}Group structure of $\mathbf {E(K)}$}{16}{section.0.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {5.1}Limitations and Reflection}{16}{subsection.0.5.1}%
+\contentsline {subsection}{\numberline {5.1}As a group over K = $\mathbb {R}$}{16}{subsection.0.5.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {6}Conclusion}{17}{section.0.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {6.1}Limitations and Reflection}{17}{subsection.0.6.1}%
