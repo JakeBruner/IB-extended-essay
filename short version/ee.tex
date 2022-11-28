@@ -251,16 +251,16 @@ One key property that we didn't require in our group axioms is \textit{commutati
 
 \subsection{Applying Group Theory to Cryptography: Cyclic Groups}
 
-  Much of the groups that are of importance to cryptography are abelian groups. For intuition on why this may be the case, consider the Diffie-Hellman example before. Both parties combined a series of steps involving their generator and private keys. If the underlying multiplicative group were not abelian, $(g^a)^b$ doesn't necessarily equal $(g^b)^a$. But what was that underlying group?
+  Much of the groups that are of importance to cryptography are abelian groups. For intuition on why this may be the case, consider the Diffie-Hellman example before. Both parties combined a series of steps involving their generator and private keys. If the underlying multiplicative group were not abelian, $(g^a)^b$ doesn't necessarily equal $(g^b)^a$. Similarly, in the case of a one-time-pad, if our modular addition weren't commutative, our results would be unpredictable. This provokes the question, were these cases abelian groups?
+ 
+ The group of integers under addition \textit{modulo} $n$ is denoted $(\integers / n \integers, +)$ or just $\integers / n \integers$  and is called the 'cyclic group of order $n$.' In an earlier example, we performed operations in $(\integers / 26 \integers, +)$ so as to not surpass the alphabet. The notation here is actually meaningful. Without delving too far into 'quotient groups' and 'normal subgroups,' the slash corresponds to 'quotienting' out the integers by $p$ times the integers, creating a group where $1$ is indistinguishable from $p+1$ and indeed $2p+1, 3p+1, -p+1, -2p+1...$, called an \textit{equivalence relation}.\autocite[104]{saracino} This formalizes the impercise notions of 'going around a clock face.'
   
-  Performing multiplication in a modular fashion ($\bmod\; p$, $p$ prime),\footnote{Technically, $p$ can be a prime power.} we were, unknowingly, working in the group $(\integers / p \integers, \times)$, called \textit{the cyclic group of order $p$}. The notation here is actually meaningful. Without delving too far into 'quotient groups' and 'normal subgroups,' the slash corresponds to 'quotienting' out the integers by $p$ times the integers, creating a group where $1$ is indistinguishable from $p+1$ and indeed $2p+1, 3p+1, -p+1, -2p+1...$, called an \textit{equivalence relation}.\autocite[104]{saracino} This formalizes the notion of 'going around a clock face.'
-  
-  In this multiplicative group, it takes more care to define inverses than in the more familiar examples. Inverses can be computed using the Euclidean Algorithm or by leveraging the symmetries in modular multiplication. Essentially, in $(\integers / p \integers, \times)$, the multiplicative inverse of a number $n$ is a number $m$ such that,
+  Contrastingly, performing multiplication in a modular fashion forms the group $(\integers / n \integers, \times)$ or $(\integers / n \integers)^{\times})$. This group behaves a little differently and consists of the elements $\lbrace 0, 1 ...,n-1\rbrace$ that are relatively prime to $n$, i.e., share no nontrivial divisors. In this multiplicative group, it takes more care to define inverses than in the more familiar examples. Inverses can be computed using the Euclidean Algorithm or by leveraging the symmetries in modular multiplication. Essentially, in $(\integers / n \integers)^{\times})$, the multiplicative inverse of a number $n$ is a number $m$ such that,
 \[ nm \equiv 1 \mod p\]
 
-Now, proving the condition that $p$ must be prime (or a prime power), consider that the invertible elements of $(\integers / q \integers, \times)$ (for any $q$) are exactly those that are relatively prime to $q$. The proof is by contradiction:
+Now, proving that the elements are only those relatively prime to $n$, consider that the invertible elements of $(\integers / n \integers)^{\times})$ (for any $q$) are exactly those that are relatively prime to $q$. The proof is by contradiction:
 
-	If $\mathrm{gcd}(n,p) = d$ with $d \neq 1$, assume there is some $m$ for which $nm \equiv 1 \mod p$. Expanding this out,
+	If $\mathrm{gcd}(n,q) = d$ (i.e., they share a nontrivial divisor) with $d \neq 1$, assume there is some $m$ for which $nm \equiv 1 \mod p$. Expanding this out,
 \begin{align*}
 	nm &\equiv 1 \mod p\\
 	nm - 1 &\equiv 0 \mod p\\
@@ -269,16 +269,25 @@ Now, proving the condition that $p$ must be prime (or a prime power), consider t
 	\Rightarrow &\hspace*{0.3cm} d | nm-1 -nm\; (\text{since } d|nm)\\
 	\Rightarrow &\hspace*{0.3cm} d | 1
 \end{align*}
-As $1$ is not divisible by anything except $1$, our assumption was false and $\mathrm{gcd}(n,p)$ must be one.\autocite[19]{koblitz} For $n < p$ (by the equivalence relation), this means $p$ must be prime or a positive integer power of a prime so that every $n<p$ is relatively prime to $p$ (i.e., $\mathrm{gcd}(n,p) = 1,\; \forall n$).
+As $1$ is not divisible by anything except $1$, our assumption was false and $n$ cannot have an inverse and is not $\in (\integers / n \integers)^{\times})$.\autocite[19]{koblitz} 
 \qed
+
+Notice that for prime $p$, every number $< p$ is relatively prime to $p$, so the order of the group $(\integers / n \integers)^{\times}$ is $p-1$, which you might notice is the same as the order of $(\integers / n \integers)^{+}$. This fact will be useful in a bit.
+
 
 \subsection{Discrete Logarithm Problem}
 
 This also sheds light on the security of cryptography. In a Diffie-Hellman key exchange over $\integers / q \integers$, Alice and Bob were using the map $f$,
-\[ f(n) = g^n \bmod p \]
+\[ f(n) = g^n \bmod q \]
 or, written in terms of their respective groups,
-\[ f: \integers \rightarrow \integers / p \integers \]
-This $f$ is a function between groups (a \textit{group homomorphism}) from $\integers$ \textit{onto} a \textit{subset} of $\integers / p \integers$ surjectively.
+\[ f: \integers \rightarrow (\integers / q \integers)^{\times} \]
+This $f$ is a function between groups (a \textit{group homomorphism}) from $\integers$ \textit{onto} a \textit{\textbf{subset}} of $(\integers / q \integers)^{\times}$ surjectively, namely the subset generated by $g^n$ which I will denote $H$. The inverse mapping here (the 'computationally difficult' part), isn't defined for the entirety of $\mathrm{dom}\: f$, since $f$ takes an infinite group $\integers$ to a subset $H$ of the finite group $(\integers / q \integers)^{\times}$. 
+
+Roughly sketching the 'why' behind what is to follow, it can be shown that any finite abelian group must consist of cyclic groups as building blocks, cyclic groups being the integers under addition modulo some $n$. \footnote{By the (aptly named) Fundamental Theorem of Finitely Generated Abelian Groups. \\\autocite[134]{saracino}} Hence, our subset $H$ (which one can prove forms a group as well, a 'subgroup') must be one of these cyclic groups. We can then write this sort-of inverse map $f\inv$ as,
+
+\[ \log_g : H \rightarrow (\integers / q \integers, +) \]
+
+Ascertaining this 'hidden' cyclic subgroup $H$ is known to be a difficult problem, and this difficulty of computing the original integer $n$ is infeasible since $\log_g$ does not map back to all the integers: just some additive group of the integers modulo some $q$.
 
 
 \section{Group Law on an Elliptic Curve}
