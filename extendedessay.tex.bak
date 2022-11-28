@@ -238,7 +238,7 @@ Furthermore, the process of square-rooting increases values from $0<y<1$ and dec
 \end{center}
 \end{figure}
 
-\subsection{Geometric idea}
+\subsection{Geometric secant-tangent construction}
 
 It turns out, Elliptic curves are special because one can define a reasonable notion of addition with points on the curve. The one caveat is that we require a point 'at infinity' $I$ to do so. Formally, this means were working in the projective real plane $\mathbb{RP}^2$ or $\mathbb{R}^2 \cup \lbrace \infty \rbrace$ . But with this, we obtain the property that any secant drawn through two points on the curve must intersect another third point on the curve or this point at infinity $I$. Thus we will define the addition of two points $P$ and $Q$ to be this third point reflected across the y-axis.\footnote{Note, without reflecting across the y-axis, this operation would not be associative. It also makes sense with the notion that three colinear points sum to the point-at-infinity $A+B+C=I$ and hence, $A+B=-C$.}
 
@@ -297,7 +297,7 @@ where $m = \frac{y_p - y_q}{x_p-x_q}$.
 
 In the case of adding two points opposite each other over the y-axis, one says they intersect the third point "at infinity." In general, over a projective plane, we revise the parallel postulate to say "any two parallel lines share one point of intersection, namely the point at infinity." We see this in \ref{fig:3dproj}; much like train tracks meeting the horizon, the two parallel, vertical lines meet at $\infty$ or $I$. 
 
-\begin{figure}[h!]
+\begin{figure}[h]
 \begin{center}
 \includegraphics[width=\linewidth]{3dplot.png} 
 \caption{Parallel lines drawn through inverse points, all intersecting at point at infinity $I$ over $y^2=x^3 - x + 1$. As in, $P + (-P) = I = Q + (-Q)$.}
@@ -309,7 +309,7 @@ Because of this construction, $I$ acts as a left- and right-sided identity eleme
 \begin{align*}
   A + (-A) &= I\\
   A + (-A)\; \color{blue}{+ A} &= I \color{blue}{+ A}\\
-  \Rightarrow \hspace*{0.3cm} A + I &= I + A = A
+  \Rightarrow \hspace*{0.3cm} A + I &= I + A = A \tag 5
 \end{align*}
 
 
@@ -328,7 +328,7 @@ where $m = \frac{3x_p^2+a}{2y_p}$,
 we can use the same result as before with $P=Q$:
 \begin{align*}
 m^2 &= x_p +x_q +x_r\\
-\Rightarrow \hspace*{0.3cm} x_r &= m^2 - 2x_p \tag 5\\
+\Rightarrow \hspace*{0.3cm} x_r &= m^2 - 2x_p \tag 6\\
 \end{align*}
 and, using the point-slope form and flipping across the y-axis, 
 \begin{align*}
@@ -338,11 +338,39 @@ y_r = -y_p-m(x_r-x_p)
 
 *A word on notation: the choice to use $+$ to denote this binary operation is entirely arbitrary, and many authors use alternate notation to represent this ($\times, \oplus,\otimes,\star$ etc.). Using $+$ hints that adding a point $P$ to itself $n$ times might be written $nP$, but for sake of consistency with the theory to come, I will write this $P^n$ meaning $P+P+...+P$, $n$-times. This will make sense in a moment.
 
-\subsection{As a group over K = $\reals$}
+\section{Group structure of $\mathbf{E(K)}$}
 
-By the higher powers of mathematical serendipity, this forms a group! A very special group at that. We can write this elliptic curve group as $E[\reals]$ for the case in the reals. To (at least, heuristically) verify the group axioms hold, we first see in our formulas
+\subsection{Verifying the group axioms}
 
+By the higher powers of mathematical serendipity, this forms a group! A very special group at that. We can write this elliptic curve group as $E[\reals]$ for the case in the reals. Or, $E[K]$ for any field $K$ (again, a structure with $+, -, \times, \div$).
 
+	Now, we will (at least, heuristically) verify that the group axioms hold, we first see in eq (5) that we have a two-sided identity, $I$, given by the point at infinity. Hence,
+\[ P + I = I + P = I \; \text{ for all } P \in E[K] \]
+Next, we prove the existence of an inverse for every element by noticing that our curve is symmetric about the y-axis. Similarly our identity element $I$ is self-inverse. Hence,
+\[ \text{for all } P \in E[K], \text{ there exists an inverse } -P \text{ such that } P + (-P) = I \]
+This operation is associative as well, but unfortunately a rigorous proof of this fact is unprecedentedly untame, especially through this geometric depiction of elliptic curves. With more powerful tools from algebraic geometry, this proof is almost trivial, following nicely from  tracking values on points of a curve (namely $\mathrm{Div}^0(E)$) and the relationship between poles and zeros, as stated by the Riemann-Roch theorem.\autocite[66]{silverman}
+Lastly, this binary operation of adding two points is \textit{commutative} as well, following geometrically from the secant construction or through the formulas.
+
+As a result of meeting these conditions, $E[K]$ forms an abelian group under our binary operation.
+
+\subsection{Elliptic curves over finite fields, $K = \field_p$}
+
+This elliptic curve group action holds for other fields $K$ as well. Most important to cryptography is elliptic curves over "finite" fields. 
+A finite field, denoted $\field_p$ for $p$ prime\footnote{Technically, $p$ can be a prime power. 
+One might write $\field_q$ where $q = p^r$.}, is a set of ordered pairs $(x,y)$ with addition, subtraction and multiplication taken \textit{modulo $p$}. 
+Division takes more care to define and is, in fact, the reason why $\mathrm{char}(E)$ must be prime.\autocite[159]{saracino}
+Multiplicative inverses (division) can be computed using the Euclidean Algorithm or by leveraging the symmetry. Essentially, over a field $\field_p$, the multiplicative inverse of a number $n$ is a number $m$ such that,
+\[ nm \equiv 1 \mod p\]
+The invertible elements of $\field_p$ are exactly those that are relatively prime to $p$. The proof is by contradiction:
+
+	If $\mathrm{gcd}(n,p) = d$ with $d \neq 1$, assume there is some $m$ for which $nm \equiv 1 \mod p$. Expanding this out,
+\begin{align*}
+	nm &\equiv 1 \mod p\\
+	nm - 1 &\equiv 0 \mod p\\
+	\Rightarrow \hspace*{0.3cm} p | nm-1\\
+	\Rightarrow \hspace*{0.3cm} d | nm-1\\
+	\Rightarrow \hspace*{0.3cm} d | 1
+\end{align*}
 
 
 
