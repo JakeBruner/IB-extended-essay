@@ -448,8 +448,11 @@ As I alluded to earlier, the condition that $p$ be prime is so that every elemen
 
 \subsection{Elliptic curves over finite fields, $K = \field_p$}
 
-Using the same equations from before, except with operations taken $, this elliptic curve
+Using the same equations from before, except with operations taken \textit{modulo} $p$, this elliptic curve still forms a group over a finite field, $E[\field_p]$. The elements of this group are the points, 
+\[ E[\field_p] = \left\lbrace (x,y)\ |\ y^2 \equiv x^3 + ax + b \bmod p \right\rbrace \cup \lbrace \infty \rbrace. \]
+with the additional $\infty$ element serving as the identity.
 
+Plotting examples of these groups over finite fields, we see the geometric intuition breaks down somewhat.
 \begin{figure}[ht]
 \centering
 \begin{subfigure}{0.49\textwidth}
@@ -468,12 +471,33 @@ Using the same equations from before, except with operations taken $, this ellip
 \label{fig:combined}
 \end{figure}
 
+In an attempt to better understand the group structure, I coded an interactive web-app in Typescript that computes the multiplication table of the group elements, known as a Cayley table. The symmetry about the diagonal indicates the commutativity as well.
 
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=\linewidth]{cayleytable.png} 
+\caption{App on my personal website computing the Cayley table of $y^2 = x^3 + 3x + 12$ over $\field_{17}$. Clicking on an element computes the subgroup it generates, the focused point being $(5,10)$ here.}
+\label{fig:cayley}
+\end{center}
+\end{figure}
 
+Using the elements of this elliptic curve group, one can formulate a new form of Diffie-Hellman key exchange where, given a suitable generator point $g$, all the repeated multiplications can be performed on this elliptic curve group. The benefit of doing this is that the structure of an elliptic curve group $E[\field_p]$ is much more complicated than that of $(\integers / q \integers)^{\times}$. When working in $(\integers / q \integers)^{\times}$, there are number-theoretical properties making it easier to narrow down guesses, especially when computing a discrete logarithm problem as discussed earlier. Diem, C. (2011) showed that that the discrete logarithm problem for elliptic curves has an asymptotic time complexity greater than that of $(\integers / q \integers)^{\times}$.\autocite[76]{diem} The culmination of this research into elliptic curve cryptography is the fact that most public key protocols utilize elliptic curves in one way or another. 
+
+\begin{figure}[ht]
+\begin{center}
+\includegraphics[width=\linewidth]{wikicert.png} 
+\caption{Certificate information for wikipedia showing the use of elliptic curve cryptography.}
+\label{fig:wiki}
+\end{center}
+\end{figure}
 
 \section{Conclusion}
-\subsection{Limitations and Reflection}
 
+In this paper, I sought to explore \textbf{to what extent does group theory provide a mathematical backdrop for modern public-key cryptography?} Resulting from my findings, it is clear that group theory does indeed provide a rich backdrop for discussing cryptographic concepts. Especially as computing power grows cheaper, the use of group-theoretical techniques to strengthen existing principles is paramount. For instance, the Diffie-Hellman protocol works on any abelian group. Further research is underway at examining other candidates for 'secure' groups, such as the study of hyperelliptic curves and other higher-genus abelian varieties (a variety forming an abelian group).
+
+In the process of researching, it's clear that there are two different mathematical perspectives introducing elliptic curves. The decision was made to continue with the simpler route, defining the elliptic curve as the solution to a polynomial equation. However, this is not strictly necessary, since elliptic curves arise in many other contexts, like through the intersection of two quadric surfaces (like a 3-sphere and a hyperboloid for instance). The other route is a more theoretical perspective, using tools from algebraic geometry and topology to reach the same conclusions as the simpler route. The benefit of approaching it this way, however, is that these tools can be generalized to other contexts to discover new group-theoretical perspectives on cryptography. Doing so also would decrease the 'arbitrary-ness' of some of the topics explored in this paper. Coming at a topic from the top-down can make certain difficult proofs and perspectives trivial, as I mention a couple times in the paper.
+
+Another aspect of this paper worth mentioning is the impercise handling of comparison between elliptic curve cryptography and traditional cryptography. Going into it, I intended to explore the nitty-gritty details of the elliptic curve group structure, detailing exactly why the hidden-subgroup problem and discrete logarithm problem were more difficult. This proved to be much more challenging than I anticipated, and, although I satisfied some of my own curiosity in researching, I knew it would be an impractical undertaking to convey the wealth of prerequisites in this paper to reach the conclusions I wanted. As a result, my reasearch question lacks some of the 'argument' I wanted it to have, rather opting for a more expository lens on this complicated subject. 
 
 
 \newpage 
