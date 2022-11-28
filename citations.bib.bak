@@ -187,12 +187,3 @@ pages = {1473–1485},
 year  = {1996},
 publisher = {The American Mathematical Society},
 }
-
-@article{bunimov,
-author = {Viktor Bunimov},
-title = {Area and time efficient modular multiplication of large integers},
-journal = {Proceedings IEEE International Conference on Application-Specific Systems, Architectures, and Processors. ASAP 2003},
-year  = {2003},
-publisher = {Institute of Electrical and Electronics Engineers},
-doi = {10.1109/ASAP.2003.1212863}
-}

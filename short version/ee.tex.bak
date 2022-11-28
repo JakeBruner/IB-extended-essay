@@ -198,24 +198,25 @@ Importantly, though, Alice and Bob both agree on a common result $g^{ab}\;\mathr
 \subsection{Proof that: $\mathbf{(a\ mod\ p)^k\ mod\ p = a^k\ mod\ p}$}
 
 Here I offer a short proof verifying the ideas above.
-Given the linearity of modularity over multiplication:
-$$a \times b \bmod n = (a \bmod n) \times (b \bmod n) \bmod n$$
-I will show that $(a \bmod p)^k \bmod p = a^k \bmod p$ with induction.
-\vspace*{0.4cm}
 
-\textbf{Basis} case, $P(1)$ or $k=1$, holds since,
+Given the linearity of modularity over multiplication:
+
+$$a \times b \bmod n = (a \bmod n) \times (b \bmod n) \bmod n$$
+
+I will show that $(a \bmod p)^k \bmod p = a^k \bmod p$ with induction.
+
+Basis case, $P(1)$ or $k=1$, holds since,
 
 \[ a^1 \bmod p = (a \bmod p)^1 \bmod p  \]
 
-\textbf{Assume} $P(k)$ holds for all $k$ like so:
+Assume $P(k)$ holds for all $k$ like so:
 
 \[ a^k \bmod p = (a \bmod p)^k \bmod p \]
 
-Now, multiplying $ \bmod p$ both sides by $(a \bmod p)$ and applying the given:
+Now, multiplying $\bmod p$ both sides by $(a \bmod p)$ and applying the given:
 \begin{align*}
 a^k \bmod p \times a \bmod p \mod p &= (a \bmod p)^k \bmod p \times a \bmod p \mod p\\
-(a^k \times a) \bmod p  &= ((a \bmod p)^k (a \bmod p)) \bmod p\\
-a^{k+1} \bmod p  &= (a \bmod p)^{k+1} \bmod p
+(a^ka) \bmod p  &= ((a \bmod p)^k \bmod p 
 \end{align*}
 
 
