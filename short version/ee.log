@@ -2,8 +2,8 @@ This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded form
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**./extendedessay.tex
-(extendedessay.tex
+**./ee.tex
+(ee.tex
 LaTeX2e <2022-06-01> patch level 5
 L3 programming layer <2022-08-30>
 (C:\Program Files\MiKTeX\tex/latex/base\report.cls
@@ -658,8 +658,8 @@ File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
 \@quotelevel=\count430
 \@quotereset=\count431
- (extendedessay.aux)
-\openout1 = `extendedessay.aux'.
+ (ee.aux)
+\openout1 = `ee.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 59.
 LaTeX Font Info:    ... okay on input line 59.
@@ -702,18 +702,16 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2021/03/18 v2.0 Configuration of epstopdf for MiKTeX
 ))
 Package hyperref Info: Link coloring OFF on input line 59.
-
-(extendedessay.out) (extendedessay.out)
+ (ee.out) (ee.out)
 \@outlinefile=\write4
-\openout4 = `extendedessay.out'.
+\openout4 = `ee.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
 Package biblatex Info: Trying to load language 'english'...
 Package biblatex Info: ... file 'english.lbx' found.
-
-(C:\Program Files\MiKTeX\tex/latex/biblatex/lbx\english.lbx
+ (C:\Program Files\MiKTeX\tex/latex/biblatex/lbx\english.lbx
 File: english.lbx 2022/07/12 v3.18b biblatex localization (PK/MW)
 )
 Package biblatex Info: Input encoding 'utf8' detected.
@@ -722,17 +720,18 @@ Package biblatex Info: Automatic encoding selection.
 Package biblatex Info: Input encoding 'utf8' detected.
 Package biblatex Info: Data encoding 'utf8' specified.
 (biblatex)             No need to reencode data.
-\openout3 = `extendedessay-blx.bib'.
+\openout3 = `ee-blx.bib'.
 
 Package biblatex Info: Trying to load bibliographic data...
-Package biblatex Info: ... file 'extendedessay.bbl' found.
- (extendedessay.bbl)
+Package biblatex Info: ... file 'ee.bbl' found.
+ (ee.bbl)
 Package biblatex Info: Reference section=0 on input line 59.
 Package biblatex Info: Reference segment=0 on input line 59.
 \c@lstlisting=\count438
 LaTeX Font Info:    Trying to load font information for U+msa on input line 83.
 
- (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
+
+(C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 83.
@@ -742,10 +741,9 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 83.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/Jake/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (extendedessa
-y.toc)
+{C:/Users/Jake/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map}] (ee.toc)
 \tf@toc=\write5
-\openout5 = `extendedessay.toc'.
+\openout5 = `ee.toc'.
 
 
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has 
@@ -872,21 +870,28 @@ T1/cmr/m/it/10.95 The Math-e-mat-i-cal Gazette
 
 [19
 
-] (extendedessay.aux)
-Package rerunfilecheck Info: File `extendedessay.out' has not changed.
+] (ee.aux)
+
+LaTeX Warning: There were undefined references.
+
+Package rerunfilecheck Info: File `ee.out' has not changed.
 (rerunfilecheck)             Checksum: 2EE89F5A9D5904ECAC16D53076F218C0;4492.
-Package logreq Info: Writing requests to 'extendedessay.run.xml'.
-\openout1 = `extendedessay.run.xml'.
+
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
+
+Package logreq Info: Writing requests to 'ee.run.xml'.
+\openout1 = `ee.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21780 strings out of 475389
- 376146 string characters out of 2786818
- 1052586 words of memory out of 3000000
- 42783 multiletter control sequences out of 15000+600000
+ 21755 strings out of 475389
+ 375529 string characters out of 2786818
+ 1052531 words of memory out of 3000000
+ 42758 multiletter control sequences out of 15000+600000
  486230 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,12n,89p,2332b,2347s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,12n,89p,2321b,2346s stack positions out of 10000i,1000n,20000p,200000b,80000s
 
 pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist
 , replaced by a fixed one
@@ -917,7 +922,7 @@ onts/cm/cmti9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt1
 0.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Pro
 gram Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Fi
 les/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on extendedessay.pdf (20 pages, 2254442 bytes).
+Output written on ee.pdf (20 pages, 2254314 bytes).
 PDF statistics:
  505 PDF objects out of 1000 (max. 8388607)
  104 named destinations out of 1000 (max. 500000)
