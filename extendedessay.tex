@@ -63,7 +63,10 @@ New York, New York
 \begin{center}
 \LARGE Group Theory and Modern Cryptography\\
 \vspace*{.5cm}
+\if false
 \large To what extent does the group structure of a finite abelian group affect the difficulty of computing its discrete logarithm?\\
+\fi
+\large To what extent does Group Theory provide a mathematical backdrop for modern public-key cryptography?
 \vspace*{.5cm}
 \large 340923 words \\
 \vspace*{.5cm}
@@ -105,7 +108,7 @@ heres an example of an image
 
 \section*{Foreword}
 
-This paper is for research purposes only. Although the information presented is as close to accurate as possible, one should never implement a cryptographic system themselves unless they know \textit{\emph{exactly}} what they're doing. \textbf{I am not liable for any damages caused in testing/creating/implementing any cryptographic protocol referenced in this paper.} Cryptography's greatest weakness is human-error, and virtually \textit{all} breaks in cryptography result from poor implementation. CIT
+This paper is for research purposes only. Although the information presented is as close to accurate as possible, one should never implement a cryptographic system themselves unless they know \textit{\emph{exactly}} what they're doing. \textbf{I am not liable for any damages caused in testing/creating/implementing any cryptographic protocol referenced in this paper.} Cryptography's greatest weakness is human-error, and virtually \textit{all} breaks in cryptography result from poor implementation.
 
 \section{Introduction and Aim}
 \subsection{Topic and Research Question}
@@ -367,13 +370,17 @@ The invertible elements of $\field_p$ are exactly those that are relatively prim
 \begin{align*}
 	nm &\equiv 1 \mod p\\
 	nm - 1 &\equiv 0 \mod p\\
-	&\Rightarrow \hspace*{0.3cm} p | nm-1\\
-	&\Rightarrow \hspace*{0.3cm} d | nm-1\\
-	&\Rightarrow \hspace*{0.3cm} d | nm-1 -nm\; (\text{ since } d|nm)\\
-	&\Rightarrow \hspace*{0.3cm} d | 1
+	\Rightarrow &\hspace*{0.3cm} p | nm-1\\
+	\Rightarrow &\hspace*{0.3cm} d | nm-1\\
+	\Rightarrow &\hspace*{0.3cm} d | nm-1 -nm\; (\text{since } d|nm)\\
+	\Rightarrow &\hspace*{0.3cm} d | 1
 \end{align*}
-As $1$ is not divisible by anything except $1$, our assumption was false and $\mathrm{gcd}(n,p)$ must be$1$.
+As $1$ is not divisible by anything except $1$, our assumption was false and $\mathrm{gcd}(n,p)$ must be one.\autocite[19]{koblitz}
 \qed
+
+With this in mind, one can compute the elements/points of $E[\field_p]$ as,
+\[ E[\field_p] = \left\lbrace (x,y)\ |\ y^2 \equiv x^3 + ax + b \mod p \right\rbrace \cup \lbrace \infty \rbrace. \]
+
 
 
 \begin{figure}[ht]
@@ -390,19 +397,12 @@ As $1$ is not divisible by anything except $1$, our assumption was false and $\m
 \caption{$y^2 = x^3 + 12x + 17$ over $\field_{23}$}
 \label{fig:right}
 \end{subfigure}
-\caption{Select elliptic curves plotted over finite fields.}
+\caption{Select elliptic curves plotted over finite fields. Notice the symmetry about $\frac{p}{2}$.}
 \label{fig:combined}
 \end{figure}
 
-\if false
-\begin{figure}[ht]
-\begin{center}
-\includegraphics[width=\linewidth]{krationalpoints.png} 
-\caption{Plot of the points on the Elliptic Curve over $\mathbb{F}_{19}$}
-\label{fig:krational}
-\end{center}
-\end{figure}
-\fi
+\
+
 
 \section{Conclusion}
 \subsection{Limitations and Reflection}

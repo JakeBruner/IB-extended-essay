@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.26)  27 NOV 2022 20:31
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.26)  27 NOV 2022 20:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -756,7 +756,7 @@ l.86
       [1
 
 ] [2] [3]
-<images/diana.png, id=159, 913.4125pt x 809.0225pt>
+<images/diana.png, id=129, 913.4125pt x 809.0225pt>
 File: images/diana.png Graphic file (type png)
 <use images/diana.png>
 Package pdftex.def Info: images/diana.png  used on input line 149.
@@ -766,7 +766,7 @@ Package pdftex.def Info: images/diana.png  used on input line 149.
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4] [5 <./images/diana.png>] [6]
-<images/associativitydiagram.png, id=195, 366.61969pt x 192.72pt>
+<images/associativitydiagram.png, id=166, 366.61969pt x 192.72pt>
 File: images/associativitydiagram.png Graphic file (type png)
 <use images/associativitydiagram.png>
 Package pdftex.def Info: images/associativitydiagram.png  used on input line 18
@@ -792,25 +792,25 @@ Underfull \hbox (badness 10000) in paragraph at lines 195--203
  []
 
 [8 <./images/associativitydiagram.png>] [9] [10]
-<elliptic_curves.png, id=242, 650.43pt x 650.43pt>
+<elliptic_curves.png, id=213, 650.43pt x 650.43pt>
 File: elliptic_curves.png Graphic file (type png)
 <use elliptic_curves.png>
 Package pdftex.def Info: elliptic_curves.png  used on input line 225.
 (pdftex.def)             Requested size: 360.0pt x 360.01036pt.
-<cubic_function.png, id=245, 650.43pt x 650.43pt>
+<cubic_function.png, id=216, 650.43pt x 650.43pt>
 File: cubic_function.png Graphic file (type png)
 <use cubic_function.png>
 Package pdftex.def Info: cubic_function.png  used on input line 235.
 (pdftex.def)             Requested size: 360.0pt x 360.01036pt.
  [11 <./elliptic_curves.png>]
 [12 <./cubic_function.png>]
-<grouplaw.png, id=261, 462.528pt x 346.896pt>
+<grouplaw.png, id=232, 462.528pt x 346.896pt>
 File: grouplaw.png Graphic file (type png)
 <use grouplaw.png>
 Package pdftex.def Info: grouplaw.png  used on input line 247.
 (pdftex.def)             Requested size: 360.0pt x 270.01141pt.
  [13 <./grouplaw.png>]
-<3dplot.png, id=271, 462.528pt x 346.896pt>
+<3dplot.png, id=242, 462.528pt x 346.896pt>
 File: 3dplot.png Graphic file (type png)
 <use 3dplot.png>
 Package pdftex.def Info: 3dplot.png  used on input line 302.
@@ -842,31 +842,31 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 356.
 
 [17]
-<krationalpoints19.png, id=309, 578.16pt x 578.16pt>
+<krationalpoints19.png, id=282, 578.16pt x 578.16pt>
 File: krationalpoints19.png Graphic file (type png)
 <use krationalpoints19.png>
-Package pdftex.def Info: krationalpoints19.png  used on input line 383.
+Package pdftex.def Info: krationalpoints19.png  used on input line 387.
 (pdftex.def)             Requested size: 176.40198pt x 176.39587pt.
-<krationalpoints23.png, id=310, 578.16pt x 578.16pt>
+<krationalpoints23.png, id=283, 578.16pt x 578.16pt>
 File: krationalpoints23.png Graphic file (type png)
 <use krationalpoints23.png>
-Package pdftex.def Info: krationalpoints23.png  used on input line 389.
+Package pdftex.def Info: krationalpoints23.png  used on input line 393.
 (pdftex.def)             Requested size: 176.40198pt x 176.39587pt.
  [18 <./krationalpoints19.png> <./krationalpoints23.png>]
-Overfull \hbox (24.71149pt too wide) in paragraph at lines 415--415
+Overfull \hbox (24.71149pt too wide) in paragraph at lines 410--410
 \OT1/cmr/m/n/10.95 tures. Na-tional Se-cu-rity Agency, 1973. \OT1/cmr/m/sc/10.9
 5 url\OT1/cmr/m/n/10.95 : []$\OT1/cmtt/m/n/10.95 https : / / www . governmentat
 tic .
  []
 
 
-Overfull \hbox (1.17888pt too wide) in paragraph at lines 415--415
+Overfull \hbox (1.17888pt too wide) in paragraph at lines 410--410
 [][]\OT1/cmr/m/n/10.95 Elgamal, Taher. ``A Public-Key Cryp-tosys-tem and a Sig-
 na-ture Scheme Based
  []
 
 
-Overfull \hbox (6.32846pt too wide) in paragraph at lines 415--415
+Overfull \hbox (6.32846pt too wide) in paragraph at lines 410--410
 [][]\OT1/cmr/m/n/10.95 Lewand, Robert Ed-ward. ``The Per-fect Ci-pher''. In: \O
 T1/cmr/m/it/10.95 The Math-e-mat-i-cal Gazette
  []
@@ -874,20 +874,36 @@ T1/cmr/m/it/10.95 The Math-e-mat-i-cal Gazette
 [19
 
 ] (extendedessay.aux)
-Package rerunfilecheck Info: File `extendedessay.out' has not changed.
-(rerunfilecheck)             Checksum: 2EE89F5A9D5904ECAC16D53076F218C0;4492.
+
+LaTeX Warning: There were undefined references.
+
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `extendedessay.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `extendedessay.out':
+(rerunfilecheck)             Before: 516E3A523AB666DA8A784F5C1F6684A1;4198
+(rerunfilecheck)             After:  2EE89F5A9D5904ECAC16D53076F218C0;4492.
+
+Package biblatex Warning: Please rerun LaTeX.
+(biblatex)                Page breaks have changed.
+
 Package logreq Info: Writing requests to 'extendedessay.run.xml'.
 \openout1 = `extendedessay.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21769 strings out of 475389
- 375600 string characters out of 2786818
+ 21758 strings out of 475389
+ 375460 string characters out of 2786818
  1051580 words of memory out of 3000000
- 42775 multiletter control sequences out of 15000+600000
+ 42763 multiletter control sequences out of 15000+600000
  486230 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,12n,89p,2332b,2347s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,12n,89p,2332b,2346s stack positions out of 10000i,1000n,20000p,200000b,80000s
 
 pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist
 , replaced by a fixed one
@@ -918,9 +934,9 @@ onts/cm/cmti9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt1
 0.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Pro
 gram Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Fi
 les/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on extendedessay.pdf (20 pages, 2249849 bytes).
+Output written on extendedessay.pdf (20 pages, 2245339 bytes).
 PDF statistics:
- 490 PDF objects out of 1000 (max. 8388607)
- 100 named destinations out of 1000 (max. 500000)
- 209 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 466 PDF objects out of 1000 (max. 8388607)
+ 101 named destinations out of 1000 (max. 500000)
+ 193 words of extra memory for PDF output out of 10000 (max. 10000000)
 
