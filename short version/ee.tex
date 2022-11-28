@@ -249,11 +249,37 @@ We verify it has a two-sided identity, $1$; that its operation is associative; a
 \subsection{The Case for Commutativity and Abelian Groups}
 One key property that we didn't require in our group axioms is \textit{commutativity}. At first glance, this might seem like an obvious condition, since many of the introductory examples do obey commutativity. But most of the insight that comes from group theory is from the study of non-commutativity. This distinction happens to be so important that commutative groups have a special name: \textit{abelian groups}.\autocite[17]{dummit} Likewise, groups that violate this condition are sometimes called \textit{non-abelian groups}. In general, non-abelian groups can be thought of as corresponding to symmetries that change the backdrop for another symmetry to occur. For instance, the group of symmetries on a square, $\mathrm{D}_{8}$, is non-abelian (meaning non-commutative). If you labeled the verticies of a square, you'd find performing a rotation and than a reflection is not, in general, the same as performing a reflection than a rotation\footnote[0]{If we were working with the presentation of $\mathrm{D}_8$, $\langle a,x\ \vert \ a^4 = x^2 = e,\ xax\inv = a\inv \rangle$, we would say that $x$ and $a$ don't commute—corresponding to the reflection and rotation generators respectively.}. Despite this, many of the examples we have and will look at happen to be abelian. For instance, the additive and multiplicative (sans $0$) groups of $\integers, \rationals, \reals$ and $\complexes$, are  'abelian.' To highlight the importance of commutativity, consider that many properties of electric charge, as described by the Standard Model (in Quantum Field Theory), follow directly from the commutativity of the circle group $U(1)$ or $T$.\autocite{weinberg} But this is far beyond the scope of basic group theory.
 
-\subsection{Applying Group Theory to Cryptography}
+\subsection{Applying Group Theory to Cryptography: Cyclic Groups}
 
   Much of the groups that are of importance to cryptography are abelian groups. For intuition on why this may be the case, consider the Diffie-Hellman example before. Both parties combined a series of steps involving their generator and private keys. If the underlying multiplicative group were not abelian, $(g^a)^b$ doesn't necessarily equal $(g^b)^a$. But what was that underlying group?
   
-  Performing multiplication in a modular fashion ($\bmod p$), we were, unknowingly, working in the group $(\integers / p \integers, \times)$.
+  Performing multiplication in a modular fashion ($\bmod\; p$, $p$ prime),\footnote{Technically, $p$ can be a prime power.} we were, unknowingly, working in the group $(\integers / p \integers, \times)$, called \textit{the cyclic group of order $p$}. The notation here is actually meaningful. Without delving too far into 'quotient groups' and 'normal subgroups,' the slash corresponds to 'quotienting' out the integers by $p$ times the integers, creating a group where $1$ is indistinguishable from $p+1$ and indeed $2p+1, 3p+1, -p+1, -2p+1...$, called an \textit{equivalence relation}.\autocite[104]{saracino} This formalizes the notion of 'going around a clock face.'
+  
+  In this multiplicative group, it takes more care to define inverses than in the more familiar examples. Inverses can be computed using the Euclidean Algorithm or by leveraging the symmetries in modular multiplication. Essentially, in $(\integers / p \integers, \times)$, the multiplicative inverse of a number $n$ is a number $m$ such that,
+\[ nm \equiv 1 \mod p\]
+
+Now, proving the condition that $p$ must be prime (or a prime power), consider that the invertible elements of $(\integers / q \integers, \times)$ (for any $q$) are exactly those that are relatively prime to $q$. The proof is by contradiction:
+
+	If $\mathrm{gcd}(n,p) = d$ with $d \neq 1$, assume there is some $m$ for which $nm \equiv 1 \mod p$. Expanding this out,
+\begin{align*}
+	nm &\equiv 1 \mod p\\
+	nm - 1 &\equiv 0 \mod p\\
+	\Rightarrow &\hspace*{0.3cm} p | nm-1\\
+	\Rightarrow &\hspace*{0.3cm} d | nm-1\\
+	\Rightarrow &\hspace*{0.3cm} d | nm-1 -nm\; (\text{since } d|nm)\\
+	\Rightarrow &\hspace*{0.3cm} d | 1
+\end{align*}
+As $1$ is not divisible by anything except $1$, our assumption was false and $\mathrm{gcd}(n,p)$ must be one.\autocite[19]{koblitz} For $n < p$ (by the equivalence relation), this means $p$ must be prime or a positive integer power of a prime so that every $n<p$ is relatively prime to $p$ (i.e., $\mathrm{gcd}(n,p) = 1,\; \forall n$).
+\qed
+
+\subsection{Discrete Logarithm Problem}
+
+This also sheds light on the security of cryptography. In a Diffie-Hellman key exchange over $\integers / q \integers$, Alice and Bob were using the map $f$,
+\[ f(n) = g^n \bmod p \]
+or, written in terms of their respective groups,
+\[ f: \integers \rightarrow \integers / p \integers \]
+This $f$ is a function between groups (a \textit{group homomorphism}) from $\integers$ \textit{onto} a \textit{subset} of $\integers / p \integers$ surjectively.
+
 
 \section{Group Law on an Elliptic Curve}
 \subsection{Definition of an Elliptic Curve}
