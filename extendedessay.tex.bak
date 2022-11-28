@@ -66,7 +66,7 @@ New York, New York
 \if false
 \large To what extent does the group structure of a finite abelian group affect the difficulty of computing its discrete logarithm?\\
 \fi
-\large To what extent does group theory
+\large To what extent does Group Theory provide a mathematical backdrop for modern public-key cryptography?
 \vspace*{.5cm}
 \large 340923 words \\
 \vspace*{.5cm}
@@ -108,7 +108,7 @@ heres an example of an image
 
 \section*{Foreword}
 
-This paper is for research purposes only. Although the information presented is as close to accurate as possible, one should never implement a cryptographic system themselves unless they know \textit{\emph{exactly}} what they're doing. \textbf{I am not liable for any damages caused in testing/creating/implementing any cryptographic protocol referenced in this paper.} Cryptography's greatest weakness is human-error, and virtually \textit{all} breaks in cryptography result from poor implementation.
+This paper is for research purposes only. Although the information presented is as close to accurate as possible, one should never implement a cryptographic system themselves unless they know \textit{\emph{exactly}} what they're doing. \textbf{I am not liable for any damages caused in testing/creating/implementing any cryptographic protocol referenced in this paper.} Cryptography's greatest weakness is human-error, and virtually \textit{all} breaks in cryptography result from poor implementation.\autocite{thimbleby}
 
 \section{Introduction and Aim}
 \subsection{Topic and Research Question}

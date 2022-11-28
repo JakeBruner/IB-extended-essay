@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.26)  27 NOV 2022 20:41
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (MiKTeX 22.8.28) (preloaded format=pdflatex 2022.9.26)  27 NOV 2022 21:38
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -730,12 +730,12 @@ Package biblatex Info: ... file 'extendedessay.bbl' found.
 Package biblatex Info: Reference section=0 on input line 55.
 Package biblatex Info: Reference segment=0 on input line 55.
 \c@lstlisting=\count438
-LaTeX Font Info:    Trying to load font information for U+msa on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 79.
 
  (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 76.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 79.
 
 
 (C:\Program Files\MiKTeX\tex/latex/amsfonts\umsb.fd
@@ -752,121 +752,121 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has
 been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.86 
+l.89 
       [1
 
-] [2] [3]
-<images/diana.png, id=129, 913.4125pt x 809.0225pt>
+]
+
+LaTeX Warning: Citation 'thimbleby' on page 2 undefined on input line 111.
+
+[2] [3]
+<images/diana.png, id=162, 913.4125pt x 809.0225pt>
 File: images/diana.png Graphic file (type png)
 <use images/diana.png>
-Package pdftex.def Info: images/diana.png  used on input line 149.
+Package pdftex.def Info: images/diana.png  used on input line 152.
 (pdftex.def)             Requested size: 264.88284pt x 234.61052pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [4] [5 <./images/diana.png>] [6]
-<images/associativitydiagram.png, id=166, 366.61969pt x 192.72pt>
+<images/associativitydiagram.png, id=198, 366.61969pt x 192.72pt>
 File: images/associativitydiagram.png Graphic file (type png)
 <use images/associativitydiagram.png>
-Package pdftex.def Info: images/associativitydiagram.png  used on input line 18
-8.
+Package pdftex.def Info: images/associativitydiagram.png  used on input line 19
+1.
 (pdftex.def)             Requested size: 146.64526pt x 77.08662pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [7]
-Underfull \hbox (badness 10000) in paragraph at lines 195--203
+Underfull \hbox (badness 10000) in paragraph at lines 198--206
 \OT1/cmr/m/n/10.95 hold:[][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--203
+Underfull \hbox (badness 10000) in paragraph at lines 198--206
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 195--203
+Underfull \hbox (badness 10000) in paragraph at lines 198--206
 
  []
 
 [8 <./images/associativitydiagram.png>] [9] [10]
-<elliptic_curves.png, id=213, 650.43pt x 650.43pt>
+<elliptic_curves.png, id=245, 650.43pt x 650.43pt>
 File: elliptic_curves.png Graphic file (type png)
 <use elliptic_curves.png>
-Package pdftex.def Info: elliptic_curves.png  used on input line 225.
+Package pdftex.def Info: elliptic_curves.png  used on input line 228.
 (pdftex.def)             Requested size: 360.0pt x 360.01036pt.
-<cubic_function.png, id=216, 650.43pt x 650.43pt>
+<cubic_function.png, id=248, 650.43pt x 650.43pt>
 File: cubic_function.png Graphic file (type png)
 <use cubic_function.png>
-Package pdftex.def Info: cubic_function.png  used on input line 235.
+Package pdftex.def Info: cubic_function.png  used on input line 238.
 (pdftex.def)             Requested size: 360.0pt x 360.01036pt.
  [11 <./elliptic_curves.png>]
 [12 <./cubic_function.png>]
-<grouplaw.png, id=232, 462.528pt x 346.896pt>
+<grouplaw.png, id=264, 462.528pt x 346.896pt>
 File: grouplaw.png Graphic file (type png)
 <use grouplaw.png>
-Package pdftex.def Info: grouplaw.png  used on input line 247.
+Package pdftex.def Info: grouplaw.png  used on input line 250.
 (pdftex.def)             Requested size: 360.0pt x 270.01141pt.
  [13 <./grouplaw.png>]
-<3dplot.png, id=242, 462.528pt x 346.896pt>
+<3dplot.png, id=273, 462.528pt x 346.896pt>
 File: 3dplot.png Graphic file (type png)
 <use 3dplot.png>
-Package pdftex.def Info: 3dplot.png  used on input line 302.
+Package pdftex.def Info: 3dplot.png  used on input line 305.
 (pdftex.def)             Requested size: 360.0pt x 270.01141pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[14] [15 <./3dplot.png>]
+ [14] [15 <./3dplot.png>]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 341.
+(hyperref)                removing `math shift' on input line 344.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 341.
+(hyperref)                removing `math shift' on input line 344.
 
 [16]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 356.
+(hyperref)                removing `math shift' on input line 359.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `subscript' on input line 356.
+(hyperref)                removing `subscript' on input line 359.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `math shift' on input line 356.
+(hyperref)                removing `math shift' on input line 359.
 
 [17]
-<krationalpoints19.png, id=282, 578.16pt x 578.16pt>
+<krationalpoints19.png, id=313, 578.16pt x 578.16pt>
 File: krationalpoints19.png Graphic file (type png)
 <use krationalpoints19.png>
-Package pdftex.def Info: krationalpoints19.png  used on input line 387.
+Package pdftex.def Info: krationalpoints19.png  used on input line 390.
 (pdftex.def)             Requested size: 176.40198pt x 176.39587pt.
-<krationalpoints23.png, id=283, 578.16pt x 578.16pt>
+<krationalpoints23.png, id=314, 578.16pt x 578.16pt>
 File: krationalpoints23.png Graphic file (type png)
 <use krationalpoints23.png>
-Package pdftex.def Info: krationalpoints23.png  used on input line 393.
+Package pdftex.def Info: krationalpoints23.png  used on input line 396.
 (pdftex.def)             Requested size: 176.40198pt x 176.39587pt.
  [18 <./krationalpoints19.png> <./krationalpoints23.png>]
-Overfull \hbox (24.71149pt too wide) in paragraph at lines 410--410
+Overfull \hbox (24.71149pt too wide) in paragraph at lines 415--415
 \OT1/cmr/m/n/10.95 tures. Na-tional Se-cu-rity Agency, 1973. \OT1/cmr/m/sc/10.9
 5 url\OT1/cmr/m/n/10.95 : []$\OT1/cmtt/m/n/10.95 https : / / www . governmentat
 tic .
  []
 
 
-Overfull \hbox (1.17888pt too wide) in paragraph at lines 410--410
+Overfull \hbox (1.17888pt too wide) in paragraph at lines 415--415
 [][]\OT1/cmr/m/n/10.95 Elgamal, Taher. ``A Public-Key Cryp-tosys-tem and a Sig-
 na-ture Scheme Based
  []
 
 
-Overfull \hbox (6.32846pt too wide) in paragraph at lines 410--410
+Overfull \hbox (6.32846pt too wide) in paragraph at lines 415--415
 [][]\OT1/cmr/m/n/10.95 Lewand, Robert Ed-ward. ``The Per-fect Ci-pher''. In: \O
 T1/cmr/m/it/10.95 The Math-e-mat-i-cal Gazette
  []
@@ -877,66 +877,59 @@ T1/cmr/m/it/10.95 The Math-e-mat-i-cal Gazette
 
 LaTeX Warning: There were undefined references.
 
+Package rerunfilecheck Info: File `extendedessay.out' has not changed.
+(rerunfilecheck)             Checksum: 2EE89F5A9D5904ECAC16D53076F218C0;4492.
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `extendedessay.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `extendedessay.out':
-(rerunfilecheck)             Before: 516E3A523AB666DA8A784F5C1F6684A1;4198
-(rerunfilecheck)             After:  2EE89F5A9D5904ECAC16D53076F218C0;4492.
-
-Package biblatex Warning: Please rerun LaTeX.
-(biblatex)                Page breaks have changed.
+Package biblatex Warning: Please (re)run BibTeX on the file(s):
+(biblatex)                extendedessay
+(biblatex)                and rerun LaTeX afterwards.
 
 Package logreq Info: Writing requests to 'extendedessay.run.xml'.
 \openout1 = `extendedessay.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 21758 strings out of 475389
- 375460 string characters out of 2786818
+ 21772 strings out of 475389
+ 375637 string characters out of 2786818
  1051580 words of memory out of 3000000
- 42763 multiletter control sequences out of 15000+600000
+ 42776 multiletter control sequences out of 15000+600000
  486230 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 72i,12n,89p,2332b,2346s stack positions out of 10000i,1000n,20000p,200000b,80000s
+ 72i,12n,89p,2332b,2347s stack positions out of 10000i,1000n,20000p,200000b,80000s
 
-pdfTeX warning (dest): name{Hfootnote.8} has been referenced but does not exist
+pdfTeX warning (dest): name{Hfootnote.9} has been referenced but does not exist
 , replaced by a fixed one
 
  <C:\Users\Jake\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm109
 5.pk> <C:\Users\Jake\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tc
 rm0900.pk><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C
 :/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Program Fi
-les/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiKTeX/
-fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmmi12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6
-.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Prog
-ram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/typ
-e1/public/amsfonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/ams
-fonts/cm/cmr17.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5
-.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Progr
-am Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/
-public/amsfonts/cm/cmr9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.p
-fb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Progra
-m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTe
-X/fonts/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX/fonts/type1
-/public/amsfonts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsf
-onts/cm/cmti9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt1
-0.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Pro
-gram Files/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Fi
-les/MiKTeX/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on extendedessay.pdf (20 pages, 2245339 bytes).
+les/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program Files/MiKTeX/fo
+nts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Files/MiKTeX/fonts/type1/p
+ublic/amsfonts/cm/cmex10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmmi10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12
+.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Prog
+ram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Program Files/MiK
+TeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files/MiKTeX/fonts/typ
+e1/public/amsfonts/cm/cmr10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmr12.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr1
+7.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Prog
+ram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files/MiKT
+eX/fonts/type1/public/amsfonts/cm/cmr7.pfb><C:/Program Files/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmr8.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfon
+ts/cm/cmr9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.p
+fb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Progra
+m Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files/MiKTe
+X/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Program Files/MiKTeX/fonts/type1
+/public/amsfonts/cm/cmsy9.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfo
+nts/cm/cmti10.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9
+.pfb><C:/Program Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt10.pfb><C:/Pro
+gram Files/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><C:/Program Files/Mi
+KTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb><C:/Program Files/MiKTeX/fo
+nts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on extendedessay.pdf (20 pages, 2260911 bytes).
 PDF statistics:
- 466 PDF objects out of 1000 (max. 8388607)
- 101 named destinations out of 1000 (max. 500000)
- 193 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 499 PDF objects out of 1000 (max. 8388607)
+ 102 named destinations out of 1000 (max. 500000)
+ 209 words of extra memory for PDF output out of 10000 (max. 10000000)
 

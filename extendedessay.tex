@@ -108,7 +108,7 @@ heres an example of an image
 
 \section*{Foreword}
 
-This paper is for research purposes only. Although the information presented is as close to accurate as possible, one should never implement a cryptographic system themselves unless they know \textit{\emph{exactly}} what they're doing. \textbf{I am not liable for any damages caused in testing/creating/implementing any cryptographic protocol referenced in this paper.} Cryptography's greatest weakness is human-error, and virtually \textit{all} breaks in cryptography result from poor implementation.
+This paper is for research purposes only. Although the information presented is as close to accurate as possible, one should never implement a cryptographic system themselves unless they know \textit{\emph{exactly}} what they're doing. \textbf{I am not liable for any damages caused in testing/creating/implementing any cryptographic protocol referenced in this paper.} Cryptography's greatest weakness is human-error, and virtually \textit{all} breaks in cryptography result from poor implementation.\autocite{thimbleby}
 
 \section{Introduction and Aim}
 \subsection{Topic and Research Question}
@@ -298,9 +298,9 @@ where $m = \frac{y_p - y_q}{x_p-x_q}$.
 
 \subsection{Inverse Points and Infinity}
 
-In the case of adding two points opposite each other over the y-axis, one says they intersect the third point "at infinity." In general, over a projective plane, we revise the parallel postulate to say "any two parallel lines share one point of intersection, namely the point at infinity." We see this in \ref{fig:3dproj}; much like train tracks meeting the horizon, the two parallel, vertical lines meet at $\infty$ or $I$. 
+In the case of adding two points opposite each other over the y-axis, one says they intersect the third point "at infinity." In general, over a projective plane, we revise the parallel postulate to say "any two parallel lines share one point of intersection, namely the point at infinity." We see this below; like train tracks meeting the horizon, the two parallel, vertical lines meet at $\infty$ or $I$. 
 
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
 \includegraphics[width=\linewidth]{3dplot.png} 
 \caption{Parallel lines drawn through inverse points, all intersecting at point at infinity $I$ over $y^2=x^3 - x + 1$. As in, $P + (-P) = I = Q + (-Q)$.}
