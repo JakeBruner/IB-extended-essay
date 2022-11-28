@@ -68,10 +68,12 @@ New York, New York
 \LARGE Group Theory and Modern Cryptography\\
 \vspace*{.5cm}
 \large To what extent does group theory provide a mathematical backdrop for modern cryptography? \\
+%\vspace*{.5cm}
+%\large 340923 words \\
 \vspace*{.5cm}
-\large 340923 words
+\Large Mathematics \\
 \vspace*{.5cm}
-\Large Mathematics
+\large Full version
 \end{center}
 
 \vfill
@@ -114,25 +116,26 @@ This paper is for research purposes only. Although the information presented is 
 \section{Introduction and Aim}
 \subsection{Topic and Research Question}
 
-For my Extended Essay, I will be exploring the relationship between Group Theory, a mathematical field generalizing symmetry and codifying number systems, and modern cryptography. Cryptography has seen a number of advancements in the computer-age, most notable of which is the use of 'elliptic curves.' In this paper, I intend to show how a group-theoretical perspective on cryptography helps understand elliptic curve cryptosystems. My guiding question is: \textit{to what extent does group theory provide a mathematical backdrop for modern public-key cryptography?}
+For my Extended Essay, I will be exploring the relationship between Group Theory, a mathematical field generalizing symmetry and codifying number systems, and modern cryptography. Cryptography has seen a number of advancements in the computer-age, most notable of which is the use of 'elliptic curves.' In this paper, I intend to show how a group-theoretical perspective on cryptography helps understand elliptic curve cryptosystems. My guiding question is: \textit{to what extent does group theory provide a mathematical backdrop for modern cryptography?}
 
 \subsection{Motivating Idea}
-It's undeniable that our modern-day world is reliant on cryptography. Every time a phone sends a text, a browser connects to a server, an email gets sent off, a monetary transaction is made, and much much more, our devices are, unbeknownst to us, performing many hundreds of math operations to ensure our data are 'encrypted.' But what does 'encryption' mean? Let's introduce some definitions. ‘Encryption’ is the process of disguising a message to be, loosely speaking, hidden to all \textit{except} the intended recipient. This is the process of converting a ‘plaintext’ message into a jumbled ‘ciphertext’, which can be readily shared without risk of the sensitive message leaking. Converting a plaintext message (typically a string/list of characters) into a ciphertext is known as an ‘enciphering’ or ‘encrypting’ transformation. Likewise the reverse operation of recovering the plaintext message from a ciphertext is known as the \textit{deciphering transformation.}\autocite[54]{koblitz} If we denote the plain and cyphertext $\mathcal{P}$ and $\mathcal{C}$ respectively and the enciphering map $f$ and its inverse $f\inv$ we obtain the following diagram:
+It's undeniable that our modern-day world is reliant on cryptography. Every time a phone sends a text, a browser connects to a server, an email gets sent off, or a monetary transaction is made our devices are performing many hundreds of math operations to ensure our data are 'encrypted.' But what does 'encryption' mean? Let's introduce some definitions. 
+
+‘Encryption’ is the process of disguising a message to be, loosely speaking, hidden to all \textit{except} the intended recipient. This is the process of converting a ‘plaintext’ message into a jumbled ‘ciphertext’, which can be readily shared without risk of the sensitive message leaking. Converting a plaintext message (typically a string/array of characters) into a ciphertext is known as an ‘enciphering’ or ‘encrypting’ transformation. Likewise the reverse operation of recovering the plaintext message from a ciphertext is known as the \textit{deciphering transformation.}\autocite[54]{koblitz} If we denote the plain and cyphertext $\mathcal{P}$ and $\mathcal{C}$ respectively and the enciphering map $f$ and its inverse $f\inv$ we obtain the following diagram:
 
 $$ \mathcal{P} \overset{f}\longrightarrow \mathcal{C} \overset{f\inv}\longrightarrow \mathcal{P} $$
 
 \subsection{The Fundamentals of Symmetric Cryptography}
 
-The intuitive way to implement this cryptosystem has the two transacting parties agree upon the nature of the map $f$ in secret, beforehand. This might mean meeting up with a friend in-person to establish the common secret, $f$ and $f\inv$, so that you could encrypt and decrypt each other's emails—fending off any prying eyes accessing their emails. This type of system has a special name, \textit{"Symmetric Key Cryptography"}, reflecting the fact that both parties have the same shared secret (foreshadowing). Important historical examples include the 'Caeser Cipher' (supposedly invented by \textit{the} Julius Caeser)%citation?
-, where $f$ is a shift operation that maps each letter to a new one a number of places ahead or behind. For instance, the two parties might decide beforehand the map $f$: \textit{shift each character forward in the alphabet 3 letters}, implying the inverse map $f\inv$: \textit{shift each character back 3 letters}. This might look like so: \footnote[0]{The informed reader will notice that Ceaser Ciphers are really just linear transformations in disguise, provoking thought into whether more advanced techniques could be used. For instance, we could consider groups of two letters, called \textit{digraphs}, resulting in $f$ being a 2x2 invertible matrix, encoding the shift in a two-by-two matrix. Similarly, we could consider invertible \textit{affine} transformations of the form $f:\vec{x} \to A\vec{x} + \vec{b}$, where A encodes a certain scaling factor.}
+The intuitive way to implement this cryptosystem has the two transacting parties agree upon the nature of the map $f$ in secret, beforehand. This type of system has a special name, \textit{"Symmetric Key Cryptography"}, reflecting the fact that both parties have the same shared secret. Important historical examples include the 'Caeser Cipher,' where $f$ is a shift operation that maps each letter to a number of places ahead. For instance, the two parties might decide beforehand the map $f$: \textit{shift each character forward 3 letters}, implying the inverse map $f\inv$: \textit{shift each character back 3 letters}. This might look like so: \footnote[0]{One might notice that Ceaser Ciphers are just linear transformations in disguise. Alternatively, we could consider groups of two letters, called \textit{digraphs}, resulting in $f$ being a 2x2 invertible matrix, encoding the shift in a two-by-two matrix. Similarly, we could consider invertible \textit{affine} transformations of the form $f:\vec{x} \to A\vec{x} + \vec{b}$, where A encodes a certain scaling factor.}
 
 \begin{align*}
  \mathcal{P} &\sim A,B,C,D,E,F,...Y,Z  \\ 
  \mathcal{C} &\sim D,E,F,G,H,I,...B,C 
 \end{align*} % I'm not sure what symbol to use here...Equivalance relation? Monomorphism?
-And, for example, if you wanted to encrypt the message $\mathcal{P} =$ "HELLO", you would obtain the ciphertext $\mathcal{C} =$ "KHOOR" which you would promptly send off for your friend to decode with the inverse, subtract-three-letters map. Note that, even in this simple example, repeated letters, word length, and other syntactic information provide a lot of information about the nature of the plaintext. Although this is a trivial example, schemes which, loosely speaking, encode any information about the syntax (or related notions) of the plaintext are usually highly vulnerable to a technique called \textit{differential cryptanalysis},which, at a high level, measures the change in cyphertext given a change in input, primarily targeting published symmetric-key protocols.\autocite[56]{koblitz} 
+For example, if one wanted to encrypt the message $\mathcal{P} =$ "HELLO", the ciphertext would be $\mathcal{C} =$ "KHOOR" which they could send off to their friend to decode with the inverse, subtract-three-letters map. Note that, even in this simple example, repeated letters, word length, and other syntactic information provide a lot of information about the nature of the plaintext, making it vulnerable to cryptanalysis techniques.\autocite[56]{koblitz} 
 
-To see what a caeser cipher looks like mathematically, we start encoding each letter as a number from 0, which is A, to 25, which is Z. Of course this depends on what alphabet one uses, if one chooses to include spaces, numbers, punctuation etc. We can represent the operation that takes a letter and maps it $n$ places ahead with addition. Importantly, this operation must 'wrap around' back to zero if you try to exceed 'z' in the alphabet. This process, known as \textit{'modular arithmetic'}, is like circling a clock, where after reaching twelve, the hour hand wrap back around to 1, but we start from 0 instead of 1. So, in our case, shifting 'z' by 3 letters looks like so: $25 + 1 \bmod 26 \equiv 0$, which reads "25 plus 1 \textit{is congruent to} 0 \textit{modulo} (or \textit{mod}) 26." With this in mind, we obtain for each letter $p \in \mathcal{P}$:  
+Mathematically, a caeser cipher starts with encoding each letter as a number from $0$, A, to $25$, Z. Of course this depends on what alphabet one uses. We represent this map, shifting $n$ places forward, with addition. Importantly, this operation must 'wrap around' back to zero when it exceeds 'z' in the alphabet. This process, known as \textit{'modular arithmetic'}, is like circling a clock, where after reaching 25 we wrap back to 0. So, in our case, shifting 'z' by 3 letters looks like so: $25 + 3 \bmod 26 \equiv 2$, which reads "25 plus 3 \textit{is congruent to} 2 \textit{modulo} 26." With this in mind, we obtain for each letter $p \in \mathcal{P}$:  
 
 \[
 f(p) = p + n \bmod 26 
@@ -143,15 +146,14 @@ f(p) = p + n \bmod 26
 % I could maybe talk about affine cryptosystems here if I need more words.
 % I could also show the linear algebra point of view
 
-Representing a shifting of each letter in the plaintext by $n$ places in the alphabet. Now clearly this isn't a very sophisticated cryptographic scheme... For instance, performing a frequency analysis and comparing the most commonly occurring letters to those of the English alphabet, easily breaking these types of cyphers, broadly referred to as 'substitution ciphers.'\autocite[54]{koblitz} 
-Modern schemes typically employ more resistant techniques, namely where changing just one letter of plaintext often yields a completely different ciphertext, making modern techniques all but impervious to frequency analysis. (Unless someone \textit{really} screwed up an implementation)
+Clearly this isn't a very sophisticated cryptographic scheme... For instance, comparing the most commonly occurring letters in the ciphertext to those of the English alphabet could easily break these schemes, broadly referred to as 'substitution ciphers.'\autocite[54]{koblitz} 
+Modern techniques are more resistant, where changing one letter of plaintext yields a completely different ciphertext, making modern techniques all but impervious to this technique. 
   
-  For instance, AES encryption, part of the modern web standard, is an example of a '\textit{block substitution cypher},' which are beyond the scope of this paper. % much to my chagrin :(
-At a high level, it combines techniques similar to our Caesar Cipher with certain affine (think scaling and transforming) maps performed on blocks of plaintext. It's certainly more complicated than that, but essentially boils down to our system plus some advanced techniques making it resistant to cryptanalysis. (Like permutations, combinations, text look-up-tables and more.) 
-In general, Symmetric-key cryptography (\textit{viz.} predetermined, shared secret) is well understood. For instance, Claude Shannon (\textit{the} definitive father of information theory) proved mathematically that the so-called \textit{'one-time-pad'} encryption technique was completely and utterly unbreakable. 
-In the general case, he showed that, if a random-generated key is at least as long as the plaintext (at least specifying a unique, random\footnote[0]{There is a paramount distinction between \textit{random} and \textit{psuedorandom}, the latter of which is vastly easier to implement on a computer. True randomness has to be derived from a non-computer source (for the most part). Commonly implemented approximates include taking the least-significant-digit of a mouse position, or the frequency of keypresses, etc. 
-A one-time-pad–like scheme generated from a psuedorandom source \textit{is} breakable, although usually not without some effort.} character for each plaintext character and in the same alphabet), then performing a caeser cypher shift on each \textit{individual} plaintext character by the value specified by the random character yields a cryptosystem that is mathematically impenetrable. 
-Or equivalantly, performing a random modular addition on each character of the plaintext, with the shared secret being the sequence of random shifts.\autocite{claude} % I maybe should rephrase this in terms of performing a random caeser cipher shift per character if this description is too confusing.
+  For instance, AES encryption, part of the modern web standard, is an example of a '\textit{block substitution cypher},' which are beyond the scope of this paper. 
+In general, Symmetric-key cryptography (\textit{viz.} predetermined, shared secret) is well understood. For instance, Claude Shannon (\textit{the} father of information theory) proved that the so-called \textit{'one-time-pad'} encryption technique was completely and utterly unbreakable. 
+In the general case, he showed that, if a random-generated key is at least as long as the plaintext (specifying a random\footnote{There is a paramount distinction between \textit{random} and \textit{psuedorandom}, the latter of which is vastly easier to implement on a computer. True randomness has to be derived from a non-computer source (for the most part). Commonly implemented approximates include taking the least-significant-digit of a mouse position, or the frequency of keypresses, etc. 
+A one-time-pad–like scheme generated from a psuedorandom source \textit{is} breakable, although usually not without some effort.} character for each plaintext character in the same alphabet), then performing a caeser cypher shift on each \textit{individual} plaintext character by the value of the random character, yields a cryptosystem that is \textit{mathematically} impenetrable. 
+Or equivalently, performing a random modular addition on each character of the plaintext, with the shared secret being the sequence of random shifts.\autocite{claude} % I maybe should rephrase this in terms of performing a random caeser cipher shift per character if this description is too confusing.
 Although modern systems seek smaller key sizes for performance reasons, this worst-case scenario should demonstrate the strength of symmetric-key algorithms in general. The 'one-time-pad' gets its name from its use in WWII when the KGB would distribute palm-sized pads with these one-time-keys and a table to ease in conversion. Such pads were often made of flammable materials to be burned with no trace.\autocite{lewand} 
   
 \begin{figure}[h]
@@ -173,15 +175,15 @@ More generally, if two computers want to establish a connection for the first ti
 
 \subsection{One-way Operations}
 
-Consider the intuitive fact that some operations are more difficult to do in reverse than fowards—certain 'one-way functions.' For instance, if I mixed two different-colored paints together and asked whether you, \textit{a priori}, could deduce the two initial colors given the end result, would you be able to? Although its quite easy to check whether any two colors combine to match the end result, there isn't an easy operation that takes the end result and returns the initial colors. This happens to be true for a number of operations. 
+Consider the intuitive fact that some operations are more difficult to do forwards than in reverse—certain 'one-way functions.' For instance, if I mixed two different-colored paints together and asked whether you, \textit{a priori}, could deduce the two initial colors given the end result, would you be able to? Although its quite easy to check whether any two colors combine to match the end result, there isn't an \textit{easy} operation that takes the end result returning the initial colors. This happens to be true in mathematical contexts as well. 
 
-The foremost 'one-way operation,' employed to this day, is that of multiplying large numbers with minimal divisors. This makes sense from a practical standpoint; breaking up a large number into its factors usually boils down to computationally expensive trial divisions, to use a jargon, its \textit{asymptotic time-complexity is exponential}, meaning that the time required to reach an answer scales exponentially with the size of the number. Algorithms like the general-number-field-Sieve quicken this slightly,\autocite[1482]{pomerance} but regardless it is vastly faster to compute multiplication, the time complexity of which scales \textit{at worst} with the square of the number.\autocite{bunimov}
+The foremost 'one-way operation,' employed to this day, is that of multiplying large numbers with minimal divisors. This makes sense from a practical standpoint; breaking up a large number into its factors usually boils down to computationally expensive trial divisions, to use a jargon, its \textit{asymptotic time-complexity is exponential}, meaning that the time required to reach an answer scales exponentially with the size of the number. Algorithms like the general-number-field-sieve quicken this slightly,\autocite[1482]{pomerance} but regardless it is vastly faster to compute multiplication, the time complexity of which scales \textit{at worst} with the square of the number.\autocite{bunimov}
 
 \subsection{Diffie-Hellman Key Exchange}
 
 The Diffie-Hellman protocol was the first asymmetric protocol,\footnote{Although this isn't a true "public-key" algorithm, rather its a non-authenticated key exchange, DH can be easily modified to send arbitrary messages in a scheme known as 'Elgamal encryption,' which is true "public-key" cryptography.\\\autocite{elgamal}} using the above intuition as a starting point. The end result of the key exchange is a commonly shared number, which can then function as the key for them to establish symmetric encryption.
 
-Between two parties, Alice $A$ and Bob $B$, the protocol first has them agree on a common 'generator' integer $g$, and this can be done over an eavesdropped channel. Each party chooses another \textit{secret} integer in private: their private key. Say, Alice chooses $a$ and Bob chooses $b$. Then, each party exponentiates the generator by their private key. So Alice and Bob compute $g^a$ and $g^b$ respectively. Each then sends this result to the other over the insecure channel. Finally, they both exponentiate the received numbers by their private key. For example, Alice would receive $g^b$ over the network, then compute$(g^b)^a$.
+Between two parties, Alice $A$ and Bob $B$, the protocol first agrees on a common 'generator' integer $g$, and this can be done over an eavesdropped channel. Each party chooses another \textit{secret} integer in private: their private key. Say, Alice chooses $a$ and Bob chooses $b$. Then, each party exponentiates the generator by their private key. So Alice and Bob compute $g^a$ and $g^b$ respectively. Each then sends this result to the other over the insecure channel. Finally, they both exponentiate the received numbers by their private key. For example, Alice would receive $g^b$ over the network, then compute$(g^b)^a$.
 By the commutativity of integer multiplication, multiplying $g$ by itself $b$ times \textit{then} $a$ times is the same as  multiplying $g$ by itself $a$ times \textit{then} $b$ times. Explicitly, with Alice and Bob's private-keys in \color{orange}{amber} \color{black}{and} \color{blue}{blue} \color{black}{respectively:}
 \[ (g^{\color{orange}{a}}\color{black}{)}^{\color{blue}{b}} = g^{\color{orange}{a}\color{blue}{b}} = (g^{\color{blue}{b}}\color{black}{)}^{\color{orange}{a}}  \]
 
@@ -321,7 +323,7 @@ Furthermore, the process of square-rooting increases values from $0<y<1$ and dec
 \end{center}
 \end{figure}
 
-\subsection{Geometric secant-tangent construction}
+\subsection{Geometric Secant-Tangent Construction}
 
 It turns out, Elliptic curves are special because one can define a reasonable notion of addition with points on the curve. The one caveat is that we require a point 'at infinity' $I$ to do so. Formally, this means were working in the projective real plane $\mathbb{RP}^2$ or $\mathbb{R}^2 \cup \lbrace \infty \rbrace$. 
 But with this, we obtain the property that any secant drawn through two points on the curve must intersect another third point on the curve or this point at infinity $I$. Thus we will define the addition of two points $P$ and $Q$ to be this third point reflected across the y-axis.\footnote{Note, without reflecting across the y-axis, this operation would not be associative. It also makes sense with the notion that three colinear points sum to the point-at-infinity $A+B+C=I$ and hence, $A+B=-C$.}
@@ -334,7 +336,7 @@ But with this, we obtain the property that any secant drawn through two points o
 \end{center}
 \end{figure}
 
-\subsection{Addition of two points}
+\subsection{Addition of Two Points}
 
 We can make this idea rigorous by using some geometric tools. Our third point $-R$ is defined as the intersection of our elliptic curve $y^2 = x^3 + ax +b$ and some secant line $y=mx+l$. Given the points $P, Q = (x_p,y_p), (x_q,y_q)$ we can write down the slope:
 \[m = \frac{y_p - y_q}{x_p-x_q}\]
@@ -398,7 +400,7 @@ Because of this construction, $I$ acts as a left- and right-sided identity eleme
 \end{align*}
 
 
-\subsection{Adding a point to itself}
+\subsection{Adding a Point to Itself}
 The case that was left out of the earlier pictorial representation of point addition is when a point is added to itself. Not to fear, however, since we can replace the secant through two points with a tangent through one. The resultant point is the resultant intersection flipped across the y-axis. The slope of this tangent can be found through implicit differentiation.
 \begin{align*}
 \color{red}{d(}\color{black}{y^2}\color{red}{)} &= \color{red}{d(}\color{black}{x^3+ax+b}\color{red}{)}\\
@@ -425,7 +427,7 @@ y_r = -y_p-m(x_r-x_p)
 
 \section{Group structure of $E[K]$}
 
-\subsection{Verifying the group axioms}
+\subsection{Verifying the Group Axioms}
 
 By the higher powers of mathematical serendipity, this forms a group! A very special group at that. We can write this elliptic curve group as $E[\reals]$ for the case in the reals. Or, $E[K]$ for any field $K$ (again, a structure with $+, -, \times, \div$).
 
@@ -446,7 +448,7 @@ One might write $\field_q$ where $q = p^r$.} is a set of ordered pairs $(x,y)$ w
 
 As I alluded to earlier, the condition that $p$ be prime is so that every element $n < p$ has a multiplicative inverse, since, to have a multiplicative inverse, $\mathrm{gcd}(n,p)=1$. Really, finite fields are the elements of $\integers / p \integers$ with addition and multiplication in $(\integers / p \integers)^{+}$ and $(\integers / p \integers)^{\times}$. The field axioms readily follow from the group axioms of the multiplicative and additive groups.
 
-\subsection{Elliptic curves over finite fields, $K = \field_p$}
+\subsection{Elliptic Curves over Finite Fields, $K = \field_p$}
 
 Using the same equations from before, except with operations taken \textit{modulo} $p$, this elliptic curve still forms a group over a finite field, $E[\field_p]$. The elements of this group are the points, 
 \[ E[\field_p] = \left\lbrace (x,y)\ |\ y^2 \equiv x^3 + ax + b \bmod p \right\rbrace \cup \lbrace \infty \rbrace. \]
@@ -476,13 +478,14 @@ In an attempt to better understand the group structure, I coded an interactive w
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=\linewidth]{cayleytable.png} 
-\caption{App on my personal website computing the Cayley table of $y^2 = x^3 + 3x + 12$ over $\field_{17}$. Clicking on an element computes the subgroup it generates, the focused point being $(5,10)$ here.}
+\caption{App on my \href{jacobbruner.com/elliptic-curve}{personal website} computing the Cayley table of $y^2 = x^3 + 3x + 12$ over $\field_{17}$. Clicking on an element computes the subgroup it generates, the focused point being $(5,10)$ here.}
 \label{fig:cayley}
 \end{center}
 \end{figure}
 
 Using the elements of this elliptic curve group, one can formulate a new form of Diffie-Hellman key exchange where, given a suitable generator point $g$, all the repeated multiplications can be performed on this elliptic curve group. The benefit of doing this is that the structure of an elliptic curve group $E[\field_p]$ is much more complicated than that of $(\integers / q \integers)^{\times}$. When working in $(\integers / q \integers)^{\times}$, there are number-theoretical properties making it easier to narrow down guesses, especially when computing a discrete logarithm problem as discussed earlier. Diem, C. (2011) showed that that the discrete logarithm problem for elliptic curves has an asymptotic time complexity greater than that of $(\integers / q \integers)^{\times}$.\autocite[76]{diem} The culmination of this research into elliptic curve cryptography is the fact that most public key protocols utilize elliptic curves in one way or another. 
 
+\iffalse
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=\linewidth]{wikicert.png} 
@@ -490,6 +493,7 @@ Using the elements of this elliptic curve group, one can formulate a new form of
 \label{fig:wiki}
 \end{center}
 \end{figure}
+\fi
 
 \section{Conclusion}
 
@@ -497,7 +501,7 @@ In this paper, I sought to explore \textbf{to what extent does group theory prov
 
 In the process of researching, it's clear that there are two different mathematical perspectives introducing elliptic curves. The decision was made to continue with the simpler route, defining the elliptic curve as the solution to a polynomial equation. However, this is not strictly necessary, since elliptic curves arise in many other contexts, like through the intersection of two quadric surfaces (like a 3-sphere and a hyperboloid for instance). The other route is a more theoretical perspective, using tools from algebraic geometry and topology to reach the same conclusions as the simpler route. The benefit of approaching it this way, however, is that these tools can be generalized to other contexts to discover new group-theoretical perspectives on cryptography. Doing so also would decrease the 'arbitrary-ness' of some of the topics explored in this paper. Coming at a topic from the top-down can make certain difficult proofs and perspectives trivial, as I mention a couple times in the paper.
 
-Another aspect of this paper worth mentioning is the impercise handling of comparison between elliptic curve cryptography and traditional cryptography. Going into it, I intended to explore the nitty-gritty details of the elliptic curve group structure, detailing exactly why the hidden-subgroup problem and discrete logarithm problem were more difficult. This proved to be much more challenging than I anticipated, and, although I satisfied some of my own curiosity in researching, I knew it would be an impractical undertaking to convey the wealth of prerequisites in this paper to reach the conclusions I wanted. As a result, my reasearch question lacks some of the 'argument' I wanted it to have, rather opting for a more expository lens on this complicated subject. 
+Another aspect of this paper worth mentioning is the impercise handling of comparison between elliptic curve cryptography and traditional cryptography. Going into it, I intended to explore the nitty-gritty details of the elliptic curve group structure, detailing exactly why the hidden-subgroup problem and discrete logarithm problem were more difficult. This proved to be much more challenging than I anticipated, and, although I satisfied some of my own curiosity in researching, I knew it would be an impractical undertaking to convey the wealth of prerequisites in this paper to reach the conclusions I wanted. As a result, my research question lacks some of the 'argument' I wanted it to have, rather opting for a more expository lens on this complicated subject. Regardless, I find this is a subject that is fruitful to learn because of it's reasonable ties to number theory and its underappreciated influence on modern-day life.
 
 
 \newpage 
