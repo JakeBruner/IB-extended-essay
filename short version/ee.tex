@@ -67,9 +67,9 @@ New York, New York
 \begin{center}
 \LARGE Group Theory and Modern Cryptography\\
 \vspace*{.5cm}
-\large To what extent does group theory provide a mathematical backdrop for modern public-key cryptography?
+\large To what extent does group theory provide a mathematical backdrop for modern cryptography? \\
 \vspace*{.5cm}
-\large 340923 words \\
+\large 340923 words
 \vspace*{.5cm}
 \Large Mathematics
 \end{center}
@@ -143,11 +143,15 @@ f(p) = p + n \bmod 26
 % I could maybe talk about affine cryptosystems here if I need more words.
 % I could also show the linear algebra point of view
 
-Representing a shifting of each letter in the plaintext by $n$ places in the alphabet. Now clearly this isn't a very sophisticated cryptographic scheme... For instance, performing a frequency analysis and comparing the most commonly occurring letters to those of the English alphabet, easily breaking these types of cyphers, broadly referred to as 'substitution ciphers.'\autocite[54]{koblitz} Modern schemes typically employ more resistant techniques, namely where changing just one letter of plaintext often yields a completely different ciphertext, making modern techniques all but impervious to frequency analysis. (Unless someone \textit{really} screwed up an implementation)
+Representing a shifting of each letter in the plaintext by $n$ places in the alphabet. Now clearly this isn't a very sophisticated cryptographic scheme... For instance, performing a frequency analysis and comparing the most commonly occurring letters to those of the English alphabet, easily breaking these types of cyphers, broadly referred to as 'substitution ciphers.'\autocite[54]{koblitz} 
+Modern schemes typically employ more resistant techniques, namely where changing just one letter of plaintext often yields a completely different ciphertext, making modern techniques all but impervious to frequency analysis. (Unless someone \textit{really} screwed up an implementation)
   
   For instance, AES encryption, part of the modern web standard, is an example of a '\textit{block substitution cypher},' which are beyond the scope of this paper. % much to my chagrin :(
-At a high level, it combines techniques similar to our Caesar Cipher with certain affine (think scaling and transforming) maps performed on blocks of plaintext. It's certainly more complicated than that, but essentially boils down to our system plus some advanced techniques making it resistant to cryptanalysis. (Like permutations, combinations, text look-up-tables and more.) In general, Symmetric-key cryptography (\textit{viz.} predetermined, shared secret) is well understood. For instance, Claude Shannon (\textit{the} definitive father of information theory) proved mathematically that the so-called \textit{'one-time-pad'} encryption technique was completely and utterly unbreakable. 
-In the general case, he showed that, if a random-generated key is at least as long as the plaintext (at least specifying a unique, random\footnote[0]{There is a paramount distinction between \textit{random} and \textit{psuedorandom}, the latter of which is vastly easier to implement on a computer. True randomness has to be derived from a non-computer source (for the most part). Commonly implemented approximates include taking the least-significant-digit of a mouse position, or the frequency of keypresses, etc. A one-time-pad–like scheme generated from a psuedorandom source \textit{is} breakable, although usually not without some effort.} character for each plaintext character and in the same alphabet), then performing a caeser cypher shift on each \textit{individual} plaintext character by the value specified by the random character yields a cryptosystem that is mathematically impenetrable. Or equivalantly, performing a random modular addition on each character of the plaintext, with the shared secret being the sequence of random shifts.\autocite{claude} % I maybe should rephrase this in terms of performing a random caeser cipher shift per character if this description is too confusing.
+At a high level, it combines techniques similar to our Caesar Cipher with certain affine (think scaling and transforming) maps performed on blocks of plaintext. It's certainly more complicated than that, but essentially boils down to our system plus some advanced techniques making it resistant to cryptanalysis. (Like permutations, combinations, text look-up-tables and more.) 
+In general, Symmetric-key cryptography (\textit{viz.} predetermined, shared secret) is well understood. For instance, Claude Shannon (\textit{the} definitive father of information theory) proved mathematically that the so-called \textit{'one-time-pad'} encryption technique was completely and utterly unbreakable. 
+In the general case, he showed that, if a random-generated key is at least as long as the plaintext (at least specifying a unique, random\footnote[0]{There is a paramount distinction between \textit{random} and \textit{psuedorandom}, the latter of which is vastly easier to implement on a computer. True randomness has to be derived from a non-computer source (for the most part). Commonly implemented approximates include taking the least-significant-digit of a mouse position, or the frequency of keypresses, etc. 
+A one-time-pad–like scheme generated from a psuedorandom source \textit{is} breakable, although usually not without some effort.} character for each plaintext character and in the same alphabet), then performing a caeser cypher shift on each \textit{individual} plaintext character by the value specified by the random character yields a cryptosystem that is mathematically impenetrable. 
+Or equivalantly, performing a random modular addition on each character of the plaintext, with the shared secret being the sequence of random shifts.\autocite{claude} % I maybe should rephrase this in terms of performing a random caeser cipher shift per character if this description is too confusing.
 Although modern systems seek smaller key sizes for performance reasons, this worst-case scenario should demonstrate the strength of symmetric-key algorithms in general. The 'one-time-pad' gets its name from its use in WWII when the KGB would distribute palm-sized pads with these one-time-keys and a table to ease in conversion. Such pads were often made of flammable materials to be burned with no trace.\autocite{lewand} 
   
 \begin{figure}[h]
@@ -162,7 +166,8 @@ Although modern systems seek smaller key sizes for performance reasons, this wor
 
 \subsection{The 'Public-Key' Paradox}
 
-In the modern world, it's impractical to require that every shared secret be determined ahead of time. If a user wants to connect to a twitter server over a secure connection, how could symmetric-key encryption be employed? More generally, if two computers want to establish a connection for the first time, is there any way they could do so in an encrypted matter? The intuitive answer might be no, since how could one pass a shared secret without any man-in-the-middle being able to obtain that same key. But this defys the ubiquity of encryption on the internet—every time I connect to a unfamiliar website, I still see a padlock on my browser. How could this be?
+In the modern world, it's impractical to require that every shared secret be determined ahead of time. If a user wants to connect to a twitter server over a secure connection, how could symmetric-key encryption be employed? 
+More generally, if two computers want to establish a connection for the first time, is there any way they could do so in an encrypted matter? The intuitive answer might be no, since how could one pass a shared secret without any man-in-the-middle being able to obtain that same key. But this defys the ubiquity of encryption on the internet—every time I connect to a unfamiliar website, I still see a padlock on my browser. How could this be?
 
 %"In applied contexts, the terms "easy" and "hard" are usually interpreted relative to some specific computing entity; typically "cheap enough for the legitimate users" and "prohibitively expensive for any malicious agents"."
 
@@ -277,7 +282,7 @@ Notice that for prime $p$, every number $< p$ is relatively prime to $p$, so the
 
 \subsection{Discrete Logarithm Problem}
 
-This also sheds light on the security of cryptography. In a Diffie-Hellman key exchange over $\integers / q \integers$, Alice and Bob were using the map $f$,
+In this section, I want to explore the formal statement of 'why' certian operations are difficult to reverse, although  In a Diffie-Hellman key exchange over $(\integers / q \integers)^{\times}$, Alice and Bob were using the map $f$,
 \[ f(n) = g^n \bmod q \]
 or, written in terms of their respective groups,
 \[ f: \integers \rightarrow (\integers / q \integers)^{\times} \]
@@ -285,9 +290,9 @@ This $f$ is a function between groups (a \textit{group homomorphism}) from $\int
 
 Roughly sketching the 'why' behind what is to follow, it can be shown that any finite abelian group must consist of cyclic groups as building blocks, cyclic groups being the integers under addition modulo some $n$. \footnote{By the (aptly named) Fundamental Theorem of Finitely Generated Abelian Groups. \\\autocite[134]{saracino}} Hence, our subset $H$ (which one can prove forms a group as well, a 'subgroup') must be one of these cyclic groups. We can then write this sort-of inverse map $f\inv$ as,
 
-\[ \log_g : H \rightarrow (\integers / q \integers, +) \]
+\[ \log_g : H \rightarrow (\integers / m \integers, +) \]
 
-Ascertaining this 'hidden' cyclic subgroup $H$ is known to be a difficult problem, and this difficulty of computing the original integer $n$ is infeasible since $\log_g$ does not map back to all the integers: just some additive group of the integers modulo some $q$.
+Ascertaining this 'hidden' cyclic subgroup $H$ is known to be a difficult problem, and this difficulty of computing the original integer $n$ is infeasible since $\log_g$ does not map back to all the integers: just some additive group of the integers modulo some $m$. This is known as the \textit{discrete logarithm problem}.\autocite[97]{koblitz} Like discussed before with division, there is no known algorithm that can solve a discrete logarithm with time-complexity that scales polynomially (on a non-quantum computer). It remains an open question in theoretical computer-science whether such a polynomial-time algorithm exists, though all of  modern cryptography rests on this principle.
 
 
 \section{Group Law on an Elliptic Curve}
@@ -318,7 +323,8 @@ Furthermore, the process of square-rooting increases values from $0<y<1$ and dec
 
 \subsection{Geometric secant-tangent construction}
 
-It turns out, Elliptic curves are special because one can define a reasonable notion of addition with points on the curve. The one caveat is that we require a point 'at infinity' $I$ to do so. Formally, this means were working in the projective real plane $\mathbb{RP}^2$ or $\mathbb{R}^2 \cup \lbrace \infty \rbrace$ . But with this, we obtain the property that any secant drawn through two points on the curve must intersect another third point on the curve or this point at infinity $I$. Thus we will define the addition of two points $P$ and $Q$ to be this third point reflected across the y-axis.\footnote{Note, without reflecting across the y-axis, this operation would not be associative. It also makes sense with the notion that three colinear points sum to the point-at-infinity $A+B+C=I$ and hence, $A+B=-C$.}
+It turns out, Elliptic curves are special because one can define a reasonable notion of addition with points on the curve. The one caveat is that we require a point 'at infinity' $I$ to do so. Formally, this means were working in the projective real plane $\mathbb{RP}^2$ or $\mathbb{R}^2 \cup \lbrace \infty \rbrace$. 
+But with this, we obtain the property that any secant drawn through two points on the curve must intersect another third point on the curve or this point at infinity $I$. Thus we will define the addition of two points $P$ and $Q$ to be this third point reflected across the y-axis.\footnote{Note, without reflecting across the y-axis, this operation would not be associative. It also makes sense with the notion that three colinear points sum to the point-at-infinity $A+B+C=I$ and hence, $A+B=-C$.}
 
 \begin{figure}[ht]
 \begin{center}
@@ -432,34 +438,21 @@ Lastly, this binary operation of adding two points is \textit{commutative} as we
 
 As a result of meeting these conditions, $E[K]$ forms an abelian group under our binary operation.
 
-\subsection{Elliptic curves over finite fields, $K = \field_p$}
+\subsection{Finite Fields $\field_p$}
 
 This elliptic curve group action holds for other fields $K$ as well. Most important to cryptography is elliptic curves over "finite" fields. 
 A finite field, denoted $\field_p$ for $p$ prime,\footnote{Technically, $p$ can be a prime power. 
 One might write $\field_q$ where $q = p^r$.} is a set of ordered pairs $(x,y)$ with addition, subtraction and multiplication taken \textit{modulo $p$}. 
-Division takes more care to define and is, in fact, the reason why $\mathrm{char}(E)$ must be prime.\autocite[159]{saracino}
-Multiplicative inverses (division) can be computed using the Euclidean Algorithm or by leveraging the symmetries in modular multiplication. 
-Essentially, over a field $\field_p$, the multiplicative inverse of a number $n$ is a number $m$ such that,
-\[ nm \equiv 1 \mod p\]
-The invertible elements of $\field_p$ are exactly those that are relatively prime to $p$. The proof is by contradiction:
 
-	If $\mathrm{gcd}(n,p) = d$ with $d \neq 1$, assume there is some $m$ for which $nm \equiv 1 \mod p$. Expanding this out,
-\begin{align*}
-	nm &\equiv 1 \mod p\\
-	nm - 1 &\equiv 0 \mod p\\
-	\Rightarrow &\hspace*{0.3cm} p | nm-1\\
-	\Rightarrow &\hspace*{0.3cm} d | nm-1\\
-	\Rightarrow &\hspace*{0.3cm} d | nm-1 -nm\; (\text{since } d|nm)\\
-	\Rightarrow &\hspace*{0.3cm} d | 1
-\end{align*}
-As $1$ is not divisible by anything except $1$, our assumption was false and $\mathrm{gcd}(n,p)$ must be one.\autocite[19]{koblitz}
-\qed
+As I alluded to earlier, the condition that $p$ be prime is so that every element $n < p$ has a multiplicative inverse, since, to have a multiplicative inverse, $\mathrm{gcd}(n,p)=1$. Really, finite fields are the elements of $\integers / p \integers$ with addition and multiplication in $(\integers / p \integers)^{+}$ and $(\integers / p \integers)^{\times}$. The field axioms readily follow from the group axioms of the multiplicative and additive groups.
 
-With this in mind, one can compute the elements/points of $E[\field_p]$ as,
-\[ E[\field_p] = \left\lbrace (x,y)\ |\ y^2 \equiv x^3 + ax + b \mod p \right\rbrace \cup \lbrace \infty \rbrace. \]
+\subsection{Elliptic curves over finite fields, $K = \field_p$}
 
+Using the same equations from before, except with operations taken \textit{modulo} $p$, this elliptic curve still forms a group over a finite field, $E[\field_p]$. The elements of this group are the points, 
+\[ E[\field_p] = \left\lbrace (x,y)\ |\ y^2 \equiv x^3 + ax + b \bmod p \right\rbrace \cup \lbrace \infty \rbrace. \]
+with the additional $\infty$ element serving as the identity.
 
-
+Plotting examples of these groups over finite fields, the geometric intuition breaks down somewhat.
 \begin{figure}[ht]
 \centering
 \begin{subfigure}{0.49\textwidth}
@@ -478,7 +471,7 @@ With this in mind, one can compute the elements/points of $E[\field_p]$ as,
 \label{fig:combined}
 \end{figure}
 
-\
+
 
 
 \section{Conclusion}
