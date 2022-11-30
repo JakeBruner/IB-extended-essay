@@ -52,15 +52,15 @@
 \providecommand{\main}{..} 
 \graphicspath{{\main/images/}{images/}}
 
-\author{Jacob Bruner}
+%\author{Jacob Bruner}
 \title{IB Extended Essay}
 \date{\today}
 
 \begin{document}
 \begin{titlepage}
 \begin{flushleft}
-Dwight School\\
-New York, New York
+%Dwight School\\
+%New York, New York
 \end{flushleft}
 
 \vspace*{3cm}
@@ -71,17 +71,17 @@ New York, New York
 %\vspace*{.5cm}
 %\large 340923 words \\
 \vspace*{.5cm}
-\Large Mathematics \\
+\Large Group 5: Mathematics \\
 \vspace*{.5cm}
-\large Full version
+\large 4000 words excluding typeset expressions
 \end{center}
 
 \vfill
 
 \begin{flushright}
 \begin{tabular}{l@{:\hspace*{\tabcolsep}}l}
-Author & Jacob Bruner \\
-Advisor & Daniel Bjelis
+%Author & Jacob Bruner \\
+%Advisor & Daniel Bjelis
 \end{tabular}
 \end{flushright}
 
@@ -119,23 +119,23 @@ This paper is for research purposes only. Although the information presented is 
 For my Extended Essay, I will be exploring the relationship between Group Theory, a mathematical field generalizing symmetry and codifying number systems, and modern cryptography. Cryptography has seen a number of advancements in the computer-age, most notable of which is the use of 'elliptic curves.' In this paper, I intend to show how a group-theoretical perspective on cryptography helps understand elliptic curve cryptosystems. My guiding question is: \textit{to what extent does group theory provide a mathematical backdrop for modern cryptography?}
 
 \subsection{Motivating Idea}
-It's undeniable that our modern-day world is reliant on cryptography. Every time a phone sends a text, a browser connects to a server, an email gets sent off, or a monetary transaction is made our devices are performing many hundreds of math operations to ensure our data are 'encrypted.' But what does 'encryption' mean? Let's introduce some definitions. 
+It's undeniable that our modern-day world is reliant on cryptography. Every time a phone sends a text, a browser connects to a server, an email gets sent off, or a monetary transaction is made, our devices are performing many hundreds of math operations to ensure our data are 'encrypted.' But what does 'encryption' mean?
 
-‘Encryption’ is the process of disguising a message to be, loosely speaking, hidden to all \textit{except} the intended recipient. This is the process of converting a ‘plaintext’ message into a jumbled ‘ciphertext’, which can be readily shared without risk of the sensitive message leaking. Converting a plaintext message (typically a string/array of characters) into a ciphertext is known as an ‘enciphering’ or ‘encrypting’ transformation. Likewise the reverse operation of recovering the plaintext message from a ciphertext is known as the \textit{deciphering transformation.}\autocite[54]{koblitz} If we denote the plain and cyphertext $\mathcal{P}$ and $\mathcal{C}$ respectively and the enciphering map $f$ and its inverse $f\inv$ we obtain the following diagram:
+‘Encryption’ is the process of disguising a message to be, loosely speaking, hidden to all \textit{except} the intended recipient. This is the process of converting a ‘plaintext’ message into a jumbled ‘ciphertext.' Converting a plaintext message (a string/array of characters) into a ciphertext is known as an ‘enciphering’ or ‘encrypting’ transformation. Likewise the reverse operation of recovering the plaintext message from a ciphertext is known as the \textit{deciphering transformation.}\autocite[54]{koblitz} If we denote the plain and ciphertext $\mathcal{P}$ and $\mathcal{C}$ respectively, the enciphering map $f$ and its inverse $f\inv$ we obtain the following diagram:
 
 $$ \mathcal{P} \overset{f}\longrightarrow \mathcal{C} \overset{f\inv}\longrightarrow \mathcal{P} $$
 
 \subsection{The Fundamentals of Symmetric Cryptography}
 
-The intuitive way to implement this cryptosystem has the two transacting parties agree upon the nature of the map $f$ in secret, beforehand. This type of system has a special name, \textit{"Symmetric Key Cryptography"}, reflecting the fact that both parties have the same shared secret. Important historical examples include the 'Caeser Cipher,' where $f$ is a shift operation that maps each letter to a number of places ahead. For instance, the two parties might decide beforehand the map $f$: \textit{shift each character forward 3 letters}, implying the inverse map $f\inv$: \textit{shift each character back 3 letters}. This might look like so: \footnote[0]{One might notice that Ceaser Ciphers are just linear transformations in disguise. Alternatively, we could consider groups of two letters, called \textit{digraphs}, resulting in $f$ being a 2x2 invertible matrix, encoding the shift in a two-by-two matrix. Similarly, we could consider invertible \textit{affine} transformations of the form $f:\vec{x} \to A\vec{x} + \vec{b}$, where A encodes a certain scaling factor.}
+The intuitive implementation has the two transacting parties agree upon the nature of the map $f$ in secret, beforehand. This type of system has a special name, \textit{"Symmetric Key Cryptography"}, reflecting that both parties have the same common secret. Historical examples include the 'Caesar cipher,' where $f$ is a shift operation that maps each letter a number of places ahead. For instance, the parties might decide beforehand the map $f$: \textit{shift each character forward 3 letters}, implying the inverse map $f\inv$: \textit{shift each character back 3 letters}. This might look like so: \footnote{Ceaser Ciphers are just linear transformations in disguise. We could consider groups of two letters, \textit{digraphs}, resulting in $f$ being matrix-vector multiplication with a 2x2 invertible matrix. Similarly, we could consider invertible \textit{affine} transformations of the form $f:\vec{x} \to A\vec{x} + \vec{b}$, where A encodes a scaling factor.}
 
 \begin{align*}
  \mathcal{P} &\sim A,B,C,D,E,F,...Y,Z  \\ 
  \mathcal{C} &\sim D,E,F,G,H,I,...B,C 
 \end{align*} % I'm not sure what symbol to use here...Equivalance relation? Monomorphism?
-For example, if one wanted to encrypt the message $\mathcal{P} =$ "HELLO", the ciphertext would be $\mathcal{C} =$ "KHOOR" which they could send off to their friend to decode with the inverse, subtract-three-letters map. Note that, even in this simple example, repeated letters, word length, and other syntactic information provide a lot of information about the nature of the plaintext, making it vulnerable to cryptanalysis techniques.\autocite[56]{koblitz} 
+For example, if one wanted to encrypt the message $\mathcal{P} =$ "HELLO", the ciphertext would be $\mathcal{C} =$ "KHOOR" which they could send off to their friend to decode with the inverse, subtract-three-letters map. Note that, even in this simple example, repeated letters, word length, and other syntactic information provide a wealth of information about the nature of the plaintext, making it vulnerable to cryptanalysis techniques.\autocite[56]{koblitz} 
 
-Mathematically, a caeser cipher starts with encoding each letter as a number from $0$, A, to $25$, Z. Of course this depends on what alphabet one uses. We represent this map, shifting $n$ places forward, with addition. Importantly, this operation must 'wrap around' back to zero when it exceeds 'z' in the alphabet. This process, known as \textit{'modular arithmetic'}, is like circling a clock, where after reaching 25 we wrap back to 0. So, in our case, shifting 'z' by 3 letters looks like so: $25 + 3 \bmod 26 \equiv 2$, which reads "25 plus 3 \textit{is congruent to} 2 \textit{modulo} 26." With this in mind, we obtain for each letter $p \in \mathcal{P}$:  
+Mathematically, a Caesar cipher starts with encoding each letter as a number from $0$, A, to $25$, Z, depending on the alphabet of choice. We represent this map, shifting $n$ places forward, with addition. Importantly, this operation must 'wrap around' back to zero when it exceeds 'z' in the alphabet. This process, known as \textit{'modular arithmetic'}, is like circling a clock, where after reaching 25 we wrap back to 0. So, in our case, shifting 'z' by 3 letters looks like so: $25 + 3 \bmod 26 \equiv 2$, which reads "25 plus 3 \textit{is congruent to} 2 \textit{modulo} 26." With this in mind, we obtain for each letter $p \in \mathcal{P}$:  
 
 \[
 f(p) = p + n \bmod 26 
@@ -146,15 +146,14 @@ f(p) = p + n \bmod 26
 % I could maybe talk about affine cryptosystems here if I need more words.
 % I could also show the linear algebra point of view
 
-Clearly this isn't a very sophisticated cryptographic scheme... For instance, comparing the most commonly occurring letters in the ciphertext to those of the English alphabet could easily break these schemes, broadly referred to as 'substitution ciphers.'\autocite[54]{koblitz} 
-Modern techniques are more resistant, where changing one letter of plaintext yields a completely different ciphertext, making modern techniques all but impervious to this technique. 
+This isn't a very sophisticated cryptographic scheme... For instance, comparing the most commonly occurring letters in the ciphertext to those of the English alphabet (frequency analysis) could easily break these schemes, broadly referred as 'substitution ciphers.'\autocite[54]{koblitz} 
+Modern protocols are more resistant, changing one letter of plaintext yields a completely different ciphertext, making them impervious to this technique. 
   
   For instance, AES encryption, part of the modern web standard, is an example of a '\textit{block substitution cypher},' which are beyond the scope of this paper. 
-In general, Symmetric-key cryptography (\textit{viz.} predetermined, shared secret) is well understood. For instance, Claude Shannon (\textit{the} father of information theory) proved that the so-called \textit{'one-time-pad'} encryption technique was completely and utterly unbreakable. 
-In the general case, he showed that, if a random-generated key is at least as long as the plaintext (specifying a random\footnote{There is a paramount distinction between \textit{random} and \textit{psuedorandom}, the latter of which is vastly easier to implement on a computer. True randomness has to be derived from a non-computer source (for the most part). Commonly implemented approximates include taking the least-significant-digit of a mouse position, or the frequency of keypresses, etc. 
-A one-time-pad–like scheme generated from a psuedorandom source \textit{is} breakable, although usually not without some effort.} character for each plaintext character in the same alphabet), then performing a caeser cypher shift on each \textit{individual} plaintext character by the value of the random character, yields a cryptosystem that is \textit{mathematically} impenetrable. 
-Or equivalently, performing a random modular addition on each character of the plaintext, with the shared secret being the sequence of random shifts.\autocite{claude} % I maybe should rephrase this in terms of performing a random caeser cipher shift per character if this description is too confusing.
-Although modern systems seek smaller key sizes for performance reasons, this worst-case scenario should demonstrate the strength of symmetric-key algorithms in general. The 'one-time-pad' gets its name from its use in WWII when the KGB would distribute palm-sized pads with these one-time-keys and a table to ease in conversion. Such pads were often made of flammable materials to be burned with no trace.\autocite{lewand} 
+In general, Symmetric-key cryptography (\textit{viz.} predetermined, shared secret) is well understood. For instance, Claude Shannon proved that the so-called \textit{'one-time-pad'} encryption technique was mathematically unbreakable. 
+In full generality, he showed that if a random-generated key is at least as long as the plaintext (specifying a random\footnote{There is a paramount distinction between \textit{random} and \textit{pseudorandom}. \textit{True} randomness has to be derived from a non-computer source (for the most part). Commonly approximates include the least-significant-digit of a mouse position, the frequency of keypresses, etc.} character for each plaintext character in the same alphabet), then performing a caesar cypher shift on each \textit{individual} plaintext character by the value of the random character, yields a cryptosystem that is \textit{mathematically} impenetrable. 
+Or equivalently, performing a random modular addition on each character of the plaintext, with the shared secret being the sequence of random shifts.\autocite{claude} % I maybe should rephrase this in terms of performing a random Caesar cipher shift per character if this description is too confusing.
+Although modern systems seek smaller key sizes for long messages, this worst-case scenario demonstrates the strength of symmetric-key algorithms in general. The 'one-time-pad' gets its name from WWII, when the KGB would distribute palm-sized pads with one-time-keys and a table to ease in conversion. Such pads were often made of flammable materials to be burned with no trace.\autocite{lewand} 
   
 \begin{figure}[h]
 \begin{center}
@@ -168,22 +167,22 @@ Although modern systems seek smaller key sizes for performance reasons, this wor
 
 \subsection{The 'Public-Key' Paradox}
 
-In the modern world, it's impractical to require that every shared secret be determined ahead of time. If a user wants to connect to a twitter server over a secure connection, how could symmetric-key encryption be employed? 
-More generally, if two computers want to establish a connection for the first time, is there any way they could do so in an encrypted matter? The intuitive answer might be no, since how could one pass a shared secret without any man-in-the-middle being able to obtain that same key. But this defys the ubiquity of encryption on the internet—every time I connect to a unfamiliar website, I still see a padlock on my browser. How could this be?
+In the modern world, it's impractical to require that every shared secret be determined ahead of time. If a user wants to connect to a twitter server over a secure connection, how could symmetric-key encryption be employed?—there's no way to share in secret beforehand.
+Beyond symmetric encryption, if two parties want to transact over an eavesdropped channel, is there any way they could do so in an encrypted matter? The intuitive answer might be no; how can a shared secret be 'shared' without any man-in-the-middle being able to obtain that same key. But this defys the ubiquity of encryption on the internet that we rely on daily. How could this be?
 
 %"In applied contexts, the terms "easy" and "hard" are usually interpreted relative to some specific computing entity; typically "cheap enough for the legitimate users" and "prohibitively expensive for any malicious agents"."
 
 \subsection{One-way Operations}
 
-Consider the intuitive fact that some operations are more difficult to do forwards than in reverse—certain 'one-way functions.' For instance, if I mixed two different-colored paints together and asked whether you, \textit{a priori}, could deduce the two initial colors given the end result, would you be able to? Although its quite easy to check whether any two colors combine to match the end result, there isn't an \textit{easy} operation that takes the end result returning the initial colors. This happens to be true in mathematical contexts as well. 
+Consider the intuitive fact that some operations are more difficult to do forwards than in reverse—certain 'one-way functions.' If I mixed two different-colored paints together and asked whether you, \textit{a priori}, could deduce the two initial colors given the end result, could you? Although it's quite easy to check whether any two colors combine to match the end result, there isn't an \textit{easy} operation that returns the initial colors. This happens to be true in mathematical contexts as well. 
 
-The foremost 'one-way operation,' employed to this day, is that of multiplying large numbers with minimal divisors. This makes sense from a practical standpoint; breaking up a large number into its factors usually boils down to computationally expensive trial divisions, to use a jargon, its \textit{asymptotic time-complexity is exponential}, meaning that the time required to reach an answer scales exponentially with the size of the number. Algorithms like the general-number-field-sieve quicken this slightly,\autocite[1482]{pomerance} but regardless it is vastly faster to compute multiplication, the time complexity of which scales \textit{at worst} with the square of the number.\autocite{bunimov}
+The foremost 'one-way operation,' employed to this day, is that of multiplying large numbers with minimal divisors. This makes sense from a practical standpoint; breaking up a large number into factors usually requires computationally expensive trial divisions, to use a jargon, its \textit{asymptotic time-complexity is exponential}, meaning that the time required to reach an answer scales exponentially with the size of the number. Algorithms like the general-number-field-sieve quicken this slightly,\autocite[1482]{pomerance} but regardless it is vastly faster to compute multiplication, the time complexity of which scales \textit{at worst} with the square of the number.\autocite{bunimov}
 
 \subsection{Diffie-Hellman Key Exchange}
 
-The Diffie-Hellman protocol was the first asymmetric protocol,\footnote{Although this isn't a true "public-key" algorithm, rather its a non-authenticated key exchange, DH can be easily modified to send arbitrary messages in a scheme known as 'Elgamal encryption,' which is true "public-key" cryptography.\\\autocite{elgamal}} using the above intuition as a starting point. The end result of the key exchange is a commonly shared number, which can then function as the key for them to establish symmetric encryption.
+The Diffie-Hellman protocol was the first "asymmetric" protocol,\footnote{Precisely, it's a non-authenticated key exchange, but DH can be easily modified to send arbitrary messages in a scheme known as 'Elgamal encryption,' which is true "public-key" cryptography.\\\autocite{elgamal}} using the above 'multiplication' intuition as a starting point. The end result of the key exchange is a commonly shared number, which can then function as the key for parties to establish symmetric encryption.
 
-Between two parties, Alice $A$ and Bob $B$, the protocol first agrees on a common 'generator' integer $g$, and this can be done over an eavesdropped channel. Each party chooses another \textit{secret} integer in private: their private key. Say, Alice chooses $a$ and Bob chooses $b$. Then, each party exponentiates the generator by their private key. So Alice and Bob compute $g^a$ and $g^b$ respectively. Each then sends this result to the other over the insecure channel. Finally, they both exponentiate the received numbers by their private key. For example, Alice would receive $g^b$ over the network, then compute$(g^b)^a$.
+Between two parties, Alice $A$ and Bob $B$, the protocol first agrees on a common 'generator' integer $g$, which can be done over an eavesdropped channel. Each party chooses another \textit{secret} integer in private: their private key. Say, Alice chooses $a$ and Bob chooses $b$. Then, each party exponentiates the generator by their private key. So Alice and Bob compute $g^a$ and $g^b$ respectively. Each then sends this result to the other over the insecure channel. Finally, they both exponentiate the received numbers by their private key. For example, Alice would receive $g^b$ over the network, then compute$(g^b)^a$.
 By the commutativity of integer multiplication, multiplying $g$ by itself $b$ times \textit{then} $a$ times is the same as  multiplying $g$ by itself $a$ times \textit{then} $b$ times. Explicitly, with Alice and Bob's private-keys in \color{orange}{amber} \color{black}{and} \color{blue}{blue} \color{black}{respectively:}
 \[ (g^{\color{orange}{a}}\color{black}{)}^{\color{blue}{b}} = g^{\color{orange}{a}\color{blue}{b}} = (g^{\color{blue}{b}}\color{black}{)}^{\color{orange}{a}}  \]
 
@@ -194,13 +193,13 @@ By the commutativity of integer multiplication, multiplying $g$ by itself $b$ ti
 \end{center}
 \end{figure}
 
-The one caveat to the above description, however, is that these multiplications are performed \textit{modulo} $n$ for some integer $n$. As discussed before, this means numbers wrap around 'like a clock'; if $g^a$ exceeds $n$, the remainder of $g^a \div n$ is returned. This should make sense, because computers have limited memory and because exponentiation by a (large) number yields a incomprehensibly large result—too large to send over a network or perform computation with. Additionally, computers can perform modular exponentiation \textit{very} performantly by leveraging tricks in binary.\autocite{bunimov}
+The one caveat to the above description, however, is that these multiplications are performed \textit{modulo} $n$ for some integer $n$. As discussed before, this means numbers wrap around 'like a clock'; if $g^a$ exceeds $n$, the remainder of $g^a \div n$ is returned. This should make sense, because computers have limited memory and because exponentiation by a (large) number yields an incomprehensibly large result—too large to send over a network or perform computation with. Additionally, computers can perform modular exponentiation \textit{very} performantly by leveraging tricks in binary.\autocite{bunimov}
 
 Our relation from before looks like:
 \[ (g^{\color{orange}{a}}\color{black}{\:\mathrm{mod}\; p)}^{\color{blue}{b}}\color{black}{\:\mathrm{mod}\; =\; }g^{\color{orange}{a}\color{blue}{b}} \:\mathrm{mod}\; p = (g^{\color{blue}{b}}\color{black}{\:\mathrm{mod}\; p)}^{\color{orange}{a}} \color{black}{\:\mathrm{mod}\; p.}  \]
 Importantly, though, Alice and Bob both agree on a common result $g^{ab}\;\mathrm{mod}\;p$.
 
-In the real world, this type of Diffie-Hellman transaction is used by countless devices every second to allow secure connections over the internet. Browsers have a predetermined set of generators from the National Institute of Standards and Technology (NIST) which they use to establish a shared secret with a web-server which is then used to implement symmetric encryption to facilitate fast data transfer. Every time you are to connect to a \texttt{https://}... website, with the padlock in the corner, the client (you) and the server are performing this type of key exchange. Although, modern implementations might use a different 'number system' to perform the repeated multiplications...
+In the real world, this type of Diffie-Hellman transaction is used by countless devices every second to allow secure connections over the internet. Browsers have a predetermined set of generators from NIST which they use to establish a shared secret with a web-server which is then used to implement symmetric encryption to facilitate fast data transfer.\autocite{barker} Every time you are to connect to a \texttt{https://}... website the client (you) and the server are performing this type of key exchange. Although, modern implementations might use a different 'number system' to perform the repeated multiplications...
 % wow i didn't know \bmod was a thing.... :P
 
 \subsection{A Proof that: $(a \bmod p)^k \bmod p = a^k \bmod p$}
@@ -241,102 +240,106 @@ Transitioning from the methods described earlier, I will now explore how many of
 \\\textbf{Identity}
 \\$\text{There exists an } e \in G \text{ such that } a \ast e = e \ast a = a \ \text{ for all } a \in G$
 \\\textbf{Inverse}
-\\$\text{Each } x \in G \text{ has an inverse } x\inv \in G \text{ with } x \ast x\inv = x\inv \ast x = e \hspace*{.5cm}\footnote{Note that uniqueness of inverses is not given in the axioms for a group, since it follows from the Identity and Associativity requirement and the existence of a (not strictly unique) inverse. If $b, c$ are left and right inverses respectivly of an element $a$ with identity $1$, then considering $c = 1 \ast c = (b \ast a) \ast c = b \ast (a \ast c) = b \ast 1 = b$, gives us $b = c$ as required.}$
+\\$\text{Each } x \in G \text{ has an inverse } x\inv \in G \text{ with } x \ast x\inv = x\inv \ast x = e \hspace*{.5cm}\footnote{Note that uniqueness of inverses is not given in the axioms for a group, since it follows from the Identity and Associativity requirement and the existence of a (not strictly unique) inverse. If $b, c$ are left and right inverses respectively of an element $a$ with identity $1$, then considering $c = 1 \ast c = (b \ast a) \ast c = b \ast (a \ast c) = b \ast 1 = b$, gives us $b = c$ as required.}$
 \linebreak
 
 Under this axiomatic definition of a group, a few canonical examples might come to mind.
  
  For instance, the integers form a group under addition $(\mathbb{Z}, +)$. It's worth verifying for yourself that these do fit the definition of a group. Our identity element is 0, since $0 + a = a + 0 = a$ for all $a \in \mathbb{Z}$. Addition of integers is clearly associative. And, every number has a unique inverse, $a\inv := -a$. 
  
- Similarly, the real numbers (excluding 0) might form a group under multiplication, write $(\reals\setminus\lbrace 0 \rbrace, \times)$ or $\reals^{\times}\setminus\lbrace 0 \rbrace$. 
+ Similarly, the real numbers (excluding 0) might form a group under multiplication, write $(\reals\setminus\lbrace 0 \rbrace, \times)$, $\reals^{\times}\setminus\lbrace 0 \rbrace$, or just $\reals^{\times}$. 
 We verify it has a two-sided identity, $1$; that its operation is associative; and that every element has an inverse $a\inv := \frac{1}{a}$, since $a\times \frac{1}{a} = \frac{1}{a} \times a = 1, \ \forall  a \in  (\reals\setminus\lbrace 0 \rbrace, \times)$. 
  
  To help intuition,consider that the integers $(\mathbb{Z},\times)$  \textit{do not} form a group under multiplication, since inverses are not suitably defined, i.e., there is no integer $a$ such that $a\times 2 = 2 \times a = 1$.
 
 \subsection{The Case for Commutativity and Abelian Groups}
-One key property that we didn't require in our group axioms is \textit{commutativity}. At first glance, this might seem like an obvious condition, since many of the introductory examples do obey commutativity. But most of the insight that comes from group theory is from the study of non-commutativity. This distinction happens to be so important that commutative groups have a special name: \textit{abelian groups}.\autocite[17]{dummit} Likewise, groups that violate this condition are sometimes called \textit{non-abelian groups}. In general, non-abelian groups can be thought of as corresponding to symmetries that change the backdrop for another symmetry to occur. For instance, the group of symmetries on a square, $\mathrm{D}_{8}$, is non-abelian (meaning non-commutative). If you labeled the verticies of a square, you'd find performing a rotation and than a reflection is not, in general, the same as performing a reflection than a rotation\footnote[0]{If we were working with the presentation of $\mathrm{D}_8$, $\langle a,x\ \vert \ a^4 = x^2 = e,\ xax\inv = a\inv \rangle$, we would say that $x$ and $a$ don't commute—corresponding to the reflection and rotation generators respectively.}. Despite this, many of the examples we have and will look at happen to be abelian. For instance, the additive and multiplicative (sans $0$) groups of $\integers, \rationals, \reals$ and $\complexes$, are  'abelian.' To highlight the importance of commutativity, consider that many properties of electric charge, as described by the Standard Model (in Quantum Field Theory), follow directly from the commutativity of the circle group $U(1)$ or $T$.\autocite{weinberg} But this is far beyond the scope of basic group theory.
+One key property that left out of the group axioms is \textit{commutativity}. At first glance, this might seem like an obvious condition since many of the introductory examples do obey commutativity. In fact, non-commutative groups abound, and the \textit{vast} majority of groups are not commutative.\autocite{aschbacher} This distinction happens to be so important that commutative groups have a special name: \textit{abelian groups}.\autocite[17]{dummit} Likewise, groups that violate this condition are sometimes called \textit{non-abelian groups}. In general, non-abelian groups correspond to symmetries that change the backdrop for another symmetry to occur. For instance, the group of symmetries on a square, $\mathrm{D}_{8}$, is non-abelian. If you labeled the vertices of a square, you'd find performing a rotation and than a reflection is not, in general, the same as performing a reflection then a rotation\footnote{Working with the presentation of $\mathrm{D}_8$, $\langle a,x\ \vert \ a^4 = x^2 = e,\ xax\inv = a\inv \rangle$, one would say that $x$ and $a$ don't commute—corresponding to the reflection and rotation generators respectively.}. Despite this, many of the examples we have and will look at happen to be abelian. For instance, the additive and multiplicative (sans $0$) groups of $\integers, \rationals, \reals$ and $\complexes$, are  'abelian.' To highlight the importance of commutativity, consider that many properties of electric charge, as described by the Standard Model of particle physics, follow directly from the commutativity of the circle group $U(1)$ or $\mathbb{T}$.\autocite{weinberg} But this is far beyond the scope of basic group theory.
 
 \subsection{Applying Group Theory to Cryptography: Cyclic Groups}
 
-  Much of the groups that are of importance to cryptography are abelian groups. For intuition on why this may be the case, consider the Diffie-Hellman example before. Both parties combined a series of steps involving their generator and private keys. If the underlying multiplicative group were not abelian, $(g^a)^b$ doesn't necessarily equal $(g^b)^a$. Similarly, in the case of a one-time-pad, if our modular addition weren't commutative, our results would be unpredictable. This provokes the question, were these cases abelian groups?
+  The groups that are of importance to (current) cryptography are abelian groups. Consider the Diffie-Hellman example before. Both parties combined a series of steps involving their generator and private keys. If the underlying multiplicative group were not abelian, $(g^a)^b$ doesn't necessarily equal $(g^b)^a$. This provokes the question, were the 'numbers' in these cases abelian groups?
  
- The group of integers under addition \textit{modulo} $n$ is denoted $(\integers / n \integers, +)$ or just $\integers / n \integers$  and is called the 'cyclic group of order $n$.' In an earlier example, we performed operations in $(\integers / 26 \integers, +)$ so as to not surpass the alphabet. The notation here is actually meaningful. Without delving too far into 'quotient groups' and 'normal subgroups,' the slash corresponds to 'quotienting' out the integers by $p$ times the integers, creating a group where $1$ is indistinguishable from $p+1$ and indeed $2p+1, 3p+1, -p+1, -2p+1...$, called an \textit{equivalence relation}.\autocite[104]{saracino} This formalizes the impercise notions of 'going around a clock face.'
+ Yes. The group of integers under addition \textit{modulo} $n$ (as in the Caesar cipher) is denoted $(\integers / n \integers, +)$, $(\integers / n \integers)^{+}$ or just $\integers / n \integers$  and is called the 'cyclic group of order $n$.' In an earlier example, we performed operations in $(\integers / 26 \integers, +)$. The notation here is meaningful. Without straying too afar, the slash corresponds to 'quotienting' out the integers by $p$ times the integers, creating a (quotient-) group where $1$ is indistinguishable from $p+1$ and indeed $2p+1, 3p+1, -p+1, -2p+1...$, called an \textit{equivalence relation}.\autocite[104]{saracino} This formalizes the imprecise notions of 'going around a clock face.'
   
-  Contrastingly, performing multiplication in a modular fashion forms the group $(\integers / n \integers, \times)$ or $(\integers / n \integers)^{\times})$. This group behaves a little differently and consists of the elements $\lbrace 0, 1 ...,n-1\rbrace$ that are relatively prime to $n$, i.e., share no nontrivial divisors. In this multiplicative group, it takes more care to define inverses than in the more familiar examples. Inverses can be computed using the Euclidean Algorithm or by leveraging the symmetries in modular multiplication. Essentially, in $(\integers / n \integers)^{\times})$, the multiplicative inverse of a number $n$ is a number $m$ such that,
-\[ nm \equiv 1 \mod p\]
+  Contrastingly, performing multiplication in a modular fashion forms the group $(\integers / n \integers, \times)$ or $(\integers / n \integers)^{\times}$. This group behaves a little differently and consists of the elements $\lbrace 0, 1 ...,n-1\rbrace$ that are relatively prime to $n$, i.e., share no nontrivial divisors. In this multiplicative group, it takes more care to define inverses. Inverses can be computed using the Euclidean Algorithm or by leveraging the symmetries in modular multiplication.\autocite[36]{saracino} Essentially, in $(\integers / q \integers)^{\times}$, the multiplicative inverse of a number $n$ is a number $m$ such that,
+\[ nm \equiv 1 \mod q\]
 
-Now, proving that the elements are only those relatively prime to $n$, consider that the invertible elements of $(\integers / n \integers)^{\times})$ (for any $q$) are exactly those that are relatively prime to $q$. The proof is by contradiction:
+The counterpart in a more familar context, say $\reals^{\times}$, is that the inverse of a number $a$ is a number $\frac{1}{a}$, where $a \times \frac{1}{a} = 1$.
 
-	If $\mathrm{gcd}(n,q) = d$ (i.e., they share a nontrivial divisor) with $d \neq 1$, assume there is some $m$ for which $nm \equiv 1 \mod p$. Expanding this out,
+Now, I will prove that the elements of $(\integers / q \integers)^{\times}$ are only those relatively prime to $q$. The proof is by contradiction:
+
+	If $\mathrm{gcd}(n,q) = d$ with $d \neq 1$ (i.e., they share a nontrivial divisor), assume there does exist some $m$ for which $nm \equiv 1 \mod q$. Expanding this out,
 \begin{align*}
-	nm &\equiv 1 \mod p\\
-	nm - 1 &\equiv 0 \mod p\\
+	nm &\equiv 1 \mod q\\
+	nm - 1 &\equiv 0 \mod q\\
 	\Rightarrow &\hspace*{0.3cm} p | nm-1\\
 	\Rightarrow &\hspace*{0.3cm} d | nm-1\\
 	\Rightarrow &\hspace*{0.3cm} d | nm-1 -nm\; (\text{since } d|nm)\\
 	\Rightarrow &\hspace*{0.3cm} d | 1
 \end{align*}
-As $1$ is not divisible by anything except $1$, our assumption was false and $n$ cannot have an inverse and is not $\in (\integers / n \integers)^{\times})$.\autocite[19]{koblitz} 
+As $1$ is not divisible by anything except $1$, our assumption was false and $n$ has no inverse and is not $\in (\integers / q \integers)^{\times}$.\autocite[19]{koblitz} 
 \qed
 
-Notice that for prime $p$, every number $< p$ is relatively prime to $p$, so the order of the group $(\integers / n \integers)^{\times}$ is $p-1$, which you might notice is the same as the order of $(\integers / n \integers)^{+}$. This fact will be useful in a bit.
+Notice that for prime $p$, every number $< p$ is relatively prime to $p$, so the order (number of elements) of the group $(\integers / n \integers)^{\times}$ is $p-1$, which you might notice is the same as the order of $(\integers / n \integers)^{+}$. This fact will be useful in a bit.
 
 
 \subsection{Discrete Logarithm Problem}
 
-In this section, I want to explore the formal statement of 'why' certian operations are difficult to reverse, although  In a Diffie-Hellman key exchange over $(\integers / q \integers)^{\times}$, Alice and Bob were using the map $f$,
+In this section, I want to explore the formal statement of 'why' certain operations are difficult to reverse, although this section gets quite abstract coming from a basic introduction of group theory. 
+
+In a Diffie-Hellman key exchange over $(\integers / q \integers)^{\times}$, Alice and Bob were using the map $f$,
 \[ f(n) = g^n \bmod q \]
 or, written in terms of their respective groups,
 \[ f: \integers \rightarrow (\integers / q \integers)^{\times} \]
 This $f$ is a function between groups (a \textit{group homomorphism}) from $\integers$ \textit{onto} a \textit{\textbf{subset}} of $(\integers / q \integers)^{\times}$ surjectively, namely the subset generated by $g^n$ which I will denote $H$. The inverse mapping here (the 'computationally difficult' part), isn't defined for the entirety of $\mathrm{dom}\: f$, since $f$ takes an infinite group $\integers$ to a subset $H$ of the finite group $(\integers / q \integers)^{\times}$. 
 
-Roughly sketching the 'why' behind what is to follow, it can be shown that any finite abelian group must consist of cyclic groups as building blocks, cyclic groups being the integers under addition modulo some $n$. \footnote{By the (aptly named) Fundamental Theorem of Finitely Generated Abelian Groups. \\\autocite[134]{saracino}} Hence, our subset $H$ (which one can prove forms a group as well, a 'subgroup') must be one of these cyclic groups. We can then write this sort-of inverse map $f\inv$ as,
+Roughly outlining the proof of the one-way operation's "difficulty," it can be shown that any finite abelian group must consist of cyclic groups as building blocks, cyclic groups (the integers under addition modulo some $n$). \footnote{By the (aptly named) Fundamental Theorem of Finitely Generated Abelian Groups. \\\autocite[134]{saracino}} Hence, our subset $H$ (which one can prove forms a group as well, a 'subgroup')\autocite[43]{koblitz} must be one of these cyclic groups. We can then write this sort-of inverse map $f\inv$ as,
 
 \[ \log_g : H \rightarrow (\integers / m \integers, +) \]
 
-Ascertaining this 'hidden' cyclic subgroup $H$ is known to be a difficult problem, and this difficulty of computing the original integer $n$ is infeasible since $\log_g$ does not map back to all the integers: just some additive group of the integers modulo some $m$. This is known as the \textit{discrete logarithm problem}.\autocite[97]{koblitz} Like discussed before with division, there is no known algorithm that can solve a discrete logarithm with time-complexity that scales polynomially (on a non-quantum computer). It remains an open question in theoretical computer-science whether such a polynomial-time algorithm exists, though all of  modern cryptography rests on this principle.
+Ascertaining this 'hidden' cyclic subgroup $H$ is known to be a difficult problem, and this difficulty of computing the original integer $n$ is infeasible since $\log_g$ does not map back to all the integers: just some additive group of the integers modulo some $m$. This is known as the \textit{discrete logarithm problem}.\autocite[97]{koblitz} As discussed before with division, there is no known algorithm that can solve a discrete logarithm with time-complexity that scales polynomially (on a non-quantum computer). It remains an open question in theoretical computer-science whether such a polynomial-time algorithm exists, though all of  modern cryptography rests on this principle.\autocite{lomont}
 
 
 \section{Group Law on an Elliptic Curve}
 \subsection{Definition of an Elliptic Curve}
-In a complete turn of events (that will hopefully make sense in the end), I want to explain the notion of \textit{Elliptic Curves}. Elliptic curves are a family of  algebraic\footnote{Specifically a dimension one algebraic variety since it admits a group structure.} curves defined as the solution set of a polynomial equation. Namely, an elliptic curve is the set of solutions $(x,y)$ to an equation of the form:\autocite[10]{koblitz} \footnote{The general form of an elliptic curve $y^3 + a_1xy + a_2y = x^3 + a_3x^2 + a_4x + a_5$ can always be transformed in a series of scalings and rotations to the reduced form preserving the group structure as long as the field is of characteristic not 2 or 3.}
+In a complete turn of events (that will hopefully make sense in the end), I want to explain the notion of \textit{Elliptic Curves}. Elliptic curves are a family of  algebraic\footnote{Specifically a dimension one algebraic variety since it admits a group structure.} curves defined as the solution set of a polynomial equation. Namely, an elliptic curve is the set of solutions $(x,y)$ to an equation of the form:\autocite[10]{koblitz} \footnote{The general form, $y^3 + a_1xy + a_2y = x^3 + a_3x^2 + a_4x + a_5$, can always be transformed to the reduced form preserving the group structure iff the field $K$ is not $\field_2$ or $\field_3$.}
 \[y^2 = x^3 + ax + b, \text{ for constants } a,b.\]
-Importantly, the behavior of this curve is dependent on the ground 'field' on which one defines it. We will look at the familiar case of the reals shortly, but this is an important distinction, hinting towards the possibility of a discrete context, or field, to come. Field, in mathematics, refers to a structure where any two elements have a well-defined notion of addition, subtraction, multiplication and division (except by a 0 element). The most important examples are the rationals $\rationals$, the reals $\reals$, and the complex numbers $\complexes$. Not the integers since, take, for example: $1, 2 \in \integers$, but $\frac{1}{2} \notin \integers$. We will begin with the case of an elliptic curve over the reals.
+Importantly, the behavior of this curve is dependent on the 'field' on which one defines it. Field, in mathematics, refers to a structure where any two elements have a well-defined notion of addition, subtraction, multiplication and division (except by a 0 element). Notable examples include the rationals $\rationals$, the reals $\reals$, and the complex numbers $\complexes$. Not the integers since, take, for example: $1, 2 \in \integers$, but $\frac{1}{2} \notin \integers$. We will look at the case of the reals shortly, but this is an important distinction, hinting towards the possibility of a discrete context to come.
 
-\subsection{Elliptic Curves over the Reals}
-
-\begin{figure}[h]
+\begin{figure}[ht]
 \begin{center}
-\includegraphics[width=\linewidth]{elliptic_curves.png} 
-\caption{A few selected elliptic curves plotted with matplotlib over the reals with $a$ from $-3$ to $0$ and $b$ from  $-1$ to $2$.}
+\includegraphics[width=.9\linewidth]{elliptic_curves.png} 
+\caption{A few selected elliptic curves plotted over the reals $\reals$ with matplotlib. In the form, $y^2 = x^3+ax+b$, with $a$ from $-3$ to $0$ and $b$ from  $-1$ to $2$.}
 \label{fig:realECs}
 \end{center}
 \end{figure}
 
-In \ref{fig:realECs}, we see the general shape of an elliptic curve, usually with a sort-of bulbous head on the left. This complicated shape arises from square rooting a general depressed cubic of the form $y=x^3+px+q$. Without the $x^2$ term, this cubic is guaranteed to have only one inflection point at $x=0$, since its second derivative $y'' = 6x$ does not depend on $p$ or $q$. Since square roots preserve the inflection points, we  can see the connected graphs in \ref{fig:realECs} all have inflections at zero.
-Furthermore, the process of square-rooting increases values from $0<y<1$ and decreases values when $y>1$ with a fixed point at $1$. Over $\reals$, square roots are limited to inputs greater than $0$, but since we take both branches $(\pm)$ of the root, we see reflection symmetry across the y-axis (this will be important in a moment). To illustrate the relationship: 
+\subsection{Elliptic Curves over the Reals}
+
+In Figure \ref{fig:realECs}, we see the general shape of an elliptic curve. This complicated shape arises from square rooting a general depressed cubic of the form $y=x^3+px+q$. Without the $x^2$ term, this cubic is guaranteed to have only one inflection point at $x=0$, since its second derivative $y'' = 6x$ does not depend on $p$ or $q$, and since square roots preserve the inflection points.
+Furthermore, the square-rooting increases values from $0<y<1$ and decreases values when $y>1$ with a fixed point at $1$. Over $\reals$, square roots are limited to inputs greater than $0$, but since we take both branches $(\pm)$ of the root, we see reflection symmetry across the y-axis (this will be important in a moment).\autocite{haese} See Figure \ref{fig:cubicsqrt}.
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=\linewidth]{cubic_function.png} 
+\includegraphics[width=.8\linewidth]{cubic_function.png} 
 \caption{A depiction of how one branch of an elliptic curve arises from square-rooting a depressed cubic.}
 \label{fig:cubicsqrt}
 \end{center}
 \end{figure}
 
-\subsection{Geometric secant-tangent construction}
+\subsection{Geometric Secant-Tangent Construction}
 
 It turns out, Elliptic curves are special because one can define a reasonable notion of addition with points on the curve. The one caveat is that we require a point 'at infinity' $I$ to do so. Formally, this means were working in the projective real plane $\mathbb{RP}^2$ or $\mathbb{R}^2 \cup \lbrace \infty \rbrace$. 
-But with this, we obtain the property that any secant drawn through two points on the curve must intersect another third point on the curve or this point at infinity $I$. Thus we will define the addition of two points $P$ and $Q$ to be this third point reflected across the y-axis.\footnote{Note, without reflecting across the y-axis, this operation would not be associative. It also makes sense with the notion that three colinear points sum to the point-at-infinity $A+B+C=I$ and hence, $A+B=-C$.}
+But with this, we obtain the property that any secant drawn through two points on the curve must intersect another third point on the curve or this point at infinity $I$. Thus we will define the addition of two points $P$ and $Q$ to be this third point reflected across the y-axis.\footnote{Note, without reflecting across the y-axis, this operation is not associative. It also makes sense since three colinear points sum to the point-at-infinity $A+B+C=I$ and hence, $A+B=-C$.}
 
 \begin{figure}[ht]
 \begin{center}
-\includegraphics[width=\linewidth]{grouplaw.png} 
+\includegraphics[width=.8\linewidth]{grouplaw.png} 
 \caption{Point addition of two points $P$ and $Q$, defined by reflecting the third point of intersection across the y-axis, on $y^2 = x^3 -x+1$.}
 \label{fig:additionEC}
 \end{center}
 \end{figure}
 
-\subsection{Addition of two points}
+\subsection{Addition of Two Points}
 
 We can make this idea rigorous by using some geometric tools. Our third point $-R$ is defined as the intersection of our elliptic curve $y^2 = x^3 + ax +b$ and some secant line $y=mx+l$. Given the points $P, Q = (x_p,y_p), (x_q,y_q)$ we can write down the slope:
 \[m = \frac{y_p - y_q}{x_p-x_q}\]
@@ -400,7 +403,7 @@ Because of this construction, $I$ acts as a left- and right-sided identity eleme
 \end{align*}
 
 
-\subsection{Adding a point to itself}
+\subsection{Adding a Point to Itself}
 The case that was left out of the earlier pictorial representation of point addition is when a point is added to itself. Not to fear, however, since we can replace the secant through two points with a tangent through one. The resultant point is the resultant intersection flipped across the y-axis. The slope of this tangent can be found through implicit differentiation.
 \begin{align*}
 \color{red}{d(}\color{black}{y^2}\color{red}{)} &= \color{red}{d(}\color{black}{x^3+ax+b}\color{red}{)}\\
@@ -427,7 +430,7 @@ y_r = -y_p-m(x_r-x_p)
 
 \section{Group structure of $E[K]$}
 
-\subsection{Verifying the group axioms}
+\subsection{Verifying the Group Axioms}
 
 By the higher powers of mathematical serendipity, this forms a group! A very special group at that. We can write this elliptic curve group as $E[\reals]$ for the case in the reals. Or, $E[K]$ for any field $K$ (again, a structure with $+, -, \times, \div$).
 
@@ -448,7 +451,7 @@ One might write $\field_q$ where $q = p^r$.} is a set of ordered pairs $(x,y)$ w
 
 As I alluded to earlier, the condition that $p$ be prime is so that every element $n < p$ has a multiplicative inverse, since, to have a multiplicative inverse, $\mathrm{gcd}(n,p)=1$. Really, finite fields are the elements of $\integers / p \integers$ with addition and multiplication in $(\integers / p \integers)^{+}$ and $(\integers / p \integers)^{\times}$. The field axioms readily follow from the group axioms of the multiplicative and additive groups.
 
-\subsection{Elliptic curves over finite fields, $K = \field_p$}
+\subsection{Elliptic Curves over Finite Fields, $K = \field_p$}
 
 Using the same equations from before, except with operations taken \textit{modulo} $p$, this elliptic curve still forms a group over a finite field, $E[\field_p]$. The elements of this group are the points, 
 \[ E[\field_p] = \left\lbrace (x,y)\ |\ y^2 \equiv x^3 + ax + b \bmod p \right\rbrace \cup \lbrace \infty \rbrace. \]
@@ -478,12 +481,12 @@ In an attempt to better understand the group structure, I coded an interactive w
 \begin{figure}[ht]
 \begin{center}
 \includegraphics[width=\linewidth]{cayleytable.png} 
-\caption{App on my personal website computing the Cayley table of $y^2 = x^3 + 3x + 12$ over $\field_{17}$. Clicking on an element computes the subgroup it generates, the focused point being $(5,10)$ here.}
+\caption{App on my \href{jacobbruner.com/elliptic-curve}{personal website} computing the Cayley table of $y^2 = x^3 + 3x + 12$ over $\field_{17}$. Clicking on an element computes the subgroup it generates, the focused point being $(5,10)$ here.}
 \label{fig:cayley}
 \end{center}
 \end{figure}
 
-Using the elements of this elliptic curve group, one can formulate a new form of Diffie-Hellman key exchange where, given a suitable generator point $g$, all the repeated multiplications can be performed on this elliptic curve group. The benefit of doing this is that the structure of an elliptic curve group $E[\field_p]$ is much more complicated than that of $(\integers / q \integers)^{\times}$. When working in $(\integers / q \integers)^{\times}$, there are number-theoretical properties making it easier to narrow down guesses, especially when computing a discrete logarithm problem as discussed earlier. Diem, C. (2011) showed that that the discrete logarithm problem for elliptic curves has an asymptotic time complexity greater than that of $(\integers / q \integers)^{\times}$.\autocite[76]{diem} The culmination of this research into elliptic curve cryptography is the fact that most public key protocols utilize elliptic curves in one way or another. 
+Using this elliptic curve group, a new form of Diffie-Hellman can be formulated. Given a suitable generator point $g \in E[\field_p]$, all the repeated multiplications can be performed on this elliptic curve group. The benefit of doing this is that the structure of an elliptic curve group $E[\field_p]$ is much more complicated than that of $(\integers / q \integers)^{\times}$. The process is similar to before: examining the \textit{subgroup structure} of $E[\field_p]$ reveals the difficulty of uncovering the 'hidden subgroup' defined by the discrete logarithm. Simply put, when working in $(\integers / q \integers)^{\times}$, there are number-theoretical properties making it easier to narrow down guesses, especially when computing a discrete logarithm. Diem, C. (2011) showed that that the discrete logarithm problem for elliptic curves has an asymptotic time complexity greater than that of $(\integers / q \integers)^{\times}$.\autocite[76]{diem} The culmination of this research into elliptic curve cryptography is the fact that most public key protocols utilize elliptic curves in one way or another. 
 
 \iffalse
 \begin{figure}[ht]
@@ -497,11 +500,11 @@ Using the elements of this elliptic curve group, one can formulate a new form of
 
 \section{Conclusion}
 
-In this paper, I sought to explore \textbf{to what extent does group theory provide a mathematical backdrop for modern public-key cryptography?} Resulting from my findings, it is clear that group theory does indeed provide a rich backdrop for discussing cryptographic concepts. Especially as computing power grows cheaper, the use of group-theoretical techniques to strengthen existing principles is paramount. For instance, the Diffie-Hellman protocol works on any abelian group. Further research is underway at examining other candidates for 'secure' groups, such as the study of hyperelliptic curves and other higher-genus abelian varieties (a variety forming an abelian group).
+In this paper, I sought to explore \textbf{to what extent does group theory provide a mathematical backdrop for modern public-key cryptography?} From my findings, it's clear that group theory \textit{does} indeed provide a rich backdrop for discussing cryptographic concepts. Especially since, as computing power grows cheaper, the use of group-theoretical techniques to strengthen existing principles is paramount. For instance, the Diffie-Hellman protocol works on any abelian group. Further research is underway at examining other candidates for 'secure' groups, such as the study of hyperelliptic curves and other higher-genus abelian varieties (a solution set to a polynomial forming an abelian group).
 
-In the process of researching, it's clear that there are two different mathematical perspectives introducing elliptic curves. The decision was made to continue with the simpler route, defining the elliptic curve as the solution to a polynomial equation. However, this is not strictly necessary, since elliptic curves arise in many other contexts, like through the intersection of two quadric surfaces (like a 3-sphere and a hyperboloid for instance). The other route is a more theoretical perspective, using tools from algebraic geometry and topology to reach the same conclusions as the simpler route. The benefit of approaching it this way, however, is that these tools can be generalized to other contexts to discover new group-theoretical perspectives on cryptography. Doing so also would decrease the 'arbitrary-ness' of some of the topics explored in this paper. Coming at a topic from the top-down can make certain difficult proofs and perspectives trivial, as I mention a couple times in the paper.
+In the process of researching, it's clear that there are two different mathematical perspectives introducing elliptic curves. The decision was made to continue with the simpler route, defining the elliptic curve as the solution to a polynomial equation. However, this is not strictly necessary, since elliptic curves arise in many other contexts, like through the intersection of two quadric surfaces (like a sphere and an hyperboloid for instance). The other route is a more theoretical perspective, using tools from algebraic geometry and topology to reach the same conclusions. The benefit of this advanced approach is that tools can be \textit{generalized} to reveal new perspectives. Doing so also would decrease the 'arbitrary-ness' of some of the topics explored in this paper. Coming at a topic from the top-down can make certain difficult proofs and perspectives trivial, as I mention a couple times in the paper.
 
-Another aspect of this paper worth mentioning is the impercise handling of comparison between elliptic curve cryptography and traditional cryptography. Going into it, I intended to explore the nitty-gritty details of the elliptic curve group structure, detailing exactly why the hidden-subgroup problem and discrete logarithm problem were more difficult. This proved to be much more challenging than I anticipated, and, although I satisfied some of my own curiosity in researching, I knew it would be an impractical undertaking to convey the wealth of prerequisites in this paper to reach the conclusions I wanted. As a result, my research question lacks some of the 'argument' I wanted it to have, rather opting for a more expository lens on this complicated subject. 
+Another limitation of this paper is the imprecise comparison between elliptic curve cryptography and traditional cryptography. Going into it, I intended to explore the nitty-gritty details of the elliptic curve group structure, detailing exactly why the hidden-subgroup problem and discrete logarithm problem were more difficult. This proved to be much more challenging than anticipated, and, although I satisfied some of my own curiosity, I realized it would be an impractical undertaking to convey the wealth of prerequisites to reach the conclusions I wanted. As a result, my research lacks the 'point' I wanted it to have, rather opting for a more expository lens on this complicated subject. Regardless, I find this subject fruitful to learn because of its approachability and its underappreciated influence on modern-day life.
 
 
 \newpage 

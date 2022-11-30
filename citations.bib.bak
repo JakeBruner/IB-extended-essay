@@ -197,12 +197,49 @@ publisher = {Institute of Electrical and Electronics Engineers},
 doi = {10.1109/ASAP.2003.1212863}
 }
 
-@book{silverman,
+@book{weinberg,
    title =     {Classical Solutions in Quantum Field Theory},
    author =    {Erick J. Weinberg},
    publisher = {Cambridge University Press},
    isbn =      {9781139017787},
    year =      {2012},
-   doi = {10.1080/01611194.2015.1028680}
-   
+   doi = {10.1017/CBO9781139017787},
+   pages = {81-107}
+}
+
+@article{diem,
+author = {Claus Diem},
+title = {On the discrete logarithm problem
+in elliptic curves},
+journal = {Foundation Compositio Mathematica},
+volume = {147},
+pages = {75-104},
+year  = {2010},
+doi = {https://doi.org/10.1112/S0010437X10005075}
+}
+
+@article{barker,
+	author = {Elaine Barker et al.},
+	doi = {10.6028/NIST.SP.800-56Br2},
+	journal = {National Institute of Standards and Technology},
+	number = {800-56B},
+	publisher = {US Department of Commerce},
+	title = {Recommendation for Pair-Wise Key Establishment Using Integer Factorization Cryptography},
+	url = {https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Br2.pdf},
+	year = {2018},
+	bdsk-url-1 = {https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.800-56Br2.pdf}
+}
+
+@misc{lomont,
+  doi = {10.48550/ARXIV.QUANT-PH/0411037},
+  
+  url = {https://arxiv.org/abs/quant-ph/0411037},
+  
+  author = {Lomont, Chris},
+  
+  title = {The Hidden Subgroup Problem - Review and Open Problems},
+  
+  publisher = {arXiv},
+  
+  year = {2004},
 }
