@@ -99,7 +99,7 @@
 	bdsk-url-1 = {http://www.jstor.org/stable/25759724}}
 
 @book{cormen,
-	author = {Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein},
+	author = {Thomas H. Cormen},
 	date-added = {2022-08-21 21:09:06 -0400},
 	date-modified = {2022-08-21 21:10:25 -0400},
 	edition = {2},
@@ -111,7 +111,7 @@
 	bdsk-url-1 = {libgen.li/file.php?md5=55e8f1dd651a992b062b0148d292f7ef}}
 
 @book{haese,
-	author = {Michael Haese, Mark Humphries, Chris Sangwin, Ngoc Vo},
+	author = {Michael Haese},
 	date-added = {2022-08-21 21:06:47 -0400},
 	date-modified = {2022-08-21 21:07:05 -0400},
 	isbn = {1925489590},

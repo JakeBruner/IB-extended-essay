@@ -111,12 +111,12 @@ heres an example of an image
 
 \section{Foreword}
 
-This paper is for research purposes only. Although the information presented is as close to accurate as possible, one should never implement a cryptographic system themselves unless they know \textit{\emph{exactly}} what they're doing. \textbf{I am not liable for any damages caused in testing any cryptographic concepts referenced in this paper.} Cryptography's greatest weakness is human-error, and virtually \textit{all} breaks in cryptographic security result from poor implementation.\autocite{thimbleby}
+This paper is for research purposes only. Although the information presented is as accurate as possible, one should never implement a cryptographic system themselves unless they know what they're doing. \textbf{I am not liable for damages caused in testing any cryptographic concepts referenced in this paper.} Cryptography's greatest weakness is human-error, and virtually \textit{all} breaks in cryptographic security result from poor implementation.\autocite{thimbleby}
 
 \section{Introduction and Aim}
 \subsection{Topic and Research Question}
 
-For my Extended Essay, I will be exploring the relationship between Group Theory, a mathematical field generalizing symmetry and codifying number systems, and modern cryptography. Cryptography has seen a number of advancements in the computer-age, most notable of which is the use of 'elliptic curves.' In this paper, I intend to show how a group-theoretical perspective on cryptography helps understand elliptic curve cryptosystems. My guiding question is: \textit{to what extent does group theory provide a mathematical backdrop for modern cryptography?}
+For my Extended Essay, I will be exploring the relationship between Group Theory, a mathematical field generalizing symmetry and codifying properties of number systems, and modern cryptography. Cryptography has seen a number of advancements in the computer-age, most notable of which is the use of 'elliptic curves.' In this paper, I intend to show how a group-theoretical perspective on cryptography helps understand elliptic curve cryptosystems. My guiding question is: \textit{to what extent does group theory provide a mathematical backdrop for modern cryptography?}
 
 \subsection{Motivating Idea}
 It's undeniable that our modern-day world is reliant on cryptography. Every time a phone sends a text, a browser connects to a server, an email gets sent off, or a monetary transaction is made, our devices are performing many hundreds of math operations to ensure our data are 'encrypted.' But what does 'encryption' mean?
@@ -135,7 +135,7 @@ The intuitive implementation has the two transacting parties agree upon the natu
 \end{align*} % I'm not sure what symbol to use here...Equivalance relation? Monomorphism?
 For example, if one wanted to encrypt the message $\mathcal{P} =$ "HELLO", the ciphertext would be $\mathcal{C} =$ "KHOOR" which they could send off to their friend to decode with the inverse, subtract-three-letters map. Note that, even in this simple example, repeated letters, word length, and other syntactic information provide a wealth of information about the nature of the plaintext, making it vulnerable to cryptanalysis techniques.\autocite[56]{koblitz} 
 
-Mathematically, a Caesar cipher starts with encoding each letter as a number from $0$, A, to $25$, Z, depending on the alphabet of choice. We represent this map, shifting $n$ places forward, with addition. Importantly, this operation must 'wrap around' back to zero when it exceeds 'z' in the alphabet. This process, known as \textit{'modular arithmetic'}, is like circling a clock, where after reaching 25 we wrap back to 0. So, in our case, shifting 'z' by 3 letters looks like so: $25 + 3 \bmod 26 \equiv 2$, which reads "25 plus 3 \textit{is congruent to} 2 \textit{modulo} 26." With this in mind, we obtain for each letter $p \in \mathcal{P}$:  
+Mathematically, a Caesar cipher starts with encoding each letter as a number from $0$–A, to $25$–Z, depending on the alphabet of choice. We represent this map, shifting $n$ places forward, with addition. Importantly, this operation must 'wrap around' back to zero when it exceeds 'z' in the alphabet. This process, formally known as \textit{'modular arithmetic'}, is like circling a clock, where after reaching 25 we wrap back to 0. So, in our case, shifting 'z' by 3 letters looks like so: $25 + 3 \equiv 2 \bmod 26$, which reads "25 plus 3 \textit{is congruent to} 2, \textit{modulo} 26." 'Congruent' here represents the fact that $2$ and $28$ are indistinguishable, or \textit{congruent}. Indeed this is the case for $2 \equiv 26n+2 \bmod 26$ With this in mind, we obtain for each letter $p \in \mathcal{P}$:  
 
 \[
 f(p) = p + n \bmod 26 
@@ -146,13 +146,12 @@ f(p) = p + n \bmod 26
 % I could maybe talk about affine cryptosystems here if I need more words.
 % I could also show the linear algebra point of view
 
-This isn't a very sophisticated cryptographic scheme... For instance, comparing the most commonly occurring letters in the ciphertext to those of the English alphabet (frequency analysis) could easily break these schemes, broadly referred as 'substitution ciphers.'\autocite[54]{koblitz} 
-Modern protocols are more resistant, changing one letter of plaintext yields a completely different ciphertext, making them impervious to this technique. 
+This isn't a very sophisticated cryptographic scheme... For instance, comparing the most commonly occurring letters in the ciphertext to those of the English alphabet (frequency analysis) could easily break these, broadly classified as 'substitution ciphers.'\autocite[54]{koblitz} 
+Modern protocols are more resistant; changing one letter of plaintext yields a completely different ciphertext, making them resistant to this technique.   
   
-  For instance, AES encryption, part of the modern web standard, is an example of a '\textit{block substitution cypher},' which are beyond the scope of this paper. 
-In general, Symmetric-key cryptography (\textit{viz.} predetermined, shared secret) is well understood. For instance, Claude Shannon proved that the so-called \textit{'one-time-pad'} encryption technique was mathematically unbreakable. 
-In full generality, he showed that if a random-generated key is at least as long as the plaintext (specifying a random\footnote{There is a paramount distinction between \textit{random} and \textit{pseudorandom}. \textit{True} randomness has to be derived from a non-computer source (for the most part). Commonly approximates include the least-significant-digit of a mouse position, the frequency of keypresses, etc.} character for each plaintext character in the same alphabet), then performing a caesar cypher shift on each \textit{individual} plaintext character by the value of the random character, yields a cryptosystem that is \textit{mathematically} impenetrable. 
-Or equivalently, performing a random modular addition on each character of the plaintext, with the shared secret being the sequence of random shifts.\autocite{claude} % I maybe should rephrase this in terms of performing a random Caesar cipher shift per character if this description is too confusing.
+ In general, Symmetric-key cryptography (\textit{viz.} predetermined, shared secret) is well understood. For instance, Claude Shannon proved that the \textit{'one-time-pad'} encryption technique was mathematically unbreakable. 
+In full generality, he showed that if a random-generated key is at least as long as the plaintext (specifying a random\footnote{There is a paramount distinction between \textit{random} and \textit{pseudorandom}. \textit{True} randomness has to be derived from a non-computer source (for the most part). Commonly approximates include the least-significant-digit of a mouse position, the frequency of keypresses, etc.\\\autocite[92]{koblitz}} character for each plaintext character in the same alphabet), then performing a caesar cypher shift on each \textit{individual} plaintext character by the value of the random character, yields a cryptosystem that is \textit{mathematically} impenetrable. 
+Or equivalently, performing a random modular addition on each character of the plaintext, with the shared secret being the sequence of random shifts.\autocite{claude} Essentially, it's just randomly scrambling the characters, but keeping track of the steps as the shared secret. % I maybe should rephrase this in terms of performing a random Caesar cipher shift per character if this description is too confusing.
 Although modern systems seek smaller key sizes for long messages, this worst-case scenario demonstrates the strength of symmetric-key algorithms in general. The 'one-time-pad' gets its name from WWII, when the KGB would distribute palm-sized pads with one-time-keys and a table to ease in conversion. Such pads were often made of flammable materials to be burned with no trace.\autocite{lewand} 
   
 \begin{figure}[h]
@@ -167,16 +166,16 @@ Although modern systems seek smaller key sizes for long messages, this worst-cas
 
 \subsection{The 'Public-Key' Paradox}
 
-In the modern world, it's impractical to require that every shared secret be determined ahead of time. If a user wants to connect to a twitter server over a secure connection, how could symmetric-key encryption be employed?—there's no way to share in secret beforehand.
+In the modern world, it's impractical to require that every shared secret be determined ahead of time. If a user wants to connect to a server over a secure connection, how could symmetric-key encryption be employed?—there's no way to share in secret beforehand.
 Beyond symmetric encryption, if two parties want to transact over an eavesdropped channel, is there any way they could do so in an encrypted matter? The intuitive answer might be no; how can a shared secret be 'shared' without any man-in-the-middle being able to obtain that same key. But this defys the ubiquity of encryption on the internet that we rely on daily. How could this be?
 
 %"In applied contexts, the terms "easy" and "hard" are usually interpreted relative to some specific computing entity; typically "cheap enough for the legitimate users" and "prohibitively expensive for any malicious agents"."
 
 \subsection{One-way Operations}
 
-Consider the intuitive fact that some operations are more difficult to do forwards than in reverse—certain 'one-way functions.' If I mixed two different-colored paints together and asked whether you, \textit{a priori}, could deduce the two initial colors given the end result, could you? Although it's quite easy to check whether any two colors combine to match the end result, there isn't an \textit{easy} operation that returns the initial colors. This happens to be true in mathematical contexts as well. 
+It's intuitive that some operations or computations are more difficult to do forwards than in reverse—certain 'one-way functions.' If I mixed two different-colored paints together and asked whether you, \textit{a priori}, could deduce the two initial colors given the end result, could you? Although it's quite easy to check whether any two colors combine to match the end result (by mixing them), there isn't an \textit{easy} way to separate the initial colors. This happens to be true in mathematical contexts. 
 
-The foremost 'one-way operation,' employed to this day, is that of multiplying large numbers with minimal divisors. This makes sense from a practical standpoint; breaking up a large number into factors usually requires computationally expensive trial divisions, to use a jargon, its \textit{asymptotic time-complexity is exponential}, meaning that the time required to reach an answer scales exponentially with the size of the number. Algorithms like the general-number-field-sieve quicken this slightly,\autocite[1482]{pomerance} but regardless it is vastly faster to compute multiplication, the time complexity of which scales \textit{at worst} with the square of the number.\autocite{bunimov}
+The canonical 'one-way operation,' employed to this day, is that of multiplying large numbers with minimal divisors. This should make sense; breaking up a large number into factors usually requires computationally expensive trial divisions, especially when its factors are large. To use a jargon, its \textit{asymptotic time-complexity is exponential}, meaning that the time to reach an answer scales exponentially with the size of the number. Algorithms like the general-number-field-sieve quicken this slightly,\autocite[1482]{pomerance} but regardless it is vastly faster to compute multiplication, the time complexity of which scales \textit{at worst} with the square of the number.\autocite{bunimov}
 
 \subsection{Diffie-Hellman Key Exchange}
 
@@ -196,10 +195,11 @@ By the commutativity of integer multiplication, multiplying $g$ by itself $b$ ti
 The one caveat to the above description, however, is that these multiplications are performed \textit{modulo} $n$ for some integer $n$. As discussed before, this means numbers wrap around 'like a clock'; if $g^a$ exceeds $n$, the remainder of $g^a \div n$ is returned. This should make sense, because computers have limited memory and because exponentiation by a (large) number yields an incomprehensibly large result—too large to send over a network or perform computation with. Additionally, computers can perform modular exponentiation \textit{very} performantly by leveraging tricks in binary.\autocite{bunimov}
 
 Our relation from before looks like:
-\[ (g^{\color{orange}{a}}\color{black}{\:\mathrm{mod}\; p)}^{\color{blue}{b}}\color{black}{\:\mathrm{mod}\; =\; }g^{\color{orange}{a}\color{blue}{b}} \:\mathrm{mod}\; p = (g^{\color{blue}{b}}\color{black}{\:\mathrm{mod}\; p)}^{\color{orange}{a}} \color{black}{\:\mathrm{mod}\; p.}  \]
-Importantly, though, Alice and Bob both agree on a common result $g^{ab}\;\mathrm{mod}\;p$.
+% I need to rewrite this with \bmod
+\[ (g^{\color{orange}{a}}\color{black}{\:\mathrm{mod}\; p)}^{\color{blue}{b}}\color{black}{\:\mathrm{mod}\; p\; =\; }g^{\color{orange}{a}\color{blue}{b}} \:\mathrm{mod}\; p = (g^{\color{blue}{b}}\color{black}{\:\mathrm{mod}\; p)}^{\color{orange}{a}} \color{black}{\:\mathrm{mod}\; p.}  \]
+Importantly, though, Alice and Bob both agree on a common result: $g^{ab}\;\mathrm{mod}\;p$, which an eavesdropper cannot compute without knowing $a$ and $b$, which are not shared.
 
-In the real world, this type of Diffie-Hellman transaction is used by countless devices every second to allow secure connections over the internet. Browsers have a predetermined set of generators from NIST which they use to establish a shared secret with a web-server which is then used to implement symmetric encryption to facilitate fast data transfer.\autocite{barker} Every time you are to connect to a \texttt{https://}... website the client (you) and the server are performing this type of key exchange. Although, modern implementations might use a different 'number system' to perform the repeated multiplications...
+In the real world, this type of Diffie-Hellman transaction is used by countless devices every second to allow secure connections over the internet. Browsers have a predetermined set of generators from NIST which they use to make negotiating the parameters easier.\autocite{barker} Every time you are to connect to a \texttt{https://}... website the client (you) and the server are performing this type of key exchange. Although, modern implementations might use a different 'number system' to perform the repeated multiplications....
 % wow i didn't know \bmod was a thing.... :P
 
 \subsection{A Proof that: $(a \bmod p)^k \bmod p = a^k \bmod p$}
@@ -220,7 +220,7 @@ I will show that $(a \bmod p)^k \bmod p = a^k \bmod p$ with induction.
 
 Now, multiplying $ \bmod p$ both sides by $(a \bmod p)$ and applying the given:
 \begin{align*}
-a^k \bmod p \times a \bmod p \mod p &= (a \bmod p)^k \bmod p \times a \bmod p \mod p\\
+\left(  a^k \bmod p \times a \bmod p \right) \bmod p &= \left(  (a \bmod p)^k \bmod p \times a \bmod p \right) \bmod p\\
 (a^k \times a) \bmod p  &= ((a \bmod p)^k (a \bmod p)) \bmod p\\
 a^{k+1} \bmod p  &= (a \bmod p)^{k+1} \bmod p \tag{P(k+1)}
 \end{align*}
@@ -230,11 +230,11 @@ Hence, since $P(1)$ holds and $P(k) \Rightarrow P(k+1)$, the proposition holds f
 
 
 \section{An Introduction to Group Theory}
-Transitioning from the methods described earlier, I will now explore how many of these concepts fit into a group-theoretical perspective and how these tools can illuminate a path to inventing stronger cryptosystems.
+I will now explore how many of these concepts fit into a group-theoretical perspective and how these tools can illuminate a path to inventing stronger cryptosystems.
 
 \subsection{The Group Axioms}
 
-  A group is a set $G$, equipped with a binary operation mapping two elements to another of the form $\ast:\ G \ast G \to G$ such that the following conditions hold:\autocite[16]{saracino} \linebreak
+  A group is a set $G$, equipped with an operation mapping two elements to another of the form $\ast:\ G \ast G \to G$ such that the following conditions hold:\autocite[16]{saracino} \linebreak
 \\\textbf{Associativity}
 \\$\text{For all } a,b,c \in G,\ a\ast(b \ast c) = (a\ast b) \ast c$
 \\\textbf{Identity}
@@ -243,25 +243,25 @@ Transitioning from the methods described earlier, I will now explore how many of
 \\$\text{Each } x \in G \text{ has an inverse } x\inv \in G \text{ with } x \ast x\inv = x\inv \ast x = e \hspace*{.5cm}\footnote{Note that uniqueness of inverses is not given in the axioms for a group, since it follows from the Identity and Associativity requirement and the existence of a (not strictly unique) inverse. If $b, c$ are left and right inverses respectively of an element $a$ with identity $1$, then considering $c = 1 \ast c = (b \ast a) \ast c = b \ast (a \ast c) = b \ast 1 = b$, gives us $b = c$ as required.}$
 \linebreak
 
-Under this axiomatic definition of a group, a few canonical examples might come to mind.
+Under this axiomatic definition of a group, a few examples might come to mind.
  
- For instance, the integers form a group under addition $(\mathbb{Z}, +)$. It's worth verifying for yourself that these do fit the definition of a group. Our identity element is 0, since $0 + a = a + 0 = a$ for all $a \in \mathbb{Z}$. Addition of integers is clearly associative. And, every number has a unique inverse, $a\inv := -a$. 
+ For instance, the integers form a group under addition $(\mathbb{Z}, +)$. It's worth verifying that these do fit the definition of a group. Our identity element is 0, since $0 + a = a + 0 = a$ for all $a \in \mathbb{Z}$. Addition of integers is clearly associative. And, every number has a unique inverse, $a\inv := -a$. 
  
- Similarly, the real numbers (excluding 0) might form a group under multiplication, write $(\reals\setminus\lbrace 0 \rbrace, \times)$, $\reals^{\times}\setminus\lbrace 0 \rbrace$, or just $\reals^{\times}$. 
-We verify it has a two-sided identity, $1$; that its operation is associative; and that every element has an inverse $a\inv := \frac{1}{a}$, since $a\times \frac{1}{a} = \frac{1}{a} \times a = 1, \ \forall  a \in  (\reals\setminus\lbrace 0 \rbrace, \times)$. 
+ Similarly, the real numbers (excluding 0) might form a group under multiplication, written $(\reals\setminus\lbrace 0 \rbrace, \times)$, $\reals^{\times}\setminus\lbrace 0 \rbrace$, or just $\reals^{\times}$. 
+We verify it has a two-sided identity, $1$; that its operation is associative; and that every element has an inverse $a\inv := \frac{1}{a}$, since $a\times \frac{1}{a} = \frac{1}{a} \times a = 1, \ \forall  a \in  \reals^{\times}$. 
  
- To help intuition,consider that the integers $(\mathbb{Z},\times)$  \textit{do not} form a group under multiplication, since inverses are not suitably defined, i.e., there is no integer $a$ such that $a\times 2 = 2 \times a = 1$.
+ To help intuition, consider that the integers under multiplication\textit{do not} form a group under multiplication, since inverses are not suitably defined, i.e., there is no integer $a$ such that $a\times 2 = 2 \times a = 1$.
 
 \subsection{The Case for Commutativity and Abelian Groups}
-One key property that left out of the group axioms is \textit{commutativity}. At first glance, this might seem like an obvious condition since many of the introductory examples do obey commutativity. In fact, non-commutative groups abound, and the \textit{vast} majority of groups are not commutative.\autocite{aschbacher} This distinction happens to be so important that commutative groups have a special name: \textit{abelian groups}.\autocite[17]{dummit} Likewise, groups that violate this condition are sometimes called \textit{non-abelian groups}. In general, non-abelian groups correspond to symmetries that change the backdrop for another symmetry to occur. For instance, the group of symmetries on a square, $\mathrm{D}_{8}$, is non-abelian. If you labeled the vertices of a square, you'd find performing a rotation and than a reflection is not, in general, the same as performing a reflection then a rotation\footnote{Working with the presentation of $\mathrm{D}_8$, $\langle a,x\ \vert \ a^4 = x^2 = e,\ xax\inv = a\inv \rangle$, one would say that $x$ and $a$ don't commute—corresponding to the reflection and rotation generators respectively.}. Despite this, many of the examples we have and will look at happen to be abelian. For instance, the additive and multiplicative (sans $0$) groups of $\integers, \rationals, \reals$ and $\complexes$, are  'abelian.' To highlight the importance of commutativity, consider that many properties of electric charge, as described by the Standard Model of particle physics, follow directly from the commutativity of the circle group $U(1)$ or $\mathbb{T}$.\autocite{weinberg} But this is far beyond the scope of basic group theory.
+One key property that left out of the group axioms is \textit{commutativity}, despite that many of the introductory examples \textit{do} obey commutativity. In fact, non-commutative groups abound, and the majority of groups are not commutative.\autocite{aschbacher} This distinction happens to be so important that groups obeying commutativity—$a \ast b = b \ast a$ for all $a,b \in G$—have a special name: \textit{abelian groups}.\autocite[17]{dummit} Likewise, groups without this condition are sometimes called \textit{non-abelian groups}. Non-abelian groups correspond to symmetries that change the backdrop for another symmetry to occur. For instance, the set of symmetries on a square, which forms a "dihedral" group, $\mathrm{D}_{8}$, is non-abelian. If you labeled the vertices of a square, you'd find performing a rotation and than a reflection is not, in general, the same as performing a reflection then a rotation\footnote{Working with the presentation of $\mathrm{D}_8$, $\langle a,x\ \vert \ a^4 = x^2 = e,\ xax\inv = a\inv \rangle$, one would say that $x$ and $a$ don't commute—corresponding to the reflection and rotation generators respectively.}. Despite this, many of the examples we have and will look at happen to be abelian. For instance, the additive and multiplicative (excl. $0$) groups of $\integers, \rationals, \reals$ and $\complexes$, are  'abelian.' To highlight the importance of commutativity, consider that many properties of electric charge, like quantization, as described by the Standard Model, is described by the commutativity of the circle group $U(1)$ or $\mathbb{T}$, which is the \textit{'gauge'} group of a charged particle—only taking on integer multiples of $2\pi$. \autocite{weinberg} But this is far beyond the scope of the research question.
 
 \subsection{Applying Group Theory to Cryptography: Cyclic Groups}
 
-  The groups that are of importance to (current) cryptography are abelian groups. Consider the Diffie-Hellman example before. Both parties combined a series of steps involving their generator and private keys. If the underlying multiplicative group were not abelian, $(g^a)^b$ doesn't necessarily equal $(g^b)^a$. This provokes the question, were the 'numbers' in these cases abelian groups?
+  The groups that are of most importance to cryptography are abelian groups. Consider the Diffie-Hellman example before. Both parties combined a series of steps involving their generator and private keys. If the underlying multiplicative group were not abelian, $(g^a)^b$ doesn't necessarily equal $(g^b)^a$. This provokes the question, were the 'numbers' in these cases abelian groups?
  
- Yes. The group of integers under addition \textit{modulo} $n$ (as in the Caesar cipher) is denoted $(\integers / n \integers, +)$, $(\integers / n \integers)^{+}$ or just $\integers / n \integers$  and is called the 'cyclic group of order $n$.' In an earlier example, we performed operations in $(\integers / 26 \integers, +)$. The notation here is meaningful. Without straying too afar, the slash corresponds to 'quotienting' out the integers by $p$ times the integers, creating a (quotient-) group where $1$ is indistinguishable from $p+1$ and indeed $2p+1, 3p+1, -p+1, -2p+1...$, called an \textit{equivalence relation}.\autocite[104]{saracino} This formalizes the imprecise notions of 'going around a clock face.'
+ Yes. The group of integers under addition \textit{modulo} $n$ (as in the Caesar cipher) is denoted $(\integers / n \integers, +)$, $(\integers / n \integers)^{+}$ or just $\integers / n \integers$  and is called the 'cyclic group of order $n$.' In an earlier example, we performed operations in $\integers / 26$. The notation here is meaningful. Without straying too afar, the slash corresponds to 'quotienting' out the integers by $p$ times the integers, creating a (quotient-) group where $1$ is indistinguishable from $p+1$ and indeed $2p+1, 3p+1, ..., -p+1, -2p+1...$, called an \textit{equivalence relation}.\autocite[104]{saracino} This formalizes the imprecise notions of 'going around a clock face.'
   
-  Contrastingly, performing multiplication in a modular fashion forms the group $(\integers / n \integers, \times)$ or $(\integers / n \integers)^{\times}$. This group behaves a little differently and consists of the elements $\lbrace 0, 1 ...,n-1\rbrace$ that are relatively prime to $n$, i.e., share no nontrivial divisors. In this multiplicative group, it takes more care to define inverses. Inverses can be computed using the Euclidean Algorithm or by leveraging the symmetries in modular multiplication.\autocite[36]{saracino} Essentially, in $(\integers / q \integers)^{\times}$, the multiplicative inverse of a number $n$ is a number $m$ such that,
+  Contrastingly, performing multiplication in a modular fashion forms the group $(\integers / n \integers, \times)$ or $(\integers / n \integers)^{\times}$. It is the case that the Diffie-Hellman example earlier is working with this group, performing all the exponentiation/multiplications \textit{modulo} $n$. This group consists of the elements $\lbrace 0, 1 ...,n-1\rbrace$ that are relatively prime to $n$, i.e., share no nontrivial ($\neq 1$) divisors, which I will prove. In this multiplicative group, it takes more care to define inverses. Inverses can be computed using the Euclidean Algorithm or by leveraging the symmetries in modular multiplication.\autocite[36]{saracino} Essentially, in $(\integers / q \integers)^{\times}$, the multiplicative inverse of a number $n$ is a number $m$ such that,
 \[ nm \equiv 1 \mod q\]
 
 The counterpart in a more familar context, say $\reals^{\times}$, is that the inverse of a number $a$ is a number $\frac{1}{a}$, where $a \times \frac{1}{a} = 1$.
@@ -272,9 +272,9 @@ Now, I will prove that the elements of $(\integers / q \integers)^{\times}$ are 
 \begin{align*}
 	nm &\equiv 1 \mod q\\
 	nm - 1 &\equiv 0 \mod q\\
-	\Rightarrow &\hspace*{0.3cm} p | nm-1\\
-	\Rightarrow &\hspace*{0.3cm} d | nm-1\\
-	\Rightarrow &\hspace*{0.3cm} d | nm-1 -nm\; (\text{since } d|nm)\\
+	\Rightarrow &\hspace*{0.3cm} q | nm-1\\
+	\Rightarrow &\hspace*{0.3cm} d | nm-1 \tag{since $\mathrm{gcd}(n,q) = d$}\\
+	\Rightarrow &\hspace*{0.3cm} d | nm-1 -nm \tag{since $d|nm$}\\
 	\Rightarrow &\hspace*{0.3cm} d | 1
 \end{align*}
 As $1$ is not divisible by anything except $1$, our assumption was false and $n$ has no inverse and is not $\in (\integers / q \integers)^{\times}$.\autocite[19]{koblitz} 
@@ -285,19 +285,24 @@ Notice that for prime $p$, every number $< p$ is relatively prime to $p$, so the
 
 \subsection{Discrete Logarithm Problem}
 
-In this section, I want to explore the formal statement of 'why' certain operations are difficult to reverse, although this section gets quite abstract coming from a basic introduction of group theory. 
+In this section, I want to explore the formal statement of 'why' certain operations are difficult to reverse, although this formal treatment gets quite abstract. 
 
-In a Diffie-Hellman key exchange over $(\integers / q \integers)^{\times}$, Alice and Bob were using the map $f$,
-\[ f(n) = g^n \bmod q \]
+In a Diffie-Hellman key exchange over $(\integers / q \integers)^{\times}$, Alice and Bob were mapping their secret keys $n$ through $f_g$,
+\[ f_g(n) = g^n \bmod q \]
 or, written in terms of their respective groups,
-\[ f: \integers \rightarrow (\integers / q \integers)^{\times} \]
-This $f$ is a function between groups (a \textit{group homomorphism}) from $\integers$ \textit{onto} a \textit{\textbf{subset}} of $(\integers / q \integers)^{\times}$ surjectively, namely the subset generated by $g^n$ which I will denote $H$. The inverse mapping here (the 'computationally difficult' part), isn't defined for the entirety of $\mathrm{dom}\: f$, since $f$ takes an infinite group $\integers$ to a subset $H$ of the finite group $(\integers / q \integers)^{\times}$. 
+\[ f_g: \integers \rightarrow (\integers / q \integers)^{\times}, \]
+As in, \textit{$f_g$ maps the integers to the integers $\bmod q$.}
 
-Roughly outlining the proof of the one-way operation's "difficulty," it can be shown that any finite abelian group must consist of cyclic groups as building blocks, cyclic groups (the integers under addition modulo some $n$). \footnote{By the (aptly named) Fundamental Theorem of Finitely Generated Abelian Groups. \\\autocite[134]{saracino}} Hence, our subset $H$ (which one can prove forms a group as well, a 'subgroup')\autocite[43]{koblitz} must be one of these cyclic groups. We can then write this sort-of inverse map $f\inv$ as,
+This $f$ is a function between groups (a \textit{group homomorphism}) from $\integers$ \textit{onto} a \textit{\textbf{subset}} of $(\integers / q \integers)^{\times}$ surjectively, namely the subset generated by $g^n$ which I will denote $H$. The inverse mapping here (the 'computationally difficult' part), isn't defined for the entirety of the domain of $f$, since $f$ takes an infinite group $\integers$ to a subgroup $H$ of the finite group $(\integers / q \integers)^{\times}$, the subgroup generated by $g$ multiplied with itself.  
 
-\[ \log_g : H \rightarrow (\integers / m \integers, +) \]
+Roughly outlining the proof of the one-way operation's "difficulty," it can be shown that any finite abelian group must is made up of cyclic subgroups (cyclic groups being the integers under \textit{addition} mod $n$ for some $n \in \integers$), much like the elements of the periodic table forming chemical compounds.\footnote{By the (aptly named) Fundamental Theorem of Finitely Generated Abelian Groups. \\\autocite[134]{saracino}}
+Hence, our subgroup $H$ \textit{must} be one of these cyclic subgroups.\autocite[43]{koblitz} We can then write this sort-of inverse map $f\inv$ as,
 
-Ascertaining this 'hidden' cyclic subgroup $H$ is known to be a difficult problem, and this difficulty of computing the original integer $n$ is infeasible since $\log_g$ does not map back to all the integers: just some additive group of the integers modulo some $m$. This is known as the \textit{discrete logarithm problem}.\autocite[97]{koblitz} As discussed before with division, there is no known algorithm that can solve a discrete logarithm with time-complexity that scales polynomially (on a non-quantum computer). It remains an open question in theoretical computer-science whether such a polynomial-time algorithm exists, though all of  modern cryptography rests on this principle.\autocite{lomont}
+\[ \log_g : (\integers / q \integers)^{\times} \rightarrow H \]
+or,
+\[ \log_g : (\integers / q \integers)^{\times} \rightarrow (\integers / m \integers)^{+}. \]
+
+Ascertaining this 'hidden' cyclic subgroup $H$ is known to be a difficult problem, and this difficulty of computing the original secret $n$ is immense since $\log_g$ does not map back to all the integers: just some additive group of the integers modulo some unknown $m$. This is known as the \textit{discrete logarithm problem}, a special case of the \textit{hidden subgroup problem}.\autocite[97]{koblitz} As discussed before with division, there is no known algorithm that can solve a discrete logarithm with time-complexity that scales polynomially (on a non-quantum computer). It remains an open question in theoretical computer-science whether such a polynomial-time algorithm exists, though most of modern cryptography rests on this principle.\autocite{lomont}
 
 
 \section{Group Law on an Elliptic Curve}
